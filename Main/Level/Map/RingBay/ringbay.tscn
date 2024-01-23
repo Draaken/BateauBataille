@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bk7osp3xtv1kf"]
+[gd_scene load_steps=25 format=3 uid="uid://bk7osp3xtv1kf"]
 
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Shore.gd" id="1_fb5o8"]
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Tree.gd" id="2_0xdxv"]
@@ -6,11 +6,68 @@
 [ext_resource type="PackedScene" uid="uid://bhk78oqdcbjn8" path="res://Main/Level/Map/Assets/StartingPos/starting_positions.tscn" id="4_kxnld"]
 [ext_resource type="PackedScene" uid="uid://cpslmth6hcujn" path="res://Main/Level/Map/Assets/Wind/WindZone.tscn" id="5_44qmx"]
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Coins/CoinSpawnManager.gd" id="6_5elvk"]
+[ext_resource type="Texture2D" uid="uid://lirei2vkx4r0" path="res://Main/Level/Map/Assets/Wind/Frames/frame0000.png" id="6_smt8g"]
+[ext_resource type="Texture2D" uid="uid://dvbu0uogtlnkc" path="res://Main/Level/Map/Assets/Wind/Frames/frame0001.png" id="7_0hh0l"]
 [ext_resource type="PackedScene" uid="uid://c6qapaqfy407l" path="res://Main/Level/Map/Assets/Coins/CoinSpawn.tscn" id="7_i7wqx"]
+[ext_resource type="Texture2D" uid="uid://82usxniqimx2" path="res://Main/Level/Map/Assets/Wind/Frames/frame0002.png" id="8_rk510"]
 [ext_resource type="PackedScene" uid="uid://cy36hyqgb255i" path="res://Main/Level/Map/Assets/MapBorder/map_borders.tscn" id="8_y4mrb"]
 [ext_resource type="PackedScene" path="res://Main/Level/Map/Assets/Shortcut.tscn" id="9_mlw6i"]
+[ext_resource type="Texture2D" uid="uid://bddh5p4j5meah" path="res://Main/Level/Map/Assets/Wind/Frames/frame0003.png" id="9_v51v4"]
 [ext_resource type="Texture2D" uid="uid://dtgyxjlm5alcj" path="res://Main/Level/UI/Arrow/frame0000.png" id="10_7xwdt"]
+[ext_resource type="Texture2D" uid="uid://dgyuwm7b5nj3a" path="res://Main/Level/Map/Assets/Wind/Frames/frame0004.png" id="10_salbx"]
+[ext_resource type="Texture2D" uid="uid://c8j4qr4eghxlq" path="res://Main/Level/Map/Assets/Wind/Frames/frame0005.png" id="11_8irkr"]
 [ext_resource type="Texture2D" uid="uid://dbw0yba7iqmp3" path="res://Main/Level/UI/Arrow/frame0001.png" id="11_rm8lm"]
+[ext_resource type="Texture2D" uid="uid://ddfh0pihinkpv" path="res://Main/Level/Map/Assets/Wind/Frames/frame0006.png" id="12_pw7tr"]
+[ext_resource type="Texture2D" uid="uid://fkwwue2t1t8n" path="res://Main/Level/Map/Assets/Wind/Frames/frame0007.png" id="13_ldlju"]
+[ext_resource type="Texture2D" uid="uid://c017rih0udkfk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0008.png" id="14_4fsq4"]
+[ext_resource type="Texture2D" uid="uid://d344gma6qtttk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0009.png" id="15_s6mob"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lci65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_smt8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0hh0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rk510")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v51v4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_salbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8irkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pw7tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ldlju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4fsq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_s6mob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_s6mob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_s6mob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_s6mob")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q25db"]
 size = Vector2(12.5, 218.314)
@@ -267,7 +324,53 @@ polygon = PackedVector2Array(-50, 119, -194, 63, -265, -41, -246.184, -110.574, 
 polygon = PackedVector2Array(-50, 119, -194, 63, -265, -41, -246.184, -110.574, -147, -147, -35, -112, 71, -93, 199, -103, 304.709, -146.862, 412.154, -141.646, 464.311, -90.5313, 450, 31, 384, 100, 154, 129)
 
 [node name="1" parent="Wind/WindZone/Arrows" index="0"]
-rotation = -1.28459
+position = Vector2(233, -88)
+frame_progress = 0.498075
+
+[node name="2" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="1"]
+position = Vector2(-247, -88)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="3" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="2"]
+position = Vector2(-273, 8)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="4" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="3"]
+position = Vector2(251, -13)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="5" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="4"]
+position = Vector2(182, 84)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="6" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="5"]
+position = Vector2(37, 99)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="7" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="6"]
+position = Vector2(96, 16)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="8" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="7"]
+position = Vector2(0, -50)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="9" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="8"]
+position = Vector2(-87, 25)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="10" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="9"]
+position = Vector2(-208, 90)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="WindZone2" parent="Wind" instance=ExtResource("5_44qmx")]
 position = Vector2(449, -461)
@@ -282,7 +385,38 @@ polygon = PackedVector2Array(-50, 119, -194, 63, -248.798, 19.1725, -258.464, -4
 polygon = PackedVector2Array(-50, 119, -194, 63, -265, -41, -246.184, -110.574, -147, -147, -35, -112, 71, -93, 199, -103, 304.709, -146.862, 412.154, -141.646, 464.311, -90.5313, 450, 31, 384, 100, 154, 129)
 
 [node name="1" parent="Wind/WindZone2/Arrows" index="0"]
-rotation = 3.46001
+position = Vector2(-106, -35)
+frame_progress = 0.498075
+
+[node name="2" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="1"]
+position = Vector2(171, -106)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="3" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="2"]
+position = Vector2(26, 36)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="4" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="3"]
+position = Vector2(148, 67)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="5" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="4"]
+position = Vector2(-69, 103)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="6" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="5"]
+position = Vector2(170, -13)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
+
+[node name="7" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="6"]
+position = Vector2(-140, 65)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="Pickables" type="Node2D" parent="."]
 

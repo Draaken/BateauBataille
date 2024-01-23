@@ -1,8 +1,64 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpslmth6hcujn"]
+[gd_scene load_steps=19 format=3 uid="uid://cpslmth6hcujn"]
 
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Wind/WindZone.gd" id="1_iuve3"]
-[ext_resource type="Texture2D" uid="uid://dtgyxjlm5alcj" path="res://Main/Level/UI/Arrow/frame0000.png" id="2_sag4d"]
 [ext_resource type="Texture2D" uid="uid://dbw0yba7iqmp3" path="res://Main/Level/UI/Arrow/frame0001.png" id="3_tb6fj"]
+[ext_resource type="Texture2D" uid="uid://lirei2vkx4r0" path="res://Main/Level/Map/Assets/Wind/Frames/frame0000.png" id="3_wixdo"]
+[ext_resource type="Texture2D" uid="uid://dvbu0uogtlnkc" path="res://Main/Level/Map/Assets/Wind/Frames/frame0001.png" id="4_1077u"]
+[ext_resource type="Texture2D" uid="uid://82usxniqimx2" path="res://Main/Level/Map/Assets/Wind/Frames/frame0002.png" id="5_lt8od"]
+[ext_resource type="Texture2D" uid="uid://bddh5p4j5meah" path="res://Main/Level/Map/Assets/Wind/Frames/frame0003.png" id="6_tgikd"]
+[ext_resource type="Texture2D" uid="uid://dgyuwm7b5nj3a" path="res://Main/Level/Map/Assets/Wind/Frames/frame0004.png" id="7_olle7"]
+[ext_resource type="Texture2D" uid="uid://c8j4qr4eghxlq" path="res://Main/Level/Map/Assets/Wind/Frames/frame0005.png" id="8_hetww"]
+[ext_resource type="Texture2D" uid="uid://ddfh0pihinkpv" path="res://Main/Level/Map/Assets/Wind/Frames/frame0006.png" id="9_3qfig"]
+[ext_resource type="Texture2D" uid="uid://fkwwue2t1t8n" path="res://Main/Level/Map/Assets/Wind/Frames/frame0007.png" id="10_ood5a"]
+[ext_resource type="Texture2D" uid="uid://c017rih0udkfk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0008.png" id="11_47cw4"]
+[ext_resource type="Texture2D" uid="uid://d344gma6qtttk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0009.png" id="12_40d2e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipnrl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wixdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1077u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lt8od")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tgikd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_olle7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hetww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3qfig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ood5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_47cw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_40d2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_40d2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_40d2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_40d2e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_46aqw"]
 offsets = PackedFloat32Array(0, 0.832215, 1)
@@ -19,15 +75,13 @@ point_count = 4
 curve = SubResource("Curve_my1ai")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lo4xg"]
+particle_flag_disable_z = true
 emission_shape = 2
 emission_sphere_radius = 128.0
-particle_flag_disable_z = true
+angle_min = -105.769
+angle_max = -105.769
 direction = Vector3(0, 0, 0)
 gravity = Vector3(0, 0, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-angle_min = 199.045
-angle_max = 199.045
 scale_curve = SubResource("CurveTexture_1xhaw")
 color_ramp = SubResource("GradientTexture1D_1ssq1")
 
@@ -43,14 +97,15 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="HitBox"]
 
 [node name="Polygon2D" type="Polygon2D" parent="HitBox/CollisionShape2D"]
+visible = false
 color = Color(0.25098, 0.533333, 0.839216, 0.694118)
 metadata/_edit_lock_ = true
 
 [node name="Arrows" type="Node2D" parent="."]
 
-[node name="1" type="Sprite2D" parent="Arrows"]
-rotation = 3.474
-texture = ExtResource("2_sag4d")
+[node name="1" type="AnimatedSprite2D" parent="Arrows"]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_ipnrl")
 
 [node name="Particles" type="GPUParticles2D" parent="."]
 visible = false

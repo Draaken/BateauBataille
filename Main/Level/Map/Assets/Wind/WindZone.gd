@@ -34,7 +34,12 @@ func _ready():
 	
 	
 	for i in range($Arrows.get_child_count()):
-		get_node("Arrows/" + str(i+1)).rotation = direction + deg_to_rad(-90)
+		var node = get_node("Arrows/" + str(i+1))
+		node.rotation = direction + deg_to_rad(+90)
+		node.play()
+		
+		var random_frame = randi_range(0,node.sprite_frames.get_frame_count("default"))
+		node.frame = random_frame
 		
 	$Particles.process_material.angle_max = rad_to_deg(direction) -90
 	$Particles.process_material.angle_min = rad_to_deg(direction) -90
