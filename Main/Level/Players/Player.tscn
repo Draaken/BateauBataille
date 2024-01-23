@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://ub3r0lb8fkk6"]
+
+[ext_resource type="Script" path="res://Main/Level/Players/Player.gd" id="1_wgyp3"]
+[ext_resource type="PackedScene" uid="uid://bp13urvumq37v" path="res://Main/Level/Boat/Scenes/Boat2.tscn" id="2_fwf36"]
+[ext_resource type="PackedScene" uid="uid://hym2f7ld88tp" path="res://Main/Level/UI/Arrow/Arrow.tscn" id="3_v1jru"]
+[ext_resource type="PackedScene" uid="uid://c2mchauxmgi6y" path="res://Main/Level/UI/boat_hud.tscn" id="4_uu7ev"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_wgyp3")
+
+[node name="Boat" parent="." instance=ExtResource("2_fwf36")]
+
+[node name="Arrow" parent="." instance=ExtResource("3_v1jru")]
+z_index = 2
+position = Vector2(56, 40)
+
+[node name="BoatHUD" parent="." instance=ExtResource("4_uu7ev")]
+z_as_relative = false

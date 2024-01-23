@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwcqvwbq7xhxk"]
+
+[ext_resource type="Script" path="res://Main/MasterScene.gd" id="1_g7w8h"]
+
+[node name="MasterScene" type="CanvasLayer"]
+script = ExtResource("1_g7w8h")
+
+[node name="Loading" type="Node2D" parent="."]
+visible = false
+z_index = 1000
+z_as_relative = false
+
+[node name="ColorRect" type="ColorRect" parent="Loading"]
+offset_right = 1928.0
+offset_bottom = 1095.0
+color = Color(0.2, 0.752941, 0.788235, 1)
+
+[node name="Label" type="Label" parent="Loading/ColorRect"]
+layout_mode = 0
+offset_left = 581.0
+offset_top = 685.0
+offset_right = 1346.0
+offset_bottom = 825.0
+theme_override_font_sizes/font_size = 100
+text = "CHARGEMENT :)"
+visible_characters = 0
+visible_ratio = 0.0

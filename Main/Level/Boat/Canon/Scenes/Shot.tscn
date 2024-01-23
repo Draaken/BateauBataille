@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dadlpte30vi36"]
+
+[ext_resource type="SpriteFrames" uid="uid://crqjcbatcjyts" path="res://Main/Level/Boat/Canon/Ressources/Shot/ShotAnim.tres" id="1"]
+
+[node name="Shot" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxu5ekfx36ask"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/Mines/MineObject.gd" id="1_1uhcg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82opx"]
+size = Vector2(26.1875, 34.2188)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1tq1a"]
+radius = 71.007
+
+[node name="MineObject" type="CharacterBody2D"]
+z_index = 1
+z_as_relative = false
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("1_1uhcg")
+is_destructible = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.90625, 0.890625)
+scale = Vector2(1.25559, 1.25559)
+shape = SubResource("RectangleShape2D_82opx")
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D"]
+position = Vector2(-2.81426, -5.81789)
+scale = Vector2(0.417534, 0.364537)
+color = Color(0.509804, 0.32549, 0.290196, 1)
+polygon = PackedVector2Array(-22, -29, 36.6829, -28.9602, 36.6829, 59.851, -21.2375, 59.851)
+
+[node name="Explosion" type="Area2D" parent="."]
+z_index = 4
+scale = Vector2(1.98253, 1.98253)
+collision_layer = 6
+collision_mask = 6
+
+[node name="Radius" type="CollisionShape2D" parent="Explosion"]
+shape = SubResource("CircleShape2D_1tq1a")
+
+[node name="Polygon2D" type="Polygon2D" parent="Explosion"]
+position = Vector2(3, -1)
+scale = Vector2(1.13669, 1.13669)
+polygon = PackedVector2Array(-22, -6, -59, -36, -11, -15, -10, -75, 10, -15, 52, -50, 18, -5, 68, 16, 16, 10, 21, 64, -5, 17, -54, 62, -26, 17, -92, -1)

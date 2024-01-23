@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c6bv5igtr2bui"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/UpgradeTables/upgrade_table1.gd" id="1_kdgpq"]
+
+[resource]
+script = ExtResource("1_kdgpq")

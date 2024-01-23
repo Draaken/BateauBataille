@@ -1,0 +1,225 @@
+[gd_scene load_steps=25 format=3 uid="uid://bp13urvumq37v"]
+
+[ext_resource type="Script" path="res://Main/Level/Boat/Scripts/Boat2.gd" id="1_1noln"]
+[ext_resource type="PackedScene" uid="uid://cm3e6s3hq1woe" path="res://Main/Upgrades/RearCanon/CanonSpecial.tscn" id="2_2tlot"]
+[ext_resource type="Script" path="res://Main/Level/Boat/Canon/Scripts/CanonBoard.gd" id="2_edmt2"]
+[ext_resource type="PackedScene" uid="uid://btrtiso3klvw" path="res://Main/Level/Boat/Canon/Scenes/CanonV2.tscn" id="3_j50hi"]
+[ext_resource type="Texture2D" uid="uid://d22x58uq26q2q" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0008.png" id="4_bos0p"]
+[ext_resource type="Texture2D" uid="uid://cf576plg86twu" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0000.png" id="5_cfiaf"]
+[ext_resource type="Texture2D" uid="uid://bn5k7b24xff0x" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0001.png" id="6_pnewt"]
+[ext_resource type="Texture2D" uid="uid://dc2cx1tlyvaty" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0002.png" id="7_86373"]
+[ext_resource type="Texture2D" uid="uid://b47b4jx5m22v8" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0003.png" id="8_uf2tq"]
+[ext_resource type="Texture2D" uid="uid://l500mctw30we" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0004.png" id="9_6yjkc"]
+[ext_resource type="Texture2D" uid="uid://d4eoocm8sbdr2" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0005.png" id="10_07o30"]
+[ext_resource type="Texture2D" uid="uid://bkd3hodrpme7k" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0006.png" id="11_gghce"]
+[ext_resource type="Texture2D" uid="uid://crsa5vfkm65to" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0007.png" id="12_ptaic"]
+[ext_resource type="SpriteFrames" path="res://Main/Level/Boat/Ressources/Boat2-2_animation.tres" id="13_iie5q"]
+[ext_resource type="PackedScene" path="res://Main/Level/Boat/Trail/Trail.tscn" id="14_o5c12"]
+[ext_resource type="Texture2D" uid="uid://dosvrw17o7oly" path="res://Main/Level/Boat/Trail/Ressources/1.png" id="15_fbt1h"]
+[ext_resource type="Script" path="res://Main/Level/Boat/Trail/Waves.gd" id="16_4h6sl"]
+[ext_resource type="Material" uid="uid://ba58mtftxyfrm" path="res://Main/Level/Boat/Trail/Wave.tres" id="17_ndvpd"]
+[ext_resource type="Texture2D" uid="uid://dh7ijx30gmi8s" path="res://Main/Level/Boat/Hit.png" id="18_t0amt"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bos0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cfiaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pnewt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_86373")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uf2tq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6yjkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_07o30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gghce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ptaic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bos0p")
+}],
+"loop": false,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="5"]
+
+[sub_resource type="CompressedTexture2D" id="6"]
+
+[sub_resource type="SpriteFrames" id="4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("5")
+}, {
+"duration": 1.0,
+"texture": SubResource("6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1alkk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_t0amt")
+}, {
+"duration": 6.0,
+"texture": ExtResource("18_t0amt")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Boat2" type="CharacterBody2D"]
+z_index = 2
+position = Vector2(57, 0)
+scale = Vector2(0.75, 0.75)
+safe_margin = 0.7
+script = ExtResource("1_1noln")
+is_destructible = true
+
+[node name="HitBox" type="CollisionPolygon2D" parent="."]
+position = Vector2(-15.7, -2)
+polygon = PackedVector2Array(-40.3, -8, -10.3, -17, 34.7, -16, 71.7, 4, 30.7, 23, -3.3, 20, -40.3, 10)
+
+[node name="Upgrades" type="Node2D" parent="."]
+
+[node name="SpecialMove" type="Node2D" parent="Upgrades"]
+
+[node name="Indicator" type="Polygon2D" parent="Upgrades/SpecialMove"]
+position = Vector2(-35.5556, 35.5556)
+scale = Vector2(1.94445, 1.94445)
+polygon = PackedVector2Array(-9, 3, -13, -1, -9, -5, -5, -1)
+
+[node name="Cooldown" type="Timer" parent="Upgrades/SpecialMove"]
+
+[node name="Active" type="Timer" parent="Upgrades/SpecialMove"]
+
+[node name="MineSpawn" type="Node2D" parent="Upgrades/SpecialMove"]
+position = Vector2(-42, 0)
+
+[node name="RearCanon" parent="Upgrades/SpecialMove" instance=ExtResource("2_2tlot")]
+visible = false
+position = Vector2(-58.6667, -1.33334)
+rotation = -1.57546
+
+[node name="Canons" type="Node2D" parent="."]
+position = Vector2(-0.799999, 0)
+
+[node name="LeftCanons" type="Node2D" parent="Canons"]
+script = ExtResource("2_edmt2")
+
+[node name="1" parent="Canons/LeftCanons" instance=ExtResource("3_j50hi")]
+position = Vector2(12.1, -22)
+
+[node name="Shot" parent="Canons/LeftCanons/1" index="2"]
+position = Vector2(-1, -67)
+sprite_frames = SubResource("3")
+
+[node name="Sprite2D" parent="Canons/LeftCanons/1" index="3"]
+animation = &"defaultUp"
+
+[node name="RightCanons" type="Node2D" parent="Canons"]
+rotation = 3.14159
+script = ExtResource("2_edmt2")
+
+[node name="1" parent="Canons/RightCanons" instance=ExtResource("3_j50hi")]
+position = Vector2(-11.8, -25)
+
+[node name="Shot" parent="Canons/RightCanons/1" index="2"]
+position = Vector2(-1, -67)
+sprite_frames = SubResource("3")
+
+[node name="BoatSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-163, -48)
+sprite_frames = ExtResource("13_iie5q")
+offset = Vector2(174, 43)
+
+[node name="Water" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(-4, -5)
+sprite_frames = SubResource("4")
+
+[node name="Cosmetic" type="Node2D" parent="."]
+
+[node name="Trails2" type="Node2D" parent="Cosmetic"]
+visible = false
+position = Vector2(-1, 0)
+
+[node name="Trail" parent="Cosmetic/Trails2" instance=ExtResource("14_o5c12")]
+position = Vector2(40, 13)
+
+[node name="GPUParticles2D" parent="Cosmetic/Trails2/Trail" index="0"]
+amount = 60
+texture = ExtResource("15_fbt1h")
+lifetime = 3.0
+
+[node name="Trail2" parent="Cosmetic/Trails2" instance=ExtResource("14_o5c12")]
+position = Vector2(41, -11)
+rotation = 3.14159
+
+[node name="GPUParticles2D" parent="Cosmetic/Trails2/Trail2" index="0"]
+amount = 60
+texture = ExtResource("15_fbt1h")
+lifetime = 3.0
+
+[node name="Trails" type="Node2D" parent="Cosmetic"]
+position = Vector2(2, 0)
+
+[node name="Trail" parent="Cosmetic/Trails" instance=ExtResource("14_o5c12")]
+position = Vector2(-16, 10)
+
+[node name="Trail2" parent="Cosmetic/Trails" instance=ExtResource("14_o5c12")]
+position = Vector2(-16, -10)
+rotation = 3.14159
+
+[node name="Waves" type="Node2D" parent="Cosmetic"]
+position = Vector2(-52, -3)
+script = ExtResource("16_4h6sl")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Cosmetic/Waves"]
+amount = 2
+process_material = ExtResource("17_ndvpd")
+
+[node name="Hit" type="Node2D" parent="Cosmetic"]
+visible = false
+z_index = -1
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Cosmetic/Hit"]
+position = Vector2(-4, 6)
+sprite_frames = SubResource("SpriteFrames_1alkk")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -2.0
+offset_top = -9.0
+offset_right = 38.0
+offset_bottom = 14.0
+
+[editable path="Canons/LeftCanons/1"]
+[editable path="Canons/RightCanons/1"]
+[editable path="Cosmetic/Trails2/Trail"]
+[editable path="Cosmetic/Trails2/Trail2"]

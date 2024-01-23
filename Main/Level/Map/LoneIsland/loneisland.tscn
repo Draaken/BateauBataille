@@ -1,0 +1,682 @@
+[gd_scene load_steps=16 format=3 uid="uid://b7lmvokv5e28w"]
+
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/Shore.gd" id="1_gpl28"]
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/Tree.gd" id="2_5416r"]
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/Rock.gd" id="3_mhsll"]
+[ext_resource type="PackedScene" uid="uid://bhk78oqdcbjn8" path="res://Main/Level/Map/Assets/StartingPos/starting_positions.tscn" id="4_im28t"]
+[ext_resource type="PackedScene" uid="uid://cpslmth6hcujn" path="res://Main/Level/Map/Assets/Wind/WindZone.tscn" id="5_mkq0s"]
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/Coins/CoinSpawnManager.gd" id="6_oyckh"]
+[ext_resource type="PackedScene" uid="uid://c6qapaqfy407l" path="res://Main/Level/Map/Assets/Coins/CoinSpawn.tscn" id="7_33cks"]
+[ext_resource type="PackedScene" uid="uid://cy36hyqgb255i" path="res://Main/Level/Map/Assets/MapBorder/map_borders.tscn" id="8_4f7vi"]
+[ext_resource type="PackedScene" path="res://Main/Level/Map/Assets/Shortcut.tscn" id="9_6dtov"]
+[ext_resource type="Texture2D" uid="uid://dtgyxjlm5alcj" path="res://Main/Level/UI/Arrow/frame0000.png" id="10_s3eci"]
+[ext_resource type="Texture2D" uid="uid://dbw0yba7iqmp3" path="res://Main/Level/UI/Arrow/frame0001.png" id="11_tc17m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e6bx"]
+size = Vector2(18.7499, 360.002)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wkxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_s3eci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tc17m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75xr7"]
+size = Vector2(12.5, 488)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3to01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_s3eci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tc17m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Map"]
+color = Color(0.0117647, 0.211765, 0.4, 0.921569)
+polygon = PackedVector2Array(-155, 1213, -172, -186, 2172, -143, 2176, 1230)
+
+[node name="Island1" type="Node2D" parent="Map"]
+position = Vector2(744, 737)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Island1"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island1/HitboxShore"]
+position = Vector2(-656, 68)
+scale = Vector2(0.687047, 0.984848)
+polygon = PackedVector2Array(1363, -281, 1413.29, -355.385, 1518.09, -351.323, 1624.34, -324.923, 1666, -213, 1634.53, -147.231, 1573.4, -128.954, 1491.89, -141.138, 1395.83, -189.877, 1368.17, -231.508)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Island1/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(1363, -281, 1413.29, -355.385, 1518.09, -351.323, 1624.34, -324.923, 1666, -213, 1634.53, -147.231, 1573.4, -128.954, 1491.89, -141.138, 1395.83, -189.877, 1368.17, -231.508)
+
+[node name="HitboxTrees" type="CharacterBody2D" parent="Map/Island1"]
+position = Vector2(175, -118)
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("2_5416r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island1/HitboxTrees"]
+position = Vector2(-24, 22)
+polygon = PackedVector2Array(204, -76, 206, -130, 249, -134, 287, -85, 280, -32, 250, -20)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Island1/HitboxTrees/CollisionPolygon2D"]
+position = Vector2(243, -85)
+color = Color(0.133333, 0.545098, 0.133333, 1)
+offset = Vector2(-243, 85)
+polygon = PackedVector2Array(204, -76, 206, -130, 249, -134, 287, -85, 280, -32, 250, -20)
+
+[node name="Island2" type="Node2D" parent="Map"]
+position = Vector2(1491, 1114)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Island2"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island2/HitboxShore"]
+position = Vector2(-246, 264)
+rotation = -0.714296
+scale = Vector2(0.57589, 0.758559)
+polygon = PackedVector2Array(871.164, -436.805, 822.893, -505.219, 876.789, -534.3, 941.712, -526.985, 1026.19, -463.878, 1090.4, -461.742, 1122.6, -485.912, 1160.04, -496.523, 1202.64, -485.568, 1235.72, -456.923, 1247.67, -386.138, 1229.9, -360.461, 1202.17, -346.297, 1119.32, -324.061, 948.305, -375.559)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Island2/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(871.164, -436.805, 822.893, -505.219, 876.789, -534.3, 941.712, -526.985, 1026.19, -463.878, 1090.4, -461.742, 1122.6, -485.912, 1160.04, -496.523, 1202.64, -485.568, 1235.72, -456.923, 1247.67, -386.138, 1229.9, -360.461, 1202.17, -346.297, 1119.32, -324.061, 948.305, -375.559)
+metadata/_edit_lock_ = true
+
+[node name="Rock1" type="Node2D" parent="Map"]
+position = Vector2(494, 311)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock1"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock1/HitboxShore"]
+position = Vector2(160.877, 130.798)
+rotation = 2.01455
+scale = Vector2(0.469001, 0.533356)
+polygon = PackedVector2Array(468.359, 298.982, 412.042, 263.46, 364.976, 193.867, 402.573, 143.778, 495.852, 105.691, 610.119, 157.879, 632.001, 195.865, 686.062, 210.11, 710.519, 162.627, 789.036, 122.267, 870.931, 151.395, 880.75, 271.369, 695.073, 344.248, 633.288, 383.421, 575.366, 378.673, 535.463, 330.003)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock1/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(468.359, 298.982, 412.042, 263.46, 364.976, 193.867, 402.573, 143.778, 495.852, 105.691, 610.119, 157.879, 632.001, 195.865, 686.062, 210.11, 710.519, 162.627, 789.036, 122.267, 870.931, 151.395, 880.75, 271.369, 695.073, 344.248, 633.288, 383.421, 575.366, 378.673, 535.463, 330.003)
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock1"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_mhsll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock1/HitBoxRock"]
+position = Vector2(-57, 404)
+scale = Vector2(0.581513, 0.50869)
+polygon = PackedVector2Array(-39.3075, -223.264, 57.2766, -151.384, 88.7226, -215.64, 81.9842, -287.52, 8.98458, -267.916)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock1/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-39.3075, -223.264, 57.2766, -151.384, 88.7226, -215.64, 81.9842, -287.52, 8.98458, -267.916)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/Rock1/HitBoxRock"]
+position = Vector2(-70, 316)
+rotation = 2.92619
+scale = Vector2(0.477484, 0.481327)
+polygon = PackedVector2Array(97.5218, -126.131, 141.435, -151.794, 163.461, -232.01, 112.124, -261.502, 39.3482, -200.108, 45.2924, -147.476)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock1/HitBoxRock/CollisionPolygon2D2"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(97.5218, -126.131, 141.435, -151.794, 163.461, -232.01, 112.124, -261.502, 39.3482, -200.108, 45.2924, -147.476)
+
+[node name="Rock2" type="Node2D" parent="Map"]
+position = Vector2(-31, -162)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock2"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock2/HitboxShore"]
+position = Vector2(-283, 58)
+scale = Vector2(0.634555, 0.675226)
+polygon = PackedVector2Array(242.69, 156.984, 482.228, 39.9866, 685.52, -198.452, 713.886, 137.732, 694.975, 242.882, 654.002, 265.096, 601.997, 254.73, 603.573, 356.918, 540.536, 402.828, 468.044, 380.613)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock2/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(242.69, 156.984, 482.228, 39.9866, 685.52, -198.452, 713.886, 137.732, 694.975, 242.882, 654.002, 265.096, 601.997, 254.73, 603.573, 356.918, 540.536, 402.828, 468.044, 380.613)
+metadata/_edit_lock_ = true
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock2"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_mhsll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock2/HitBoxRock"]
+position = Vector2(117, 262)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-28.6635, -180.184, 57.2766, -151.384, 88.7226, -215.64, 81.9842, -287.52, 8.98458, -267.916)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock2/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-28.6635, -180.184, 57.2766, -151.384, 88.7226, -215.64, 81.9842, -287.52, 8.98458, -267.916)
+
+[node name="Rock3" type="Node2D" parent="Map"]
+position = Vector2(1547, 157)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock3"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock3/HitboxShore"]
+position = Vector2(-283, 58)
+scale = Vector2(0.634555, 0.675226)
+polygon = PackedVector2Array(543.688, 171.794, 575.206, 97.745, 704.083, 87.8426, 743.985, 131.764, 695.073, 223.168, 597.269, 247.324)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock3/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(543.688, 171.794, 575.206, 97.745, 704.083, 87.8426, 743.985, 131.764, 695.073, 223.168, 597.269, 247.324)
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock3"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_mhsll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock3/HitBoxRock"]
+position = Vector2(117, 262)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-57.3269, -166.5, 57.2766, -151.384, 88.7226, -215.64, 81.9842, -287.52, -22.9307, -280.54)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock3/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-57.3269, -166.5, 57.2766, -151.384, 88.7226, -215.64, 81.9842, -287.52, -22.9307, -280.54)
+
+[node name="Rock4" type="Node2D" parent="Map"]
+position = Vector2(1348, 940)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock4"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock4/HitboxShore"]
+position = Vector2(-283, 58)
+scale = Vector2(0.634555, 0.675226)
+polygon = PackedVector2Array(556.058, 197.052, 561.023, 82.9352, 622.483, 45.9106, 683.944, 59.2395, 773.771, 131.808, 999.125, 1245.51, 534.233, 647.191)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock4/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(556.058, 197.052, 561.023, 82.9352, 622.483, 45.9106, 683.944, 59.2395, 773.771, 131.808, 999.125, 1245.51, 534.233, 647.191)
+metadata/_edit_lock_ = true
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock4"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_mhsll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock4/HitBoxRock"]
+position = Vector2(117, 262)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-36.3071, -125.445, 93.6338, -127.726, 116.564, -255.451, 78.3467, -328.437, -15.2871, -317.033, -45.8616, -241.766)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock4/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-36.3071, -125.445, 93.6338, -127.726, 116.564, -255.451, 78.3467, -328.437, -15.2871, -317.033, -45.8616, -241.766)
+metadata/_edit_lock_ = true
+
+[node name="Rock5" type="Node2D" parent="Map"]
+position = Vector2(609, 1014)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock5"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock5/HitboxShore"]
+position = Vector2(-283, 58)
+scale = Vector2(0.634555, 0.675226)
+polygon = PackedVector2Array(556.058, 197.052, 573.63, 106.631, 663.457, 42.9486, 649.274, -32.5817, 706.007, -196.971, 794.257, -191.047, 843.11, -154.022, 850.99, -75.5303, 915.602, 154.023, 1019.61, 425.043, 527.929, 626.457)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock5/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(556.058, 197.052, 573.63, 106.631, 663.457, 42.9486, 649.274, -32.5817, 706.007, -196.971, 794.257, -191.047, 843.11, -154.022, 850.99, -75.5303, 915.602, 154.023, 1019.61, 425.043, 527.929, 626.457)
+metadata/_edit_lock_ = true
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock5"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_mhsll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock5/HitBoxRock"]
+position = Vector2(184, 119)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-40.1288, -150.534, -28.6635, -18.2463, 97.4557, -9.12329, 116.565, -221.239, 112.743, -282.821, 108.921, -330.718, 3.82178, -358.088, -51.5941, -223.52)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock5/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-40.1288, -150.534, -28.6635, -18.2463, 97.4557, -9.12329, 116.565, -221.239, 112.743, -282.821, 108.921, -330.718, 3.82178, -358.088, -51.5941, -223.52)
+metadata/_edit_lock_ = true
+
+[node name="Rock6" type="Node2D" parent="Map"]
+position = Vector2(-220, 981)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock6"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock6/HitboxShore"]
+position = Vector2(-283, 58)
+scale = Vector2(0.634555, 0.675226)
+polygon = PackedVector2Array(556.058, 197.052, 37.8218, -127.365, 850.99, -75.5303, 967.607, -1.48108, 988.094, 131.808, 1074.77, 614.609, 527.929, 626.457)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock6/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(556.058, 197.052, 37.8218, -127.365, 850.99, -75.5303, 967.607, -1.48108, 988.094, 131.808, 1074.77, 614.609, 527.929, 626.457)
+metadata/_edit_lock_ = true
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock6"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_mhsll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock6/HitBoxRock"]
+position = Vector2(186, 177)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-85.9902, -125.445, 217.842, -43.3354, 189.179, -241.766, 87.9012, -360.369, -26.7526, -369.492, -24.8417, -221.239)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock6/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-85.9902, -125.445, 217.842, -43.3354, 189.179, -241.766, 87.9012, -360.369, -26.7526, -369.492, -24.8417, -221.239)
+metadata/_edit_lock_ = true
+
+[node name="Rock7" type="Node2D" parent="Map"]
+position = Vector2(-274, 450)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock7"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock7/HitboxShore"]
+position = Vector2(-283, 58)
+scale = Vector2(0.634555, 0.675226)
+polygon = PackedVector2Array(556.058, 197.052, 33.0941, 211.781, 121.345, -496.13, 863.597, -444.296, 917.178, -469.472, 947.12, -467.991, 964.455, -439.853, 967.607, -374.689, 915.602, -356.918, 868.325, -376.17, 843.11, -300.64, 923.482, -276.944, 940.817, -242.882, 920.33, -188.085, 830.958, -140.376, 831.985, -69.9475, 967.607, -1.48108, 988.094, 131.808, 955, 188.085)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock7/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(556.058, 197.052, 33.0941, 211.781, 121.345, -496.13, 863.597, -444.296, 917.178, -469.472, 947.12, -467.991, 964.455, -439.853, 967.607, -374.689, 915.602, -356.918, 868.325, -376.17, 843.11, -300.64, 923.482, -276.944, 940.817, -242.882, 920.33, -188.085, 830.958, -140.376, 831.985, -69.9475, 967.607, -1.48108, 988.094, 131.808, 955, 188.085)
+metadata/_edit_lock_ = true
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock7"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_mhsll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock7/HitBoxRock"]
+position = Vector2(211, 182)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-85.9902, -125.445, 3.82178, -34.2122, 170.07, -34.2122, 215.931, -86.6709, 189.179, -241.766, -26.7526, -369.492, -24.8417, -221.239)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock7/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-85.9902, -125.445, 3.82178, -34.2122, 170.07, -34.2122, 215.931, -86.6709, 189.179, -241.766, -26.7526, -369.492, -24.8417, -221.239)
+metadata/_edit_lock_ = true
+
+[node name="Rock8" type="Node2D" parent="Map"]
+position = Vector2(2033, 682)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock8"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock8/HitboxShore"]
+position = Vector2(-399, 39)
+scale = Vector2(0.634555, 0.675226)
+polygon = PackedVector2Array(482.228, 84.4163, 401.856, 50.3535, 373.49, -31.1006, 401.856, -79.9731, 1101.56, -82.9353, 1429.35, 127.365)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock8/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(482.228, 84.4163, 401.856, 50.3535, 373.49, -31.1006, 401.856, -79.9731, 1101.56, -82.9353, 1429.35, 127.365)
+metadata/_edit_lock_ = true
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock8"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_mhsll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock8/HitBoxRock"]
+position = Vector2(-88, 82)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-85.9902, -125.445, -61.1484, -54.7395, 170.07, -34.2122, 215.931, -86.6709, 160.515, -191.588, -66.8813, -198.431)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock8/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-85.9902, -125.445, -61.1484, -54.7395, 170.07, -34.2122, 215.931, -86.6709, 160.515, -191.588, -66.8813, -198.431)
+metadata/_edit_lock_ = true
+
+[node name="Rock9" type="Node2D" parent="Map"]
+position = Vector2(2022, 240)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock9"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock9/HitboxShore"]
+position = Vector2(-399, 39)
+scale = Vector2(0.634555, 0.675226)
+polygon = PackedVector2Array(436.526, 74.0493, 405.008, 66.6443, 382.946, 45.9106, 360.883, -5.92395, 387.673, -54.7965, 445.982, -128.846, 442.83, -201.414, 505.866, -239.92, 1232.36, -346.551, 1101.56, -82.9353, 1429.35, 127.365, 526.353, 65.1634, 485.38, 50.3535)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock9/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(436.526, 74.0493, 405.008, 66.6443, 382.946, 45.9106, 360.883, -5.92395, 387.673, -54.7965, 445.982, -128.846, 442.83, -201.414, 505.866, -239.92, 1232.36, -346.551, 1101.56, -82.9353, 1429.35, 127.365, 526.353, 65.1634, 485.38, 50.3535)
+metadata/_edit_lock_ = true
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock9"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_mhsll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock9/HitBoxRock"]
+position = Vector2(-88, 82)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-93.6338, -95.7941, -84.0793, -54.7395, 3.82178, -57.0203, 215.931, -86.6709, 160.515, -191.588, -80.2576, -152.815)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock9/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-93.6338, -95.7941, -84.0793, -54.7395, 3.82178, -57.0203, 215.931, -86.6709, 160.515, -191.588, -80.2576, -152.815)
+metadata/_edit_lock_ = true
+
+[node name="Rock10" type="Node2D" parent="Map"]
+position = Vector2(837, -102)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock10"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_gpl28")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock10/HitboxShore"]
+position = Vector2(-399, 39)
+scale = Vector2(0.634555, 0.675226)
+polygon = PackedVector2Array(405.008, 179.199, 340.396, 119.96, 308.878, -266.577, 505.866, -239.92, 921.906, -980.412, 595.693, 50.3535, 515.322, 131.808, 479.076, 177.718)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock10/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(405.008, 179.199, 340.396, 119.96, 308.878, -266.577, 505.866, -239.92, 921.906, -980.412, 595.693, 50.3535, 515.322, 131.808, 479.076, 177.718)
+metadata/_edit_lock_ = true
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock10"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_mhsll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock10/HitBoxRock"]
+position = Vector2(-108, 123)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-89.812, -88.9518, -84.0792, -6.84251, -34.396, 15.9656, 13.3762, 6.84244, 70.7031, -54.7396, 160.515, -191.588, -80.2576, -152.815)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock10/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-89.812, -88.9518, -84.0792, -6.84251, -34.396, 15.9656, 13.3762, 6.84244, 70.7031, -54.7396, 160.515, -191.588, -80.2576, -152.815)
+metadata/_edit_lock_ = true
+
+[node name="Starting Positions" parent="." instance=ExtResource("4_im28t")]
+
+[node name="P1" parent="Starting Positions" index="0"]
+position = Vector2(301, 213)
+
+[node name="P2" parent="Starting Positions" index="1"]
+position = Vector2(1571, 154)
+rotation = 2.86372
+
+[node name="P3" parent="Starting Positions" index="2"]
+position = Vector2(196, 893)
+rotation = -0.0434425
+
+[node name="P4" parent="Starting Positions" index="3"]
+position = Vector2(1736, 728)
+rotation = -2.35619
+
+[node name="Wind" type="Node2D" parent="."]
+
+[node name="WindZone1" parent="Wind" instance=ExtResource("5_mkq0s")]
+position = Vector2(920, 799)
+deg_direction = 87
+random_direction = false
+random_sens = true
+
+[node name="CollisionShape2D" parent="Wind/WindZone1/HitBox" index="0"]
+position = Vector2(-238, -34)
+scale = Vector2(0.630352, 0.688282)
+polygon = PackedVector2Array(31, -40, 134.845, -81.3619, 298.246, -59.5686, 523.517, -33.4165, 744.029, -72.6445, 823.35, -47.9454, 848.732, 43.5868, 720.233, 97.3439, 556.832, 139.478, 277.623, 132.213, 47, 85)
+
+[node name="Polygon2D" parent="Wind/WindZone1/HitBox/CollisionShape2D" index="0"]
+polygon = PackedVector2Array(31, -40, 169.746, -91.5323, 323.629, -24.6992, 509.239, 14.5289, 758.306, -7.26453, 832.868, 21.7935, 875.701, 69.7389, 822.865, 107.98, 689.093, 166.216, 353.771, 165.63, 47, 85)
+
+[node name="1" parent="Wind/WindZone1/Arrows" index="0"]
+position = Vector2(2, -1)
+rotation = 0.0718514
+
+[node name="WindZone2" parent="Wind" instance=ExtResource("5_mkq0s")]
+position = Vector2(1403, 392)
+deg_direction = 180
+
+[node name="CollisionShape2D" parent="Wind/WindZone2/HitBox" index="0"]
+position = Vector2(-261, -48)
+scale = Vector2(0.754962, 0.699503)
+polygon = PackedVector2Array(242.813, 180.775, 301.267, 344.565, 397.943, 368.83, 467.639, 339.712, 519.349, 212.32, 527.218, 41.2508, 504.735, -44.8906, 485.625, -206.254, 268.668, -313.021, 44.9653, -357.911, 3.97363, -291.636, 7.94739, -192.994, 99.3427, -100.071, 204.592, 10.9193)
+
+[node name="Polygon2D" parent="Wind/WindZone2/HitBox/CollisionShape2D" index="0"]
+polygon = PackedVector2Array(242.813, 180.775, 301.267, 344.565, 397.943, 368.83, 467.639, 339.712, 519.349, 212.32, 527.218, 41.2508, 504.735, -44.8906, 485.625, -206.254, 268.668, -313.021, 44.9653, -357.911, 3.97363, -291.636, 7.94739, -192.994, 99.3427, -100.071, 204.592, 10.9193)
+
+[node name="1" parent="Wind/WindZone2/Arrows" index="0"]
+position = Vector2(-33, -70)
+rotation = 0.594326
+
+[node name="WindZone3" parent="Wind" instance=ExtResource("5_mkq0s")]
+position = Vector2(408, 510)
+deg_direction = 180
+
+[node name="CollisionShape2D" parent="Wind/WindZone3/HitBox" index="0"]
+position = Vector2(-352, -54)
+scale = Vector2(0.889575, 0.824227)
+polygon = PackedVector2Array(51.7101, 138.311, 17.9861, -80.075, 30.3516, -191.695, 128.151, -257.211, 237.192, -186.842, 459.77, -139.525, 547.452, -58.2364, 519.349, 31.5447, 429.419, 47.3171, 282.157, 111.62, 151.758, 178.349)
+
+[node name="Polygon2D" parent="Wind/WindZone3/HitBox/CollisionShape2D" index="0"]
+polygon = PackedVector2Array(51.7101, 138.311, 17.9861, -80.075, 30.3516, -191.695, 128.151, -257.211, 237.192, -186.842, 459.77, -139.525, 547.452, -58.2364, 519.349, 31.5447, 429.419, 47.3171, 282.157, 111.62, 151.758, 178.349)
+
+[node name="1" parent="Wind/WindZone3/Arrows" index="0"]
+position = Vector2(-141, -78)
+rotation = 2.16534
+
+[node name="Pickables" type="Node2D" parent="."]
+
+[node name="Coins" type="Node2D" parent="Pickables"]
+script = ExtResource("6_oyckh")
+
+[node name="CoinList" type="Node2D" parent="Pickables/Coins"]
+
+[node name="CoinSpawn1" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1086, 960)
+
+[node name="CoinSpawn2" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1144, 779)
+
+[node name="CoinSpawn3" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1391, 983)
+
+[node name="CoinSpawn4" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1536, 862)
+
+[node name="CoinSpawn5" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(985, 218)
+
+[node name="CoinSpawn6" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(357, 433)
+
+[node name="CoinSpawn7" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(244, 697)
+
+[node name="CoinSpawn8" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(761, 190)
+
+[node name="CoinSpawn9" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(557, 582)
+
+[node name="CoinSpawn10" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(639, 900)
+
+[node name="CoinSpawn11" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1561, 583)
+
+[node name="CoinSpawn12" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1779, 383)
+
+[node name="CoinSpawn13" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1409, 335)
+
+[node name="CoinSpawn14" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1284, 664)
+
+[node name="CoinSpawn15" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(187, 142)
+
+[node name="CoinSpawn16" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(518, 704)
+
+[node name="CoinSpawn17" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(995, 806)
+
+[node name="CoinSpawn18" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(657, 440)
+
+[node name="CoinSpawn19" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1664, 214)
+
+[node name="CoinSpawn20" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1805, 821)
+
+[node name="CoinSpawn21" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(728, 727)
+
+[node name="CoinSpawn22" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(623, 589)
+
+[node name="CoinSpawn23" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(832, 331)
+
+[node name="CoinSpawn24" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(569, 199)
+
+[node name="CoinSpawn25" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(436, 277)
+
+[node name="CoinSpawn26" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(852, 870)
+
+[node name="CoinSpawn27" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1137, 283)
+
+[node name="CoinSpawn28" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1413, 441)
+
+[node name="CoinSpawn29" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1321, 218)
+
+[node name="CoinSpawn30" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1133, 126)
+
+[node name="CoinSpawn31" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(163, 425)
+
+[node name="CoinSpawn32" parent="Pickables/Coins/CoinList" instance=ExtResource("7_33cks")]
+position = Vector2(1294, 539)
+
+[node name="Borders" parent="." instance=ExtResource("8_4f7vi")]
+metadata/_edit_lock_ = true
+
+[node name="Shortcuts" type="Node2D" parent="."]
+position = Vector2(-33, 888)
+
+[node name="Shortcut1" parent="Shortcuts" instance=ExtResource("9_6dtov")]
+position = Vector2(-67, -79)
+twin_path = "../Shortcut2"
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Shortcuts/Shortcut1"]
+scale = Vector2(1, 0.838885)
+shape = SubResource("RectangleShape2D_3e6bx")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Shortcuts/Shortcut1"]
+self_modulate = Color(0.670588, 0.133333, 0.0235294, 1)
+position = Vector2(172, -54)
+rotation = 1.46109
+sprite_frames = SubResource("SpriteFrames_4wkxn")
+
+[node name="Shortcut2" parent="Shortcuts" instance=ExtResource("9_6dtov")]
+position = Vector2(2079, -389)
+twin_path = "../Shortcut1"
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Shortcuts/Shortcut2"]
+scale = Vector2(1, 0.838885)
+shape = SubResource("RectangleShape2D_3e6bx")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Shortcuts/Shortcut2"]
+self_modulate = Color(0.670588, 0.133333, 0.0235294, 1)
+position = Vector2(-208, 6)
+rotation = 4.68795
+sprite_frames = SubResource("SpriteFrames_4wkxn")
+
+[node name="Shortcut3" parent="Shortcuts" instance=ExtResource("9_6dtov")]
+position = Vector2(1198, 268)
+rotation = -1.5708
+twin_path = "../Shortcut4"
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Shortcuts/Shortcut3"]
+shape = SubResource("RectangleShape2D_75xr7")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Shortcuts/Shortcut3"]
+self_modulate = Color(0.894118, 0.529412, 0.105882, 1)
+position = Vector2(145, -4.99951)
+rotation = 1.58303
+sprite_frames = SubResource("SpriteFrames_3to01")
+
+[node name="Shortcut4" parent="Shortcuts" instance=ExtResource("9_6dtov")]
+position = Vector2(421, -979)
+rotation = -1.5708
+twin_path = "../Shortcut3"
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Shortcuts/Shortcut4"]
+shape = SubResource("RectangleShape2D_75xr7")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Shortcuts/Shortcut4"]
+self_modulate = Color(0.894118, 0.529412, 0.105882, 1)
+position = Vector2(-175, 15)
+rotation = 4.5178
+sprite_frames = SubResource("SpriteFrames_3to01")
+
+[editable path="Starting Positions"]
+[editable path="Wind/WindZone1"]
+[editable path="Wind/WindZone2"]
+[editable path="Wind/WindZone3"]

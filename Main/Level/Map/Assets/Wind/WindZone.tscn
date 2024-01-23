@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpslmth6hcujn"]
+
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/Wind/WindZone.gd" id="1_iuve3"]
+[ext_resource type="Texture2D" uid="uid://dtgyxjlm5alcj" path="res://Main/Level/UI/Arrow/frame0000.png" id="2_sag4d"]
+[ext_resource type="Texture2D" uid="uid://dbw0yba7iqmp3" path="res://Main/Level/UI/Arrow/frame0001.png" id="3_tb6fj"]
+
+[sub_resource type="Gradient" id="Gradient_46aqw"]
+offsets = PackedFloat32Array(0, 0.832215, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.964706, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1ssq1"]
+gradient = SubResource("Gradient_46aqw")
+
+[sub_resource type="Curve" id="Curve_my1ai"]
+_data = [Vector2(0, 0.745455), 0.0, 0.0, 0, 0, Vector2(0.0611111, 0.936364), 0.0, 0.0, 0, 0, Vector2(0.85, 0.918182), 0.0, 0.0, 0, 0, Vector2(1, 0.6), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_1xhaw"]
+curve = SubResource("Curve_my1ai")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lo4xg"]
+emission_shape = 2
+emission_sphere_radius = 128.0
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = 199.045
+angle_max = 199.045
+scale_curve = SubResource("CurveTexture_1xhaw")
+color_ramp = SubResource("GradientTexture1D_1ssq1")
+
+[node name="WindZone" type="Node2D"]
+self_modulate = Color(1, 1, 1, 0.564706)
+script = ExtResource("1_iuve3")
+random_sens = false
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="HitBox"]
+
+[node name="Polygon2D" type="Polygon2D" parent="HitBox/CollisionShape2D"]
+color = Color(0.25098, 0.533333, 0.839216, 0.694118)
+metadata/_edit_lock_ = true
+
+[node name="Arrows" type="Node2D" parent="."]
+
+[node name="1" type="Sprite2D" parent="Arrows"]
+rotation = 3.474
+texture = ExtResource("2_sag4d")
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+visible = false
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_lo4xg")
+texture = ExtResource("3_tb6fj")
+lifetime = 5.0

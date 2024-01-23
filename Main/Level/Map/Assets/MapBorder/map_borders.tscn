@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy36hyqgb255i"]
+
+[ext_resource type="PackedScene" uid="uid://cpslmth6hcujn" path="res://Main/Level/Map/Assets/Wind/WindZone.tscn" id="1_ytygc"]
+
+[node name="Borders" type="Node2D"]
+
+[node name="WindZone" parent="." instance=ExtResource("1_ytygc")]
+position = Vector2(840, -651)
+deg_direction = 90
+magnitude = 90
+random_direction = false
+
+[node name="CollisionShape2D" parent="WindZone/HitBox" index="0"]
+position = Vector2(44, 538)
+scale = Vector2(2.0101, 3.71439)
+polygon = PackedVector2Array(-1300, 0, -1300, -300, 1300, -300, 1300, 0)
+
+[node name="WindZone2" parent="." instance=ExtResource("1_ytygc")]
+position = Vector2(840, 1329)
+deg_direction = 270
+magnitude = 90
+random_direction = false
+
+[node name="CollisionShape2D" parent="WindZone2/HitBox" index="0"]
+position = Vector2(60.4997, 1053)
+scale = Vector2(2.05024, 4.0047)
+polygon = PackedVector2Array(-1300, 0, -1300, -300, 1300, -300, 1300, 0)
+
+[node name="WindZone3" parent="." instance=ExtResource("1_ytygc")]
+position = Vector2(840, 1329)
+deg_direction = 180
+magnitude = 90
+random_direction = false
+
+[node name="CollisionShape2D" parent="WindZone3/HitBox" index="0"]
+position = Vector2(1815, 954)
+scale = Vector2(0.446725, 11.167)
+polygon = PackedVector2Array(-1300, 0, -1300, -300, 1300, -300, 1300, 0)
+
+[node name="WindZone4" parent="." instance=ExtResource("1_ytygc")]
+position = Vector2(840, 1329)
+magnitude = 90
+random_direction = false
+
+[node name="CollisionShape2D" parent="WindZone4/HitBox" index="0"]
+position = Vector2(-1558, 865.688)
+scale = Vector2(0.454417, 10.7479)
+polygon = PackedVector2Array(-1300, 0, -1300, -300, 1300, -300, 1300, 0)
+
+[editable path="WindZone"]
+[editable path="WindZone2"]
+[editable path="WindZone3"]
+[editable path="WindZone4"]

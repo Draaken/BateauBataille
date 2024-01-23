@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://b227jly8jlf4u"]
+
+[ext_resource type="Texture2D" uid="uid://bdv2t2pf0rjhb" path="res://Main/Level/Boat/Canonball/Ressources/Boulet.png" id="1"]
+[ext_resource type="Script" path="res://Main/Level/Boat/Canonball/Scripts/CanonballV2.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://c0b1tqfjprt2p" path="res://Main/Level/Boat/Canonball/Ressources/BouletTrail.png" id="3"]
+[ext_resource type="Script" path="res://Main/Level/Boat/Canonball/Scripts/CanonBallTrail.gd" id="4"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 2.66667
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CanonballV2" type="CharacterBody2D"]
+z_index = 10
+scale = Vector2(3, 3)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5, 0)
+rotation = 1.5708
+sprite_frames = SubResource("2")
+
+[node name="Line2D" type="Line2D" parent="Sprite2D"]
+visible = false
+position = Vector2(-1.93066e-05, -5.33333)
+rotation = -1.5708
+script = ExtResource("4")

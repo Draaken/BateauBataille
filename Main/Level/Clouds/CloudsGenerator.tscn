@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://6a7axsgn5a41"]
+
+[ext_resource type="Script" path="res://Main/Level/Clouds/CloudsGenerator.gd" id="1_7x037"]
+[ext_resource type="PackedScene" uid="uid://lyj8w35eajss" path="res://Main/Level/Clouds/cloud.tscn" id="2_56c5v"]
+
+[node name="CloudsGenerator" type="Node2D"]
+script = ExtResource("1_7x037")
+
+[node name="Cloud" parent="." instance=ExtResource("2_56c5v")]
+visible = false
+z_index = 250
+
+[node name="Timer" type="Timer" parent="."]

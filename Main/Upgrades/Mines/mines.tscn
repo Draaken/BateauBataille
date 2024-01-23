@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl8i86urlmfrb"]
+
+[sub_resource type="GDScript" id="GDScript_x8118"]
+script/source = "extends SpecialMoveClass
+
+
+var mine = preload(\"res://Level/Boat/SpecialMoves/Mines/mine_object.tscn\")
+signal mine_launched
+
+var arm_time = 1
+
+func setup():
+	duration = 0.3
+	cooldown = 4
+	self.connect(\"mine_launched\", Callable($\"../../../..\", \"receive_mine\"))
+
+func activate():
+	var instance = mine.instantiate()
+	emit_signal(\"mine_launched\", instance, $MineSpawn.global_position, $MineSpawn.global_rotation, arm_time)
+	#Send a signal to the Player so that he create the mine there
+
+
+func desactivate():
+	pass
+	
+
+	
+"
+
+[node name="Mines" type="Node2D"]
+script = SubResource("GDScript_x8118")
+
+[node name="MineSpawn" type="Node2D" parent="."]
+position = Vector2(-42, 0)

@@ -1,0 +1,165 @@
+[gd_scene load_steps=5 format=3 uid="uid://gsqac2ht6ves"]
+
+[ext_resource type="Script" path="res://Main/Shop/Scripts/shop.gd" id="1_7pw34"]
+[ext_resource type="PackedScene" uid="uid://ol3mibhafykh" path="res://Main/Shop/Scenes/gauge.tscn" id="2_re3gk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rt3e0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er3uh"]
+bg_color = Color(0.921569, 0.835294, 0.552941, 1)
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7pw34")
+
+[node name="CandleTimer" type="Timer" parent="."]
+
+[node name="Team1" type="Node2D" parent="."]
+
+[node name="Team2" type="Node2D" parent="."]
+
+[node name="Team3" type="Node2D" parent="."]
+
+[node name="Team4" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.470588, 0.211765, 0.172549, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="GUI" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Body" type="HBoxContainer" parent="MarginContainer/GUI"]
+layout_mode = 2
+alignment = 2
+
+[node name="Treasure" type="MarginContainer" parent="MarginContainer/GUI/Body"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/GUI/Body/Treasure"]
+layout_mode = 2
+color = Color(0.690196, 0.345098, 0.207843, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/GUI/Body/Treasure"]
+custom_minimum_size = Vector2(1071, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 20
+
+[node name="Gauges" type="HBoxContainer" parent="MarginContainer/GUI/Body/Treasure/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 217
+alignment = 1
+
+[node name="Player1" parent="MarginContainer/GUI/Body/Treasure/MarginContainer2/Gauges" instance=ExtResource("2_re3gk")]
+layout_mode = 2
+
+[node name="Player2" parent="MarginContainer/GUI/Body/Treasure/MarginContainer2/Gauges" instance=ExtResource("2_re3gk")]
+layout_mode = 2
+
+[node name="Player3" parent="MarginContainer/GUI/Body/Treasure/MarginContainer2/Gauges" instance=ExtResource("2_re3gk")]
+layout_mode = 2
+
+[node name="Player4" parent="MarginContainer/GUI/Body/Treasure/MarginContainer2/Gauges" instance=ExtResource("2_re3gk")]
+layout_mode = 2
+
+[node name="UpgradesList" type="MarginContainer" parent="MarginContainer/GUI/Body"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/GUI/Body/UpgradesList"]
+layout_mode = 2
+color = Color(0.6875, 0.34375, 0.207031, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GUI/Body/UpgradesList"]
+layout_mode = 2
+alignment = 1
+
+[node name="Candle" type="MarginContainer" parent="MarginContainer/GUI/Body"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/GUI/Body/Candle"]
+custom_minimum_size = Vector2(80, 700)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_rt3e0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_er3uh")
+max_value = 700.0
+step = 1.0
+allow_greater = true
+fill_mode = 3
+show_percentage = false
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GUI"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/GUI/MarginContainer"]
+layout_mode = 2
+color = Color(0.690196, 0.345098, 0.207843, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GUI/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/GUI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="MarginContainer/GUI/MarginContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+text = "Boup"
+
+[connection signal="timeout" from="CandleTimer" to="." method="_on_candle_timer_timeout"]
+[connection signal="pressed" from="MarginContainer/GUI/MarginContainer/HBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://birorbj7yk111"]
+
+[ext_resource type="Script" path="res://Main/Level/Level.gd" id="1_47cpi"]
+[ext_resource type="Script" path="res://Main/HUD/HUD.gd" id="2_gha4v"]
+[ext_resource type="PackedScene" uid="uid://6a7axsgn5a41" path="res://Main/Level/Clouds/CloudsGenerator.tscn" id="3_3ek0b"]
+[ext_resource type="Script" path="res://Main/Level/Players/Team.gd" id="4_21mde"]
+[ext_resource type="Texture2D" uid="uid://cx3i1in58l6td" path="res://Main/Level/Map/Assets/Coins/frame0000.png" id="5_w4ryh"]
+[ext_resource type="Script" path="res://Main/Level/Timer/TImer.gd" id="6_to0an"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_47cpi")
+
+[node name="FPS" type="Node2D" parent="."]
+z_index = 500
+
+[node name="FPS" type="Label" parent="FPS"]
+offset_right = 40.0
+offset_bottom = 14.0
+script = ExtResource("2_gha4v")
+
+[node name="CloudsGenerator" parent="." instance=ExtResource("3_3ek0b")]
+z_index = 50
+
+[node name="Team1" type="Node2D" parent="."]
+script = ExtResource("4_21mde")
+
+[node name="Node2D" type="Node2D" parent="Team1"]
+visible = false
+z_index = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="Team1/Node2D"]
+z_index = -1
+position = Vector2(83, 1001)
+texture = ExtResource("5_w4ryh")
+
+[node name="Coins" type="Label" parent="Team1/Node2D"]
+offset_left = 66.0
+offset_top = 978.0
+offset_right = 85.0
+offset_bottom = 1004.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "20"
+uppercase = true
+
+[node name="Team2" type="Node2D" parent="."]
+script = ExtResource("4_21mde")
+
+[node name="Node2D" type="Node2D" parent="Team2"]
+visible = false
+z_index = 50
+position = Vector2(21, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Team2/Node2D"]
+z_index = -1
+position = Vector2(1812.5, 1001)
+texture = ExtResource("5_w4ryh")
+
+[node name="Coins" type="Label" parent="Team2/Node2D"]
+offset_left = 1795.5
+offset_top = 978.0
+offset_right = 1814.5
+offset_bottom = 1004.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "20"
+uppercase = true
+
+[node name="Team3" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_21mde")
+
+[node name="Node2D" type="Node2D" parent="Team3"]
+visible = false
+z_index = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="Team3/Node2D"]
+z_index = -1
+position = Vector2(955.5, 1001)
+texture = ExtResource("5_w4ryh")
+
+[node name="Coins" type="Label" parent="Team3/Node2D"]
+offset_left = 938.5
+offset_top = 987.0
+offset_right = 954.5
+offset_bottom = 1001.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "20"
+uppercase = true
+
+[node name="Team4" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_21mde")
+
+[node name="Node2D" type="Node2D" parent="Team4"]
+visible = false
+z_index = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="Team4/Node2D"]
+z_index = -1
+position = Vector2(955.5, 1001)
+texture = ExtResource("5_w4ryh")
+
+[node name="Coins" type="Label" parent="Team4/Node2D"]
+offset_left = 938.5
+offset_top = 987.0
+offset_right = 954.5
+offset_bottom = 1001.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "20"
+uppercase = true
+
+[node name="RoundTimer" type="Node2D" parent="."]
+z_index = 500
+script = ExtResource("6_to0an")
+
+[node name="Timer" type="Timer" parent="RoundTimer"]
+
+[node name="CenterContainer" type="CenterContainer" parent="RoundTimer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 960.0
+offset_bottom = 26.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="RoundTimer/CenterContainer"]
+layout_mode = 2
+text = "60"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 998.0
+offset_top = 7.0
+offset_right = 1006.0
+offset_bottom = 15.0
+scale = Vector2(6.4, 4.6)
+
+[connection signal="pressed" from="Button" to="." method="finish_round"]

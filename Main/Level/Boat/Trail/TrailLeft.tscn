@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" uid="uid://d1f3qd0r3uttx" path="res://Main/Level/Boat/Trail/trail3.png" id="1"]
+[ext_resource type="Material" path="res://Main/Level/Boat/Trail/TrailLeft.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://bhmq5agcwux0t" path="res://Main/Level/Boat/Trail/trail2.png" id="3"]
+
+[sub_resource type="AnimatedTexture" id=4]
+flags = 4
+frames = 2
+fps = 0.0
+frame_0/texture = ExtResource( 1 )
+frame_1/texture = ExtResource( 3 )
+frame_1/delay_sec = 0.0
+
+[node name="TrailLeft" type="Node2D"]
+z_index = -1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2( -2, -5 )
+amount = 20
+preprocess = 600.0
+local_coords = false
+process_material = ExtResource( 2 )
+texture = SubResource( 4 )

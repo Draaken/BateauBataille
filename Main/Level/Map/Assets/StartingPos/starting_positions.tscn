@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhk78oqdcbjn8"]
+
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/StartingPos/Starting Positions.gd" id="1_i3bf2"]
+[ext_resource type="Texture2D" uid="uid://dtgyxjlm5alcj" path="res://Main/Level/UI/Arrow/frame0000.png" id="2_8kuhg"]
+
+[node name="Starting Positions" type="Node2D"]
+script = ExtResource("1_i3bf2")
+
+[node name="P1" type="Node2D" parent="."]
+position = Vector2(346, 227)
+rotation = 0.567153
+
+[node name="Sprite2D" type="Sprite2D" parent="P1"]
+rotation = 4.71239
+texture = ExtResource("2_8kuhg")
+metadata/_edit_lock_ = true
+
+[node name="P2" type="Node2D" parent="."]
+position = Vector2(1650, 231)
+rotation = 2.51528
+
+[node name="Sprite2D" type="Sprite2D" parent="P2"]
+rotation = 4.71239
+texture = ExtResource("2_8kuhg")
+metadata/_edit_lock_ = true
+
+[node name="P3" type="Node2D" parent="."]
+position = Vector2(276, 958)
+rotation = 0.148102
+
+[node name="Sprite2D" type="Sprite2D" parent="P3"]
+rotation = 4.71239
+texture = ExtResource("2_8kuhg")
+metadata/_edit_lock_ = true
+
+[node name="P4" type="Node2D" parent="."]
+position = Vector2(1704, 909)
+rotation = -2.60922
+
+[node name="Sprite2D" type="Sprite2D" parent="P4"]
+rotation = 4.71239
+texture = ExtResource("2_8kuhg")
+metadata/_edit_lock_ = true

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://djq67s22hhtmo"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/Mines/Mines.gd" id="1_uu77n"]
+
+[resource]
+script = ExtResource("1_uu77n")
+playerSignalTrigger = ""

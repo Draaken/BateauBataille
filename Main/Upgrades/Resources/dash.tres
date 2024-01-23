@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dp7rphxphwdm1"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/Dash/Dash.gd" id="1_dpcvs"]
+
+[resource]
+script = ExtResource("1_dpcvs")

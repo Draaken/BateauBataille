@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Texture2D" uid="uid://begliwpbnmj8w" path="res://Main/Level/Boat/Ressources/BateauLarge.png" id="1"]
+[ext_resource type="Script" path="res://CanonBoard.gd" id="2"]
+[ext_resource type="Script" path="res://Main/Level/Boat/Scripts/Boat1.gd" id="3"]
+[ext_resource type="PackedScene" path="res://Main/Level/Boat/Canon/Scenes/CanonV1.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://Main/Level/Boat/Scenes/Flag.tscn" id="5"]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Boat" type="CharacterBody2D"]
+position = Vector2( 48, 0 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 3 )
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2( 25, 0 )
+frames = SubResource( 1 )
+
+[node name="Cosmetic" type="Node2D" parent="."]
+
+[node name="Flag" parent="Cosmetic" instance=ExtResource( 5 )]
+position = Vector2( 5.25943, -2.00675 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -62, -6 )
+scale = Vector2( 1, 0.5625 )
+polygon = PackedVector2Array( 17, 0, 17, 33.7778, 102, 39.1111, 141.1, 8.88889, 102, -14.2222 )
+
+[node name="Canons" type="Node2D" parent="."]
+position = Vector2( 1.9, 0 )
+
+[node name="LeftCanons" type="Node2D" parent="Canons"]
+script = ExtResource( 2 )
+
+[node name="1" parent="Canons/LeftCanons" instance=ExtResource( 4 )]
+position = Vector2( -30.9, -9 )
+
+[node name="2" parent="Canons/LeftCanons" instance=ExtResource( 4 )]
+position = Vector2( -5.9, -11 )
+
+[node name="3" parent="Canons/LeftCanons" instance=ExtResource( 4 )]
+position = Vector2( 23, -15 )
+
+[node name="4" parent="Canons/LeftCanons" instance=ExtResource( 4 )]
+position = Vector2( 56.1, -10 )
+
+[node name="RightCanons" type="Node2D" parent="Canons"]
+script = ExtResource( 2 )
+
+[node name="1" parent="Canons/RightCanons" instance=ExtResource( 4 )]
+position = Vector2( -32.9, 14 )
+rotation = 3.14159
+
+[node name="2" parent="Canons/RightCanons" instance=ExtResource( 4 )]
+position = Vector2( -6.9, 16 )
+rotation = 3.14159
+
+[node name="3" parent="Canons/RightCanons" instance=ExtResource( 4 )]
+position = Vector2( 22, 18 )
+rotation = -3.14159
+
+[node name="4" parent="Canons/RightCanons" instance=ExtResource( 4 )]
+position = Vector2( 55.1, 12 )
+rotation = 3.14159

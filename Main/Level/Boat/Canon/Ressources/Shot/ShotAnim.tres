@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://crqjcbatcjyts"]
+
+[ext_resource type="Texture2D" uid="uid://crsa5vfkm65to" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0007.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d22x58uq26q2q" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0008.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bkd3hodrpme7k" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0006.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dc2cx1tlyvaty" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0002.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b47b4jx5m22v8" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0003.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://l500mctw30we" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0004.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://d4eoocm8sbdr2" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0005.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://cf576plg86twu" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0000.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://bn5k7b24xff0x" path="res://Main/Level/Boat/Canon/Ressources/Shot/frame0001.png" id="9"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 16.0
+}]

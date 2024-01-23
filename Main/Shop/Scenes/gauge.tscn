@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ol3mibhafykh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0ye5"]
+bg_color = Color(0.631373, 0.27451, 0.196078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8118"]
+bg_color = Color(0.901961, 0.545098, 0.00784314, 1)
+
+[node name="Player1" type="VBoxContainer"]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(80, 600)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_p0ye5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i8118")
+max_value = 50.0
+step = 1.0
+allow_greater = true
+fill_mode = 3
+show_percentage = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.470588, 0.211765, 0.172549, 1)
+theme_override_font_sizes/font_size = 35
+text = "P1"
+horizontal_alignment = 1
