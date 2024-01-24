@@ -78,8 +78,8 @@ curve = SubResource("Curve_my1ai")
 particle_flag_disable_z = true
 emission_shape = 2
 emission_sphere_radius = 128.0
-angle_min = -105.769
-angle_max = -105.769
+angle_min = -89.2335
+angle_max = -89.2335
 direction = Vector3(0, 0, 0)
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_1xhaw")
@@ -87,6 +87,8 @@ color_ramp = SubResource("GradientTexture1D_1ssq1")
 
 [node name="WindZone" type="Node2D"]
 self_modulate = Color(1, 1, 1, 0.564706)
+z_index = 50
+z_as_relative = false
 script = ExtResource("1_iuve3")
 random_sens = false
 

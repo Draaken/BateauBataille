@@ -16,13 +16,13 @@ func _ready():
 func _process(delta):
 	reload(delta)
 
-func shoot():
+func shoot(shooter):
 	for i in range(get_child_count()):
 		var child = get_node(str(i+1))
 		print(child.is_reloaded)
 		
 		if child.is_reloaded: 
-			child.shoot()
+			child.shoot(shooter)
 			reload_progress = 0
 
 		

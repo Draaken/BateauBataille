@@ -160,10 +160,10 @@ func turn(delta):
 
 
 func shootLeft():
-	$"Canons/LeftCanons".shoot()
+	$"Canons/LeftCanons".shoot(self)
 
 func shootRight():
-	$"Canons/RightCanons".shoot()
+	$"Canons/RightCanons".shoot(self)
 		
 func check_wind():
 	var a = 2

@@ -7,6 +7,7 @@ var timerExplode = Timer.new()
 var timerSplash = Timer.new()
 var timerLife = Timer.new()
 var random = RandomNumberGenerator.new()
+var shooter
 
 var is_destructible = false
 var damage_type = "Canonball"
@@ -37,7 +38,7 @@ func _physics_process(delta):
 	
 	var collision = move_and_collide(velocity_sum*delta)
 	
-	if collision:
+	if collision && collision.get_collider() != shooter:
 		explode(collision.get_collider())
 		
 

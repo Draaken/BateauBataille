@@ -32,7 +32,7 @@ func _ready():
 #		shot_clone.global_position = shot_position
 #		shot_clone.global_rotation = shot_rotation
 
-func shoot():
+func shoot(shooter):
 	random.randomize()
 	var dispertion_range  = deg_to_rad(random.randf_range(-dispertion, dispertion))
 	
@@ -41,6 +41,7 @@ func shoot():
 	
 	var instance = canon_ball.instantiate()
 	instance.velocity_norm = strength
+	instance.shooter = shooter
 	
 
 	emit_signal("canonball_shooted", instance, $"CanonBallSpawn".global_position, canon_orientation_vector, get_node(boat).velocity)

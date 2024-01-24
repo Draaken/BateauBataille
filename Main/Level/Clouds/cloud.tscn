@@ -27,7 +27,9 @@ animations = [{
 }]
 
 [node name="Cloud" type="Node2D"]
+z_index = 250
 script = ExtResource("1_0re2n")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hfwwj")
+frame = 1
