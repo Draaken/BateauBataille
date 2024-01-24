@@ -28,11 +28,8 @@ var wind = Vector2(1,0)
 
 
 func _ready():
-#	var map_list = [arc1, rbay, lisland, reef1]
-#	var map_list = [rbay]
-#	var map_list = [lisland]
-	
-	
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 	
 	
@@ -107,4 +104,5 @@ func finish_round():
 #	for i in range(1,5):
 #		get_node("Team"+str(i))
 	emit_signal("roundFinished")
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
