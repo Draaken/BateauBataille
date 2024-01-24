@@ -17,7 +17,7 @@ func _ready():
 	$Timer.one_shot = true
 	
 
-func _process(delta):
+func _process(_delta):
 	if is_auctionning && can_input:
 		if Input.is_action_pressed(RightControl) && player_infos.coins > 0:
 			auction_more()

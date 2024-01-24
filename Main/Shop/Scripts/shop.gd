@@ -3,7 +3,7 @@ extends Control
 signal shopFinished
 signal auctionFinished
 
-var player = preload("res://Main/Shop/Scenes/PlayerShop.tscn")
+var playerShop = preload("res://Main/Shop/Scenes/PlayerShop.tscn")
 var upgrade_shop = preload("res://Main/Shop/Scenes/upgrade_shop.tscn")
 var upgrade_table = preload("res://Main/Upgrades/UpgradeTables/upgrade_table1.tres")
 
@@ -41,12 +41,12 @@ func _ready():
 	$CandleTimer.start()
 
 
-func _process(delta):
+func _process(_delta):
 	$MarginContainer/GUI/Body/Candle/ProgressBar.value = $CandleTimer.time_left*$MarginContainer/GUI/Body/Candle/ProgressBar.max_value/$CandleTimer.wait_time
 
 func load_player(playerName):
 	
-	var instance = player.instantiate()
+	var instance = playerShop.instantiate()
 	var team 
 #	var team = "Team1"
 	

@@ -11,7 +11,7 @@ var damage_type = "Shore"
 func _init():
 	collision_mask = 0
 	set_collision_layer_value(2, true)
-func _process(delta):
+func _process(_delta):
 	if $CollisionPolygon2D.get_child_count() != 0:
 		$CollisionPolygon2D/Polygon2D.polygon = $CollisionPolygon2D.polygon
 		$CollisionPolygon2D/Polygon2D.color = Color(1, 1, 0.941176, 1)

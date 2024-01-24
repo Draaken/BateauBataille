@@ -26,7 +26,7 @@ func _ready():
 		get_node("/root/Team" + str(i)).team_members = []
 	
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func start():

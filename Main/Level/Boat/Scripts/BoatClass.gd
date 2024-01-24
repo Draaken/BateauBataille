@@ -18,7 +18,6 @@ var ram_damage = 0
 #Parameters
 var speed
 var reload_time
-var hit_points
 var base_rotation_speed
 var rotation_acc
 var rotation_max 
@@ -201,7 +200,7 @@ func check_boost():
 	boost_velocity += boost_velocity_acc
 	
 func take_damage(damage, damage_type):
-	self.hit_points -= damage
+	super(damage, damage_type)
 	
 	if hit_points <= 0:
 		if damage_type == "Canonball" || damage_type == "Boat" || damage_type == "Explosion":

@@ -13,7 +13,13 @@ func _init():
 	dispertion = 0
 	boat = "../../.."
 	
-
+func shoot(shooter):
+	super(shooter)
+	var tween = create_tween()
+	
+	tween.tween_property($Light, "energy", 2.0, 0.1)
+	tween.tween_property($Light, "energy", 0, 0.3)
+	$Light.energy = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

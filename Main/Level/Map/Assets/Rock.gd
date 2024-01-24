@@ -13,7 +13,7 @@ func _init():
 	set_collision_layer_value(2, true)
 	set_collision_layer_value(3, true)
 
-func _process(delta):
+func _process(_delta):
 	if $CollisionPolygon2D.get_child_count() != 0:
 		for i in range(0, get_child_count()):
 			if i == 0:

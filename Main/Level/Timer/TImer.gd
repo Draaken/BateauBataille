@@ -12,7 +12,7 @@ func _ready():
 	$Timer.one_shot = true
 
 
-func _process(delta):
+func _process(_delta):
 	$CenterContainer/Label.text = str(int($Timer.time_left))
 
 func start():

@@ -22,7 +22,7 @@ func _ready():
 
 
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 #func change_menu(old_scene, new_scene_res):

@@ -5,7 +5,7 @@ var random = RandomNumberGenerator.new()
 
 var wind_force = Vector2(0,0)
 var direction = 0
-var magnitude = 45.0
+var magnitude = 70.0
 @export var magnitude_factor = 1.0
 @export var deg_direction = 0
 @export var random_direction : bool = true
@@ -45,7 +45,7 @@ func _ready():
 	$Particles.process_material.angle_min = rad_to_deg(direction) -90
 
 
-func _process(delta):
+func _process(_delta):
 	
 	if Engine.is_editor_hint():
 		for i in range($Arrows.get_child_count()):

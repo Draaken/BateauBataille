@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjj5auhtv2tqa"
-path="res://.godot/imported/Clouds3.png-c1b76fa9f7d662293746cab20f56da9a.ctex"
+uid="uid://b3hgjppr0cnyd"
+path="res://.godot/imported/BlackCloud2.png-0e8c15f029868cc51de5c248fc181885.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Main/Level/Clouds/Clouds3.png"
-dest_files=["res://.godot/imported/Clouds3.png-c1b76fa9f7d662293746cab20f56da9a.ctex"]
+source_file="res://Main/Level/Clouds/Ressources/BlackCloud2.png"
+dest_files=["res://.godot/imported/BlackCloud2.png-0e8c15f029868cc51de5c248fc181885.ctex"]
 
 [params]
 

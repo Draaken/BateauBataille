@@ -1,12 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://6a7axsgn5a41"]
+[gd_scene load_steps=9 format=3 uid="uid://6a7axsgn5a41"]
 
 [ext_resource type="Script" path="res://Main/Level/Clouds/CloudsGenerator.gd" id="1_7x037"]
 [ext_resource type="PackedScene" uid="uid://lyj8w35eajss" path="res://Main/Level/Clouds/cloud.tscn" id="2_56c5v"]
+[ext_resource type="Texture2D" uid="uid://dh7ijx30gmi8s" path="res://Main/Level/Boat/Hit.png" id="3_hlfbt"]
+[ext_resource type="Texture2D" uid="uid://bwpvff2tjw8b6" path="res://Main/Level/Map/Archipello 1/Ressources/island1-1.png" id="4_k7v3k"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5sjsa"]
+
+[sub_resource type="Gradient" id="Gradient_b7nm5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ubx7u"]
+gradient = SubResource("Gradient_b7nm5")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_37n7i"]
+blend_mode = 1
 
 [node name="CloudsGenerator" type="Node2D"]
 script = ExtResource("1_7x037")
 
+[node name="Thunder Filter" type="PointLight2D" parent="."]
+material = SubResource("CanvasItemMaterial_5sjsa")
+position = Vector2(938.5, 555)
+scale = Vector2(31.7031, 19.1563)
+energy = 0.0
+range_layer_min = -1
+range_layer_max = 1
+texture = SubResource("GradientTexture2D_ubx7u")
+
+[node name="Storm Filter" type="CanvasModulate" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_37n7i")
+color = Color(0, 0, 0, 1)
+
 [node name="Cloud" parent="." instance=ExtResource("2_56c5v")]
 visible = false
 
-[node name="Timer" type="Timer" parent="."]
+[node name="CloudTimer" type="Timer" parent="."]
+
+[node name="Hit" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(531, 617)
+texture = ExtResource("3_hlfbt")
+
+[node name="Island1-1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(783, 535)
+texture = ExtResource("4_k7v3k")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bk7osp3xtv1kf"]
+[gd_scene load_steps=27 format=3 uid="uid://bk7osp3xtv1kf"]
 
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Shore.gd" id="1_fb5o8"]
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Tree.gd" id="2_0xdxv"]
@@ -21,6 +21,18 @@
 [ext_resource type="Texture2D" uid="uid://fkwwue2t1t8n" path="res://Main/Level/Map/Assets/Wind/Frames/frame0007.png" id="13_ldlju"]
 [ext_resource type="Texture2D" uid="uid://c017rih0udkfk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0008.png" id="14_4fsq4"]
 [ext_resource type="Texture2D" uid="uid://d344gma6qtttk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0009.png" id="15_s6mob"]
+
+[sub_resource type="Gradient" id="Gradient_xli3v"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.220238, 0.660714)
+colors = PackedColorArray(1, 1, 1, 1, 0.78, 0.59241, 0.4914, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j6pki"]
+gradient = SubResource("Gradient_xli3v")
+width = 300
+height = 300
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lci65"]
 animations = [{
@@ -294,6 +306,15 @@ polygon = PackedVector2Array(876.765, 172.793, 684.941, 93.4592, 536.282, -5.585
 color = Color(1, 1, 0.941176, 1)
 polygon = PackedVector2Array(876.765, 172.793, 684.941, 93.4592, 536.282, -5.58521, 447.076, -74.6924, 373.373, -164.929, 374.961, -225.657, 406.757, -264.566, 471.362, -280.282, 526.292, -279.12, 572.507, -247.379, 633.654, -181.366, 717.033, -108.007, 817.498, -49.078, 921.187, 4.22498, 1055.54, 61.996, 1262.19, 78.7984, 1313.32, 140.989, 1249.56, 208.457, 1121.03, 213.862)
 
+[node name="PointLight2D" type="PointLight2D" parent="Map"]
+visible = false
+z_index = 300
+position = Vector2(1054, 610)
+range_layer_min = -1
+range_layer_max = 1
+texture = SubResource("GradientTexture2D_j6pki")
+texture_scale = 1.65
+
 [node name="Starting Positions" parent="." instance=ExtResource("4_kxnld")]
 
 [node name="P1" parent="Starting Positions" index="0"]
@@ -325,52 +346,61 @@ polygon = PackedVector2Array(-50, 119, -194, 63, -265, -41, -246.184, -110.574, 
 
 [node name="1" parent="Wind/WindZone/Arrows" index="0"]
 position = Vector2(233, -88)
-rotation = 6.66705
+frame_progress = 0.834649
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="1"]
 position = Vector2(-247, -88)
-rotation = 6.66705
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="2"]
 position = Vector2(-273, 8)
-rotation = 6.66705
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="3"]
 position = Vector2(251, -13)
-rotation = 6.66705
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="5" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="4"]
 position = Vector2(182, 84)
-rotation = 6.66705
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="6" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="5"]
 position = Vector2(37, 99)
-rotation = 6.66705
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="7" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="6"]
 position = Vector2(96, 16)
-rotation = 6.66705
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="8" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="7"]
 position = Vector2(0, -50)
-rotation = 6.66705
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="9" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="8"]
 position = Vector2(-87, 25)
-rotation = 6.66705
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="10" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="9"]
 position = Vector2(-208, 90)
-rotation = 6.66705
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="WindZone2" parent="Wind" instance=ExtResource("5_44qmx")]
 position = Vector2(449, -461)
@@ -386,37 +416,43 @@ polygon = PackedVector2Array(-50, 119, -194, 63, -265, -41, -246.184, -110.574, 
 
 [node name="1" parent="Wind/WindZone2/Arrows" index="0"]
 position = Vector2(-106, -35)
-rotation = 6.44835
+frame_progress = 0.834649
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="1"]
 position = Vector2(171, -106)
-rotation = 6.44835
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="2"]
 position = Vector2(26, 36)
-rotation = 6.44835
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="3"]
 position = Vector2(148, 67)
-rotation = 6.44835
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="5" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="4"]
 position = Vector2(-69, 103)
-rotation = 6.44835
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="6" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="5"]
 position = Vector2(170, -13)
-rotation = 6.44835
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="7" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="6"]
 position = Vector2(-140, 65)
-rotation = 6.44835
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.834649
 
 [node name="Pickables" type="Node2D" parent="."]
 

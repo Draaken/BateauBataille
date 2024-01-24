@@ -9,7 +9,7 @@ func _ready():
 	#team_infos is the singleton of the corresponding team
 	team_infos = get_node("/root/" + self.get_name())
 
-func _process(delta):
+func _process(_delta):
 	var temp_coins = 0
 	for i in range (team_infos.team_members.size()):
 		temp_coins += team_infos.team_members[i].coins

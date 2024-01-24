@@ -23,7 +23,7 @@ func _ready():
 	y_min = y_margin
 	
 
-func _process(delta):
+func _process(_delta):
 	
 	self.show()
 	

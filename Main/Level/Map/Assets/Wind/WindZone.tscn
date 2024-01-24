@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c017rih0udkfk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0008.png" id="11_47cw4"]
 [ext_resource type="Texture2D" uid="uid://d344gma6qtttk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0009.png" id="12_40d2e"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ipnrl"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_b4ot3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -78,8 +78,8 @@ curve = SubResource("Curve_my1ai")
 particle_flag_disable_z = true
 emission_shape = 2
 emission_sphere_radius = 128.0
-angle_min = -78.8131
-angle_max = -78.8131
+angle_min = -85.7551
+angle_max = -85.7551
 direction = Vector3(0, 0, 0)
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_1xhaw")
@@ -106,8 +106,9 @@ metadata/_edit_lock_ = true
 [node name="Arrows" type="Node2D" parent="."]
 
 [node name="1" type="AnimatedSprite2D" parent="Arrows"]
-rotation = 5.96061
-sprite_frames = SubResource("SpriteFrames_ipnrl")
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_b4ot3")
+frame_progress = 0.30122
 
 [node name="Particles" type="GPUParticles2D" parent="."]
 visible = false

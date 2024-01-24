@@ -4,7 +4,7 @@ extends Node2D
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var boat_speed = ($"../../..".velocity.length())
 #	$"Particles2D".process_material.scale = 1.5 * boat_speed/100
 	

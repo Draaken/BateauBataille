@@ -14,7 +14,7 @@ var arm_time = 0.1
 var damage_type = "Explosion"
 
 func _ready():
-	
+	hit_points = 0
 	timerExplosion.wait_time = explosion_lifespan
 	timerExplosion.one_shot = true
 	add_child(timerExplosion)
@@ -65,13 +65,14 @@ func arm():
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if is_exploding:
 		for i in range(body_list.size()-1, -1, -1):
 			if body_list[i].is_destructible:
 				damage_target(i)
 
 func take_damage(damage, damage_type):
+	super(damage, damage_type)
 	explode()
 
 func damage_target(i):

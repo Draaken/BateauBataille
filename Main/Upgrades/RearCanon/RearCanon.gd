@@ -25,7 +25,7 @@ func setup(connected_player):
 
 func activate():
 	
-	canon.shoot()
+	canon.shoot(player.get_node("Boat"))
 	
 func desactivate():
 	canon.reload()

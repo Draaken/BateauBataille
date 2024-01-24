@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bp13urvumq37v"]
+[gd_scene load_steps=27 format=3 uid="uid://bp13urvumq37v"]
 
 [ext_resource type="Script" path="res://Main/Level/Boat/Scripts/Boat2.gd" id="1_1noln"]
 [ext_resource type="PackedScene" uid="uid://cm3e6s3hq1woe" path="res://Main/Upgrades/RearCanon/CanonSpecial.tscn" id="2_2tlot"]
@@ -92,6 +92,12 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vmwpx"]
+polygon = PackedVector2Array(-52, -8, -25.3333, -14.6667, -32, -45.3333, -18.6667, -26.6667, -13.3333, 0, -32, 32, -25.3333, 9.33333, -52, 4)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rdiiq"]
+polygon = PackedVector2Array(-1.33333, 14.6667, 1.33334, -5.33333, -1.33333, -16, 22.6667, -12, 42.6667, 0, 18.6667, 14.6667)
 
 [node name="Boat2" type="CharacterBody2D"]
 z_index = 2
@@ -218,6 +224,13 @@ offset_left = -2.0
 offset_top = -9.0
 offset_right = 38.0
 offset_bottom = 14.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_vmwpx")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_rdiiq")
+occluder_light_mask = 1023
 
 [editable path="Canons/LeftCanons/1"]
 [editable path="Canons/RightCanons/1"]
