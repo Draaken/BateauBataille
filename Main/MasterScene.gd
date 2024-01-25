@@ -34,6 +34,7 @@ func _process(_delta):
 
 #Load the team selection scene to the tree
 func load_selection():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var instance = selection.instantiate()
 	add_child(instance)
 	$SelectionScreen.connect("startGame", Callable(self, "selectionFinished"))
@@ -50,6 +51,7 @@ func selectionCancelled():
 
 #Load the main level scene to the tree
 func load_level():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$Loading.show()
 	
 	var instance = level.instantiate()
@@ -84,6 +86,7 @@ func choose_map():
 #________________________________________________________________________
 	
 func load_shop():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var instance = shop.instantiate()
 	add_child(instance)
 	$"Shop".hide()
@@ -92,4 +95,5 @@ func load_shop():
 func shopFinished():
 	load_level()
 	remove_child($Shop)
+	
 	

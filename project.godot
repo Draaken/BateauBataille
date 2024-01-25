@@ -13,6 +13,7 @@ config_version=5
 config/name="BateauBataille"
 run/main_scene="res://Main/MasterScene.tscn"
 config/features=PackedStringArray("4.2")
+boot_splash/bg_color=Color(0, 0.623529, 0.635294, 1)
 config/icon="res://icon.png"
 
 [autoload]

@@ -5,6 +5,18 @@
 [node name="SelectionScreen" type="Node2D"]
 script = ExtResource("1_2r5w2")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.470588, 0.211765, 0.172549, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 675.0
+offset_top = 100.0
+offset_right = 892.0
+offset_bottom = 265.0
+color = Color(0.690196, 0.345098, 0.207843, 1)
+
 [node name="Button" type="Button" parent="."]
 offset_left = 1610.0
 offset_top = 906.0
@@ -31,6 +43,10 @@ layout_mode = 2
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/Player1"]
 layout_mode = 2
 
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Player1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
 [node name="Player2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -42,6 +58,10 @@ text = "Player 2"
 layout_mode = 2
 
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/Player2"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Player2"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
 [node name="Player3" type="HBoxContainer" parent="VBoxContainer"]
@@ -57,6 +77,10 @@ layout_mode = 2
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/Player3"]
 layout_mode = 2
 
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Player3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
 [node name="Player4" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -68,6 +92,10 @@ text = "Player 4"
 layout_mode = 2
 
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/Player4"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Player4"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
 [connection signal="pressed" from="Button" to="." method="start"]
