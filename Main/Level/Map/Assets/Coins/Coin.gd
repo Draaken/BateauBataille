@@ -1,6 +1,6 @@
 extends Node2D
 #script of the coin spawnpoint
-var value = 5
+var value = 1
 
 # Declare member variables here. Examples:
 # var a = 2

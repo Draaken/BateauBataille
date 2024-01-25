@@ -3,6 +3,7 @@ extends CanvasLayer
 var level = preload("res://Main/Level/Level.tscn")
 var shop = preload("res://Main/Shop/Scenes/shop.tscn")
 var selection = preload("res://Main/Menus/SelectionScreen/selection_screen.tscn")
+var world = preload("res://Main/WorldScreen/WorldScreen.tscn")
 
 #Maps
 var arc1 = preload("res://Main/Level/Map/Archipello 1/Archipello1.tscn")
@@ -22,8 +23,6 @@ func _ready():
 
 
 
-func _process(_delta):
-	pass
 
 #func change_menu(old_scene, new_scene_res):
 #	var instance = new_scene_res.instantiate()
@@ -68,9 +67,10 @@ func load_level():
 	
 	
 func roundFinished():
-	load_shop()
+	load_world()
 	await get_tree().create_timer(2).timeout
-	$"Shop".show()
+	$"WorldScreen".show()
+	$WorldScreen.setup()
 	remove_child($Level)
 	
 func roundCancelled():
@@ -89,11 +89,29 @@ func load_shop():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var instance = shop.instantiate()
 	add_child(instance)
-	$"Shop".hide()
 	$"Shop".connect("shopFinished", Callable(self, "shopFinished"))
 	
 func shopFinished():
 	load_level()
 	remove_child($Shop)
+	
+#________________________________________________________________________
+
+func load_world():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	var instance = world.instantiate()
+	add_child(instance)
+	$"WorldScreen".hide()
+	$"WorldScreen".connect("worldFinished", Callable(self, "worldFinished"))
+	$"WorldScreen".connect("gameEnded", Callable(self, "gameEnded"))
+	
+	
+func worldFinished():
+	load_shop()
+	remove_child($WorldScreen)
+	
+func gameEnded():
+	load_selection()
+	remove_child($WorldScreen)
 	
 	

@@ -1,8 +1,114 @@
-[gd_scene format=3 uid="uid://8oqaclp0rl0h"]
+[gd_scene load_steps=7 format=3 uid="uid://8oqaclp0rl0h"]
+
+[ext_resource type="Script" path="res://Main/WorldScreen/WorldScreen.gd" id="1_070el"]
+[ext_resource type="Texture2D" uid="uid://calcfgmv6mrig" path="res://Main/WorldScreen/VictoryScreen.png" id="2_0jk4v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy7uq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bncw"]
+bg_color = Color(1, 0, 0.509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psotb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssyo5"]
+bg_color = Color(0, 0.619608, 0.654902, 1)
 
 [node name="WorldScreen" type="Node2D"]
+script = ExtResource("1_070el")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.470588, 0.211765, 0.172549, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0.690196, 0.345098, 0.207843, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Team2Progress" type="ProgressBar" parent="CenterContainer/MarginContainer/MarginContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(650, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_jy7uq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6bncw")
+max_value = 2.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Team1Progress" type="ProgressBar" parent="CenterContainer/MarginContainer/MarginContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(650, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_psotb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ssyo5")
+max_value = 2.0
+value = 1.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 301
+
+[node name="Middle" type="ColorRect" parent="CenterContainer/MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 40)
+layout_mode = 2
+color = Color(0, 0.619608, 0.690196, 1)
+
+[node name="Middle3" type="ColorRect" parent="CenterContainer/MarginContainer/MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Middle4" type="ColorRect" parent="CenterContainer/MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Middle5" type="ColorRect" parent="CenterContainer/MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="Middle6" type="ColorRect" parent="CenterContainer/MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Middle7" type="ColorRect" parent="CenterContainer/MarginContainer/MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Middle9" type="ColorRect" parent="CenterContainer/MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(1, 0, 0.509804, 1)
+
+[node name="VictoryScreen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(959.25, 541.75)
+scale = Vector2(1.21554, 1.15364)
+texture = ExtResource("2_0jk4v")
