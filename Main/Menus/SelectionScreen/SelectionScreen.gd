@@ -87,6 +87,10 @@ func player_leaves(player):
 		var team_color_rect = get_node("VBoxContainer/" + player.get_name() + "/ColorRect")
 		team_color_rect.color = Color(1,1,1,1)
 		
+		#Reset the upgrades
+		player.specialUpgrades = []
+		player.basicUpgrades = []
+		
 		#Remove player from the players list
 		for i in range($"..".players_list.size() - 1, -1, -1):
 			if $"..".players_list[i] == player:
@@ -107,7 +111,7 @@ func player_leaves(player):
 			
 			HUDName = "P"+str(i+1)
 			other_player.HUDName = HUDName
-				
+		
 		
 		
 	#	for i in range(1,5):
