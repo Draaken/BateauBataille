@@ -29,14 +29,21 @@ polygon = PackedVector2Array(-22, -29, 36.6829, -28.9602, 36.6829, 59.851, -21.2
 
 [node name="Explosion" type="Area2D" parent="."]
 z_index = 4
-scale = Vector2(1.98253, 1.98253)
+scale = Vector2(1.54253, 1.54253)
 collision_layer = 6
 collision_mask = 6
 
 [node name="Radius" type="CollisionShape2D" parent="Explosion"]
 shape = SubResource("CircleShape2D_1tq1a")
 
+[node name="Polygon2D2" type="Polygon2D" parent="Explosion"]
+position = Vector2(5.83457, -3.24143)
+rotation = -0.596905
+scale = Vector2(0.966641, 0.966641)
+color = Color(1, 0.65098, 0, 1)
+polygon = PackedVector2Array(-16.8399, -9.82267, -59, -36, -11, -15, -6.95812, -54.1922, 3.96892, -7.03322, 43.2706, -33.8414, 10.0274, 1.94942, 51.672, 25.386, 6.94711, 13.6409, 21, 64, -5, 17, -42.7805, 41.4724, -12.6877, 4.35139, -70.2566, -6.39192)
+
 [node name="Polygon2D" type="Polygon2D" parent="Explosion"]
 position = Vector2(3, -1)
 scale = Vector2(1.13669, 1.13669)
-polygon = PackedVector2Array(-22, -6, -59, -36, -11, -15, -10, -75, 10, -15, 52, -50, 18, -5, 68, 16, 16, 10, 21, 64, -5, 17, -54, 62, -26, 17, -92, -1)
+polygon = PackedVector2Array(-22, -6, -48.2655, -34.4806, -11, -15, -8.34252, -62.4266, 10, -15, 44.1276, -39.6135, 18, -5, 58.9561, 13.427, 16, 10, 19.6035, 56.2015, -5, 17, -43.7028, 48.2169, -26, 17, -65.9456, -0.260908)

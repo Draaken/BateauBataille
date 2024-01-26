@@ -199,6 +199,8 @@ func update():
 	
 	$"Boat/BoatSprite".frames = player_infos.sprite
 	$Boat.hit_points = player_infos.hit_points
+	$Boat.speed = player_infos.speed
+	$Boat.is_wind_imune = player_infos.is_wind_imune
 	$BoatHUD/PlayerName.text = player_infos.HUDName
 	$BoatHUD/HP.self_modulate = team.team_infos.color
 	$BoatHUD/HP.max_value = $Boat.hit_points

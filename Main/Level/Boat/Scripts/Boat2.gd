@@ -17,6 +17,7 @@ func setup():
 	base_rotation_speed = 0.5
 	friction = 1.5
 	delay = 1
+	is_wind_imune = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ctpms780faw4n"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/Speed1/Speed1.gd" id="1_in7dy"]
+
+[resource]
+script = ExtResource("1_in7dy")

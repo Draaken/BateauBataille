@@ -18,6 +18,7 @@ var ram_damage = 0
 #Parameters
 var speed
 var reload_time
+var is_wind_imune
 var base_rotation_speed
 var rotation_acc
 var rotation_max 
@@ -34,6 +35,8 @@ var has_rammed = false
 var is_sunk = false
 var is_ashore = false
 var is_in_wind = false
+
+
 var wind_zone = null
 var can_move
 var can_shoot
@@ -171,6 +174,8 @@ func check_wind():
 		var dot_product = wind_zone.wind_force.normalized().dot(velocity.normalized())
 		wind_velocity_goal = wind_zone.magnitude * (dot_product + 0.2) # the +0.2 is so the boat is less slowed down than accelarated
 		
+		if is_wind_imune && wind_velocity_goal < 0:
+			wind_velocity_goal = 0
 	else:
 		wind_velocity_goal = 0
 		
