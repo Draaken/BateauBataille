@@ -43,7 +43,6 @@ func _physics_process(delta):
 		
 
 func explode(target):
-	velocity = Vector2(0,0)
 	timerExplode.connect("timeout", Callable(self, "end"))
 	timerExplode.wait_time = 2
 	timerExplode.one_shot = true
@@ -58,6 +57,10 @@ func explode(target):
 	
 	if target.is_destructible:
 		target.take_damage(damage, "Canonball")
+		
+	target.get_pushed(velocity/3.5)
+	
+	velocity = Vector2(0,0)
 	
 func splash():
 	timerSplash.connect("timeout", Callable(self, "end"))

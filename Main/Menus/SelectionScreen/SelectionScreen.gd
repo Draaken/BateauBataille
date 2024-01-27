@@ -50,6 +50,7 @@ func joinSwitch(button_pressed, player):
 		player_leaves(get_node("/root/"+player))
 
 func player_joins(player):
+	player.reset()
 	player.is_playing = true
 	
 	var player_name = player.get_name()
@@ -88,8 +89,7 @@ func player_leaves(player):
 		team_color_rect.color = Color(1,1,1,1)
 		
 		#Reset the upgrades
-		player.specialUpgrades = []
-		player.basicUpgrades = []
+		
 		
 		#Remove player from the players list
 		for i in range($"..".players_list.size() - 1, -1, -1):

@@ -219,7 +219,6 @@ position = Vector2(-4, 6)
 sprite_frames = SubResource("SpriteFrames_1alkk")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = -2.0
 offset_top = -9.0
 offset_right = 38.0

@@ -1,9 +1,9 @@
 extends SpecialMoveClass
 
 
-var speedA = 18
-var speedDA = 3
-var target_speed = 150
+var speedA = 1100
+var speedDA = 200
+var target_velocity_boost = 150
 
 
 func _init():
@@ -28,7 +28,7 @@ func startAcc(boat):
 	boat.has_rammed = false
 	boat.is_dashing = true
 	
-	boat.boost_velocity_goal = target_speed
+	boat.boost_velocity_goal = target_velocity_boost
 	boat.boost = speedA
 	boat.ram_damage = 1
 	

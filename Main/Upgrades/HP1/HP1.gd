@@ -7,4 +7,4 @@ func _init():
 	upgrade_type = "basic"
 
 func setup(player):
-	player.player_infos.hit_points += 1
+	player.get_node("Boat").hit_points += 1

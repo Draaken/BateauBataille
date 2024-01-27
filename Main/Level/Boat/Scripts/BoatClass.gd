@@ -12,7 +12,7 @@ var wind_velocity_acc = 0
 var boost_velocity = 0
 var boost_velocity_acc = 0
 var boost_velocity_goal = 0
-var boost = 5
+var boost
 var ram_damage = 0
 
 #Parameters
@@ -122,12 +122,14 @@ func _process(delta):
 	turn(delta)
 	
 func _physics_process(delta):
+	old_velocity = velocity
+	velocity = Vector2(0,0)
+	super(delta)
+	check_wind(delta)
+	check_boost(delta)
 	
-	check_wind()
-	check_boost()
-			
-#Add to the base speed the different temporarity velocity modifactors actives (wind, dash..)
-	velocity = Vector2(cos(rotation)*(speed+wind_velocity+boost_velocity), sin(rotation)*(speed+wind_velocity+boost_velocity)) 
+	
+	velocity += Vector2(cos(rotation)*(speed), sin(rotation)*(speed)) 
 	$Label.text = str(int(velocity.length()))
 
 	if can_move:
@@ -164,14 +166,16 @@ func turn(delta):
 func shootLeft():
 	$"Canons/LeftCanons".shoot(self)
 
+
 func shootRight():
 	$"Canons/RightCanons".shoot(self)
 		
-func check_wind():
-	var a = 2
+		
+func check_wind(delta):
+	var a = 125
 	var wind_velocity_goal = 0
 	if is_in_wind:
-		var dot_product = wind_zone.wind_force.normalized().dot(velocity.normalized())
+		var dot_product = wind_zone.wind_force.normalized().dot(old_velocity.normalized())
 		wind_velocity_goal = wind_zone.magnitude * (dot_product + 0.2) # the +0.2 is so the boat is less slowed down than accelarated
 		
 		if is_wind_imune && wind_velocity_goal < 0:
@@ -179,20 +183,22 @@ func check_wind():
 	else:
 		wind_velocity_goal = 0
 		
-	if wind_velocity <= wind_velocity_goal+2*a && wind_velocity >= wind_velocity_goal-2*a:
+	if wind_velocity <= wind_velocity_goal+2*a*delta && wind_velocity >= wind_velocity_goal-2*a*delta:
 		wind_velocity = wind_velocity_goal
 		wind_velocity_acc = 0
 	elif wind_velocity < wind_velocity_goal:
 		wind_velocity_acc = a
 	else:
-		wind_velocity_acc = -a
-
-	wind_velocity += wind_velocity_acc
+		wind_velocity_acc = -a * 0.4
 	
-func check_boost():
+	wind_velocity += wind_velocity_acc * delta
+	velocity += Vector2(cos(rotation)*wind_velocity, sin(rotation)*wind_velocity) 
+	
+	
+func check_boost(delta):
 	if boost_velocity != boost_velocity_goal:
 		
-		if boost_velocity <= boost_velocity_goal+2*boost && boost_velocity >= boost_velocity_goal-2*boost:
+		if boost_velocity <= boost_velocity_goal*1.1 && boost_velocity >= boost_velocity_goal*0.8:
 			boost_velocity = boost_velocity_goal
 			boost_velocity_acc = 0
 			
@@ -202,7 +208,8 @@ func check_boost():
 		else:
 			boost_velocity_acc = -boost
 	
-	boost_velocity += boost_velocity_acc
+	boost_velocity += boost_velocity_acc * delta
+	velocity += Vector2(cos(rotation)*boost_velocity, sin(rotation)*boost_velocity) 
 	
 func take_damage(damage, damage_type):
 	super(damage, damage_type)

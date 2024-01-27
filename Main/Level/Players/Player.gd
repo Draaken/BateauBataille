@@ -187,20 +187,25 @@ func unload():
 # Badly named function but it's basicaly called to load the Singleton data into the player
 # when they join the level.
 func update():
+	#Set the base stats based on the singleton provided stats
+	$Boat.hit_points = player_infos.d_hit_points
+	$Boat.speed = player_infos.d_speed
+	$Boat.is_wind_imune = player_infos.d_is_wind_imune
+	
+	#set up the Special for the game
 	if player_infos.specialUpgrades.size() != 0:
 		for i in(player_infos.specialUpgrades.size()):
 			player_infos.specialUpgrades[i].setup(self)
 			
-	else: $"Boat/Upgrades/SpecialMove".hide()
+	else: $"Boat/Upgrades/SpecialMove".hide() #hide the special indicator if not used
 
+	#setup each upgrade ie:add their stat boosts to the base stats
 	for i in(player_infos.basicUpgrades.size()):
 		player_infos.basicUpgrades[i].setup(self)
 	
 	
 	$"Boat/BoatSprite".frames = player_infos.sprite
-	$Boat.hit_points = player_infos.hit_points
-	$Boat.speed = player_infos.speed
-	$Boat.is_wind_imune = player_infos.is_wind_imune
+	
 	$BoatHUD/PlayerName.text = player_infos.HUDName
 	$BoatHUD/HP.self_modulate = team.team_infos.color
 	$BoatHUD/HP.max_value = $Boat.hit_points

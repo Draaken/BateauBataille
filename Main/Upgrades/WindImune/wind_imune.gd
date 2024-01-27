@@ -7,4 +7,4 @@ func _init():
 	upgrade_type = "basic"
 
 func setup(player):
-	player.player_infos.is_wind_imune = true
+	player.get_node("Boat").is_wind_imune = true
