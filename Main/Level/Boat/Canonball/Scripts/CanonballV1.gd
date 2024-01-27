@@ -13,7 +13,6 @@ func _ready():
 	random.randomize()
 	damage = random.randi_range(1,4)
 
-	start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
