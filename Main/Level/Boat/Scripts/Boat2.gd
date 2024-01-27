@@ -1,6 +1,5 @@
 extends BoatClass
 
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -9,7 +8,7 @@ extends BoatClass
 # Called when the node enters the scene tree for the first time.
 func setup():
 	speed = 100
-	var speedfactor= speed/100
+	var speedfactor = speed/100
 	reload_time = 4
 	hit_points = 3
 	rotation_acc = 5

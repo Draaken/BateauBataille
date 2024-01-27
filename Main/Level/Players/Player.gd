@@ -188,9 +188,9 @@ func unload():
 # when they join the level.
 func update():
 	#Set the base stats based on the singleton provided stats
-	$Boat.hit_points = player_infos.d_hit_points
-	$Boat.speed = player_infos.d_speed
-	$Boat.is_wind_imune = player_infos.d_is_wind_imune
+	#$Boat.hit_points = player_infos.d_hit_points
+	#$Boat.speed = player_infos.d_speed
+	#$Boat.is_wind_imune = player_infos.d_is_wind_imune
 	
 	#set up the Special for the game
 	if player_infos.specialUpgrades.size() != 0:
