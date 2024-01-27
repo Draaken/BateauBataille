@@ -8,10 +8,11 @@ extends CanonClass
 
 # Called when the node enters the scene tree for the first time.
 func _init():
+	boat = "../../.."
 	canon_ball = preload("res://Main/Level/Boat/Canonball/Scenes/CanonballV2.tscn")
 	strength = 900
 	dispertion = 0
-	boat = "../../.."
+	
 	
 func shoot(shooter):
 	super(shooter)

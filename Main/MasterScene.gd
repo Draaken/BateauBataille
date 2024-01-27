@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+
+
 var level = preload("res://Main/Level/Level.tscn")
 var shop = preload("res://Main/Shop/Scenes/shop.tscn")
 var selection = preload("res://Main/Menus/SelectionScreen/selection_screen.tscn")
@@ -38,6 +40,18 @@ func load_selection():
 	add_child(instance)
 	$SelectionScreen.connect("startGame", Callable(self, "selectionFinished"))
 	$SelectionScreen.connect("backToMenu", Callable(self, "selectionCancelled"))
+	
+	get_node("/root/Player1").reset()
+	get_node("/root/Player2").reset()
+	get_node("/root/Player3").reset()
+	get_node("/root/Player4").reset()
+	
+	
+	get_node("/root/Team1").reset()
+	get_node("/root/Team2").reset()
+	get_node("/root/Team3").reset()
+	get_node("/root/Team4").reset()
+	
 	
 func selectionFinished():
 	load_level()
@@ -113,5 +127,16 @@ func worldFinished():
 func gameEnded():
 	load_selection()
 	remove_child($WorldScreen)
+	get_node("/root/Player1").reset()
+	get_node("/root/Player2").reset()
+	get_node("/root/Player3").reset()
+	get_node("/root/Player4").reset()
+	
+	
+	get_node("/root/Team1").reset()
+	get_node("/root/Team2").reset()
+	get_node("/root/Team3").reset()
+	get_node("/root/Team4").reset()
+	
 	
 	

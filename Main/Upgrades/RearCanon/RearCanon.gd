@@ -13,7 +13,7 @@ var canon
 # Called when the node enters the scene tree for the first time.
 func _init():
 	upgrade_name = "Rear Canon"
-	upgrade_description = "Boom boom boom"
+	upgrade_description = "Boom, boom, boom"
 	duration = 6
 	cooldown = 6
 	super()

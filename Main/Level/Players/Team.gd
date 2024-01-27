@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 var team_infos
 var other_team
 
