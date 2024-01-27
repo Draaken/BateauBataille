@@ -7,14 +7,15 @@ var target_velocity_boost = 150
 
 
 func _init():
-	upgrade_name = "Dash"
-	upgrade_description = "Wiiiiiiih"
+	upgrade_name = "Ram"
+	upgrade_description = "Evade and ram your ennemies."
 	duration = 0.5
 	cooldown = 4
 	super()
 	
 func setup(connected_player):
 	player = connected_player
+	player.get_node("Boat").connect("rammed", Callable(self, "rammed"))
 
 func activate():
 	
@@ -25,7 +26,6 @@ func desactivate():
 	
 	
 func startAcc(boat):
-	boat.has_rammed = false
 	boat.is_dashing = true
 	
 	boat.boost_velocity_goal = target_velocity_boost
@@ -43,3 +43,10 @@ func endAcc():
 	boat.ram_damage = 0
 		
 	
+func rammed():
+	boat.is_dashing = false
+	
+	boat.boost_velocity_goal = 0
+	boat.boost = speedDA
+	boat.boost_velocity /= 2
+	boat.ram_damage = 0

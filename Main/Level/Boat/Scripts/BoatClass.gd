@@ -29,9 +29,9 @@ var delay
 var former_delay_list = [0]
 
 signal boatSunk
+signal rammed
 
 var is_dashing = false
-var has_rammed = false
 var is_sunk = false
 var is_ashore = false
 var is_in_wind = false
@@ -46,8 +46,7 @@ var color_patern
 
 var damage_type = "Boat"
 #@export_enum("Dash", "RearCanon", "Mines") var special: String = "Dash"
-var special = "None"
-var special_move_path
+
 
 func _init():
 	is_destructible = true
@@ -145,13 +144,16 @@ func _physics_process(delta):
 			
 #			self.take_damage(0, collider_type)
 			if is_dashing:
-				if collider.is_destructible && not has_rammed:
+				if collider.is_movable:
+					collider.get_pushed(velocity)
+				
+				if collider.is_destructible:
 					collider.take_damage(ram_damage, damage_type)
 				
-				if not collider.is_destructible && not has_rammed:
+				if not collider.is_destructible:
 					self.take_damage(0, collider_type)
 					
-				has_rammed = true
+				emit_signal("rammed")
 				
 			elif collider.is_destructible : 
 				collider.take_damage(0, damage_type)
@@ -198,7 +200,7 @@ func check_wind(delta):
 func check_boost(delta):
 	if boost_velocity != boost_velocity_goal:
 		
-		if boost_velocity <= boost_velocity_goal*1.1 && boost_velocity >= boost_velocity_goal*0.8:
+		if boost_velocity <= boost_velocity_goal*1.1 && boost_velocity >= boost_velocity_goal*0.9:
 			boost_velocity = boost_velocity_goal
 			boost_velocity_acc = 0
 			
