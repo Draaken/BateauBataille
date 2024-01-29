@@ -94,6 +94,23 @@ func load_player(playerName, spawn_position):
 	connect("playersLoaded", Callable(instance, "loaded"))
 	connect("roundStart", Callable(instance, "start"))
 	
+	
+func receive_canonball(instance, spawn_position, direction, boat_velocity : Vector2 = Vector2(0,0)):
+	add_child(instance)
+	instance.position = spawn_position
+	instance.rotation = atan2(direction.y, direction.x)
+
+#give the canonball it's velocity from the canon, and the initial velocity from the boat
+	instance.velocity = (direction * instance.velocity_norm)
+	instance.initial_velocity = boat_velocity
+	
+func receive_mine(instance, spawn_position, rotation, arm_time):
+	instance.global_position = spawn_position
+	instance.rotation = rotation
+	instance.arm_time = arm_time
+	add_child(instance)
+	
+	
 func start_game():
 	emit_signal("roundStart")
 #	for i in (players_list.size()-1):

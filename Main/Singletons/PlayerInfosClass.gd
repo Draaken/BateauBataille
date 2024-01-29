@@ -12,7 +12,7 @@ var basicUpgrades = []
 var coins
 var auction_coins
 
-var a = preload("res://Main/Upgrades/Resources/reload1.tres").duplicate()
+var a = preload("res://Main/Upgrades/Resources/rear_canon.tres").duplicate()
 
 func reset():
 	

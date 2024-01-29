@@ -4,7 +4,9 @@ class_name SpecialMoveClass extends UpgradeClass
 
 var is_ready = true
 
+
 var player
+var level
 var boat
 var special
 
@@ -19,6 +21,7 @@ var cooldown = 4
 func _init():
 	upgrade_type = "special"
 	super()
+	
 #	timerCooldown.timeout.connect(Callable(self, "cooldownEnd"))
 #	add_child(timerCooldown)
 #
@@ -34,6 +37,7 @@ func start():
 # Defines the path to the Boat and SpecialMove nodes of the player using the upgrade
 	boat = player.get_node("Boat")
 	special = boat.get_node("Upgrades/SpecialMove")
+	level = player.get_node("/root/MasterScene/Level")
 	
 # Set up the timer nodes already existing in SpecialMove
 	special.get_node("Cooldown").wait_time = cooldown

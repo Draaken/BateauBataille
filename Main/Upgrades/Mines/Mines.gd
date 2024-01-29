@@ -21,7 +21,7 @@ func activate():
 	var instance = mine.instantiate()
 	var spawn = player.get_node("Boat/Upgrades/SpecialMove/MineSpawn")
 #	emit_signal("mine_launched", instance, $MineSpawn.global_position, $MineSpawn.global_rotation, arm_time)
-	player.receive_mine(instance, spawn.global_position, spawn.global_rotation, arm_time)
+	level.receive_mine(instance, spawn.global_position, spawn.global_rotation, arm_time)
 	#Send a signal to the Player so that he create the mine there
 
 

@@ -144,6 +144,8 @@ position = Vector2(12.1, -22)
 [node name="Shot" parent="Canons/LeftCanons/1" index="2"]
 position = Vector2(-1, -67)
 sprite_frames = SubResource("3")
+frame = 0
+frame_progress = 0.0
 
 [node name="Sprite2D" parent="Canons/LeftCanons/1" index="3"]
 animation = &"defaultUp"
@@ -158,6 +160,8 @@ position = Vector2(-11.8, -25)
 [node name="Shot" parent="Canons/RightCanons/1" index="2"]
 position = Vector2(-1, -67)
 sprite_frames = SubResource("3")
+frame = 0
+frame_progress = 0.0
 
 [node name="BoatSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-163, -48)
@@ -219,6 +223,7 @@ position = Vector2(-4, 6)
 sprite_frames = SubResource("SpriteFrames_1alkk")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -2.0
 offset_top = -9.0
 offset_right = 38.0

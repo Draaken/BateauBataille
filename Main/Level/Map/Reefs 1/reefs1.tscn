@@ -497,22 +497,25 @@ polygon = PackedVector2Array(31, -40, 169.746, -91.5323, 323.629, -24.6992, 509.
 
 [node name="1" parent="Wind/WindZone1/Arrows" index="0"]
 position = Vector2(-55, -12)
-rotation = 5.49651
+frame_progress = 0.849072
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="1"]
 position = Vector2(88, 118)
-rotation = 5.49651
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.849072
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="2"]
 position = Vector2(100, 36)
-rotation = 5.49651
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.849072
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="3"]
 position = Vector2(-63, 75)
-rotation = 5.49651
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.849072
 
 [node name="WindZone2" parent="Wind" instance=ExtResource("5_misey")]
 position = Vector2(723, 670)
@@ -530,22 +533,26 @@ polygon = PackedVector2Array(241.072, -213.008, 247.694, -347.389, 211.931, -481
 
 [node name="1" parent="Wind/WindZone2/Arrows" index="0"]
 position = Vector2(-21, -192)
-rotation = 3.32768
+rotation = -3.00197
+frame_progress = 0.849072
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="1"]
 position = Vector2(-21, -322)
-rotation = 3.32768
+rotation = -3.00197
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.849072
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="2"]
 position = Vector2(-105, 139)
-rotation = 3.32768
+rotation = -3.00197
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.849072
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="3"]
 position = Vector2(-57, 5)
-rotation = 3.32768
+rotation = -3.00197
 sprite_frames = SubResource("SpriteFrames_b4ot3")
+frame_progress = 0.849072
 
 [node name="WindZone4" parent="Wind" instance=ExtResource("5_misey")]
 position = Vector2(1415, 700)
@@ -560,22 +567,25 @@ polygon = PackedVector2Array(31, -40, 169.746, -91.5323, 323.629, -24.6992, 509.
 
 [node name="1" parent="Wind/WindZone4/Arrows" index="0"]
 position = Vector2(158, 107)
-rotation = 4.14793
+frame_progress = 0.849072
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone4/Arrows" index="1"]
 position = Vector2(138, 17)
-rotation = 4.14793
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.849072
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone4/Arrows" index="2"]
 position = Vector2(-39, 67)
-rotation = 4.14793
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.849072
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone4/Arrows" index="3"]
 position = Vector2(41, -68)
-rotation = 4.14793
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.849072
 
 [node name="Pickables" type="Node2D" parent="."]
 

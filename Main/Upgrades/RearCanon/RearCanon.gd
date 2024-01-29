@@ -22,13 +22,14 @@ func setup(connected_player):
 	player = connected_player
 	canon = player.get_node("Boat/Upgrades/SpecialMove/RearCanon")
 	canon.show()
+	canon.reload_time = cooldown
 
 func activate():
 	
 	canon.shoot(player.get_node("Boat"))
 	
 func desactivate():
-	canon.reload()
+	pass
 	
 	
 		

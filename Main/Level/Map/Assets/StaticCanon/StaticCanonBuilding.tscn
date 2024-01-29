@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgk1laxkh2fr7"]
+
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/StaticCanon/StaticCanonBuilding.gd" id="1_sjuv0"]
+[ext_resource type="PackedScene" uid="uid://c53pn3j0xfeyx" path="res://Main/Level/Map/Assets/StaticCanon/StaticCanon.tscn" id="2_xgfcy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_veuiq"]
+radius = 575.89
+
+[node name="StaticCanon" type="CharacterBody2D"]
+collision_layer = 6
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_sjuv0")
+
+[node name="RayCast" type="RayCast2D" parent="."]
+collision_mask = 4
+
+[node name="HitBox" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(20, 29, 20, -14, -20, -14, -20, 29)
+
+[node name="DetectionRange" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CircleShape2D_veuiq")
+debug_color = Color(0.992157, 0, 0.247059, 0.419608)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -22.0
+offset_right = 14.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.537255, 0.32549, 0.207843, 1)
+
+[node name="Canon" parent="." instance=ExtResource("2_xgfcy")]
+position = Vector2(0, -14)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 21.0
+color = Color(0.117647, 0.113725, 0.109804, 1)
+
+[node name="LockedIndicator" type="ColorRect" parent="."]
+offset_left = 37.0
+offset_top = -13.0
+offset_right = 77.0
+offset_bottom = 27.0
+color = Color(0, 1, 0, 1)
+
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_target_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_target_exited"]

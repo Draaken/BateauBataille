@@ -34,7 +34,8 @@ func _init():
 
 func _ready():
 #	player_infos = get_node("/root/" + self.get_name())
-	$"Boat".connect("boatSunk", Callable(self, "round_lost"))
+	pass
+	
 	
 	
 
@@ -128,25 +129,6 @@ func _process(delta):
 	$"Boat".rotation_speed += a * delta
 
 
-
-# those funcs are used when the canonball/mine nodes are use by the boat
-# so that the child are parented to the player (not moving) and not the boat
-func receive_canonball(instance, spawn_position, direction, boat_velocity):
-	add_child(instance)
-	instance.position = spawn_position
-	instance.rotation = atan2(direction.y, direction.x)
-
-#give the canonball it's velocity from the canon, and the initial velocity from the boat
-	instance.velocity = (direction * instance.velocity_norm)
-	instance.initial_velocity = boat_velocity
-	
-func receive_mine(instance, spawn_position, rotation, arm_time):
-	instance.global_position = spawn_position
-	instance.rotation = rotation
-	instance.arm_time = arm_time
-	add_child(instance)
-	
-
 	
 	
 func loaded():
@@ -154,10 +136,13 @@ func loaded():
 	$"Boat".global_position = SpawnPosition
 	$"Boat".global_rotation = SpawnRotation
 	
+	$"Boat".team = player_infos.team
+	
+	$"Boat".connect("boatSunk", Callable(self, "round_lost"))
+	
 	self.connect("roundLostSignal", Callable(team, "check_lost"))
 	
 	update()
-	
 	
 #	Timer for the double click check
 	timerL.connect("timeout", Callable(self, "end_double_clickL"))

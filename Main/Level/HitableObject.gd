@@ -4,6 +4,7 @@ class_name HitableObject extends CharacterBody2D
 @export var is_destructible = false
 @export var is_movable = false
 
+var team = 0
 var pushed_velocity = Vector2(0,0)
 var hit_points
 var weight = 1

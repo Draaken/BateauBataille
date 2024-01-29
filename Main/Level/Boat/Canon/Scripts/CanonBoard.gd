@@ -14,7 +14,8 @@ func _ready():
 	pass
 	
 func _process(delta):
-	reload(delta)
+	#reload(delta)
+	pass
 
 func shoot(shooter):
 	for i in range(get_child_count()):
@@ -24,25 +25,23 @@ func shoot(shooter):
 		if child.is_reloaded: 
 			child.shoot(shooter)
 			reload_progress = 0
-
-		
-
+	
 	
 
-func reload(delta):
-	reload_time = $"../..".reload_time * 100
-	
-	reload_progress += 100 * delta
-	if reload_progress >= reload_time:
-		reload_progress = 0
-	
-		for i in range(get_child_count()):
-			var child = get_node(str(i+1))
+#func reload(delta):
+	#reload_time = $"../..".reload_time * 100
+	#
+	#reload_progress += 100 * delta
+	#if reload_progress >= reload_time:
+		#reload_progress = 0
+	#
+		#for i in range(get_child_count()):
+			#var child = get_node(str(i+1))
 			
 			
-			if child.is_reloaded == false:
-				child.reload()
-				break
+			#if child.is_reloaded == false:
+				#child.reload()
+				#break
 				
 			
 		
