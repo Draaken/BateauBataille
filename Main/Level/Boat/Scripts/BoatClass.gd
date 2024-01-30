@@ -20,6 +20,7 @@ var speed
 var reload_time
 var is_wind_imune
 var base_rotation_speed
+var potential_rotation = 0
 var rotation_acc
 var rotation_max 
 var friction
@@ -162,8 +163,9 @@ func _physics_process(delta):
 	
 	
 func turn(delta):
-	self.rotation += new_rotation_speed*delta
-
+	#self.rotation += new_rotation_speed*delta
+	potential_rotation += new_rotation_speed*delta
+	rotation = snapped(potential_rotation, PI/32)
 
 func shootLeft():
 	$"Canons/LeftCanons".shoot(self)

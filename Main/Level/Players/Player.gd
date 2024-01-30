@@ -128,7 +128,6 @@ func _process(delta):
 		
 	$"Boat".rotation_speed += a * delta
 
-
 	
 	
 func loaded():
