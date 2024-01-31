@@ -42,7 +42,7 @@ func seek_target(delta):
 	rotation += r_velocity
 	
 	if $RayCast.get_collider() == target:
-		$LockedIndicator.show()
+		#$LockedIndicator.show()
 		if angle_to_target < PI/32 && angle_to_target > -PI/32:
 			if  canon.is_reloaded && random.randf_range(0,1) > 0.99:
 			#randomness factor so that the gun don't instantly shoot when reloaded

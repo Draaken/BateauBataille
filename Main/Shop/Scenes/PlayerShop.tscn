@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Main/Shop/Scripts/PlayerShop.gd" id="1_agdxq"]
 
-[node name="PlayerShop1" type="Node2D"]
+[node name="PlayerShop" type="Node2D"]
 script = ExtResource("1_agdxq")
 
 [node name="Timer" type="Timer" parent="."]
