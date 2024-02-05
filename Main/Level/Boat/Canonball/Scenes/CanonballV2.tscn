@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b227jly8jlf4u"]
+[gd_scene load_steps=19 format=3 uid="uid://b227jly8jlf4u"]
 
 [ext_resource type="Texture2D" uid="uid://bdv2t2pf0rjhb" path="res://Main/Level/Boat/Canonball/Ressources/Boulet.png" id="1"]
 [ext_resource type="Script" path="res://Main/Level/Boat/Canonball/Scripts/CanonballV2.gd" id="2"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://sp8jknymm2gw" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0008.png" id="10_lfmn0"]
 [ext_resource type="Texture2D" uid="uid://dp4xkjs5q4pct" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0009.png" id="11_ffh11"]
 [ext_resource type="Texture2D" uid="uid://cotcgaxn2i6o2" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0010.png" id="12_xsana"]
+[ext_resource type="AudioStream" uid="uid://bf2r83ofm5pb7" path="res://Main/Sounds/Placeholders/splash.mp3" id="15_sjvtt"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 2.66667
@@ -106,3 +107,7 @@ scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_65yc0")
 frame = 13
 frame_progress = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_sjvtt")
+volume_db = -8.288

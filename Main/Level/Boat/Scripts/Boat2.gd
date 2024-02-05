@@ -7,7 +7,7 @@ extends BoatClass
 
 # Called when the node enters the scene tree for the first time.
 func setup():
-	speed = 100
+	speed = 110
 	var speedfactor = speed/100
 	reload_time = 4
 	hit_points = 3

@@ -1,7 +1,12 @@
 class_name BoatClass extends HitableObject
 
 
-
+var sound_coin = preload("res://Main/Sounds/Placeholders/coin_pickup.mp3")
+var sound_damage = preload("res://Main/Sounds/Placeholders/boat_hit_shitty.mp3")
+var sound_sink = preload("res://Main/Sounds/Placeholders/ship_sink.mp3")
+var sound_shore1 = preload("res://Main/Sounds/Placeholders/boat_shore1.mp3")
+var sound_shore2 = preload("res://Main/Sounds/Placeholders/boat_shore2.mp3")
+var sound_shore3 = preload("res://Main/Sounds/Placeholders/boat_shore3.mp3")
 #var timerReload = Timer.new()
 
 var new_rotation_speed
@@ -158,7 +163,6 @@ func _physics_process(delta):
 			elif collider.is_destructible : 
 				collider.take_damage(0, damage_type)
 				
-			
 	
 	
 func turn(delta):
@@ -216,6 +220,8 @@ func check_boost(delta):
 func take_damage(damage, damage_type):
 	super(damage, damage_type)
 	
+	
+	
 	if hit_points <= 0:
 		if damage_type == "Canonball" || damage_type == "Boat" || damage_type == "Explosion":
 			sink()
@@ -225,6 +231,14 @@ func take_damage(damage, damage_type):
 	if damage != 0:
 		$Cosmetic/Hit.show()
 		$Cosmetic/Hit/Sprite.play()
+		
+		if hit_points > 0:
+			$AudioStreamPlayer.stream = sound_damage
+			$AudioStreamPlayer.play()
+			
+		
+		
+		
 	
 
 func sink():
@@ -233,6 +247,10 @@ func sink():
 	can_move = false
 	can_shoot = false
 	z_index = -10
+	
+	$AudioStreamPlayer.stream = sound_sink
+	$AudioStreamPlayer.volume_db = 7
+	$AudioStreamPlayer.play()
 	
 	emit_signal("boatSunk")
 	
@@ -254,3 +272,5 @@ func ashore():
 	
 func pick_up_coin(value):
 	$"..".coins += value
+	$"AudioStreamPlayer".stream = sound_coin
+	$"AudioStreamPlayer".play()

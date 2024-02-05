@@ -2,7 +2,6 @@ class_name CanonBoard extends Node2D
 
 var timerReload = Timer.new()
 var reload_progress = 0
-var reload_time 
 
 # Declare member variables here. Examples:
 # var a = 2

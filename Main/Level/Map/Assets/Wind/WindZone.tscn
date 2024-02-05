@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpslmth6hcujn"]
+[gd_scene load_steps=20 format=3 uid="uid://cpslmth6hcujn"]
 
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Wind/WindZone.gd" id="1_iuve3"]
 [ext_resource type="Texture2D" uid="uid://dbw0yba7iqmp3" path="res://Main/Level/UI/Arrow/frame0001.png" id="3_tb6fj"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://fkwwue2t1t8n" path="res://Main/Level/Map/Assets/Wind/Frames/frame0007.png" id="10_ood5a"]
 [ext_resource type="Texture2D" uid="uid://c017rih0udkfk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0008.png" id="11_47cw4"]
 [ext_resource type="Texture2D" uid="uid://d344gma6qtttk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0009.png" id="12_40d2e"]
+[ext_resource type="AudioStream" uid="uid://dodbjxippfpif" path="res://Main/Sounds/Placeholders/wind.mp3" id="13_sut7c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b4ot3"]
 animations = [{
@@ -78,8 +79,8 @@ curve = SubResource("Curve_my1ai")
 particle_flag_disable_z = true
 emission_shape = 2
 emission_sphere_radius = 128.0
-angle_min = -106.509
-angle_max = -106.509
+angle_min = -104.906
+angle_max = -104.906
 direction = Vector3(0, 0, 0)
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_1xhaw")
@@ -106,8 +107,9 @@ metadata/_edit_lock_ = true
 [node name="Arrows" type="Node2D" parent="."]
 
 [node name="1" type="AnimatedSprite2D" parent="Arrows"]
-rotation = 2.95688
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_b4ot3")
+frame_progress = 0.989127
 
 [node name="Particles" type="GPUParticles2D" parent="."]
 visible = false
@@ -115,3 +117,6 @@ amount = 6
 process_material = SubResource("ParticleProcessMaterial_lo4xg")
 texture = ExtResource("3_tb6fj")
 lifetime = 5.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_sut7c")

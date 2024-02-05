@@ -5,8 +5,10 @@ var r_acc = 0.6 #cosnt
 var target_list = []
 var target
 var is_locked = false
+var can_move = true
 var canon
-var reload_time = 6
+var reload_time = 3
+var aim_time = 0.5
 var random = RandomNumberGenerator.new()
 
 func _ready():
@@ -15,6 +17,7 @@ func _ready():
 	team = 0
 	is_destructible = true
 	hit_points = 3
+	can_move = true
 	
 	canon = $Canon
 	canon.reload_time = reload_time
@@ -23,7 +26,7 @@ func _ready():
 
 func _physics_process(delta):
 	$LockedIndicator.hide()
-	if is_locked:
+	if is_locked && can_move:
 		seek_target(delta)
 		
 	
@@ -44,8 +47,20 @@ func seek_target(delta):
 	if $RayCast.get_collider() == target:
 		#$LockedIndicator.show()
 		if angle_to_target < PI/32 && angle_to_target > -PI/32:
-			if  canon.is_reloaded && random.randf_range(0,1) > 0.99:
-			#randomness factor so that the gun don't instantly shoot when reloaded
+			if  canon.is_reloaded && random.randf_range(0,1) > 0.9:
+				#randomness factor so that the gun don't instantly shoot when reloaded
+				
+				#stop the canon from rotating briefly before shooting, to mess with the aim
+				can_move = false
+				
+				$AimTimer.wait_time = aim_time
+				$AimTimer.one_shot = true
+				$AimTimer.start()
+				
+				await $AimTimer.timeout
+				
+				can_move = true
+			
 				canon.shoot(self)
 		
 	

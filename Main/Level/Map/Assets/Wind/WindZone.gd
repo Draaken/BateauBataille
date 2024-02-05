@@ -72,10 +72,20 @@ func randomize_wind():
 	magnitude *= magnitude_factor
 
 func _on_entrance(body):
+	
 	body.is_in_wind = true
 	body.wind_zone = self
+	
+	var tween = get_tree().create_tween()
+	$AudioStreamPlayer.playing = true
+	$AudioStreamPlayer.volume_db = -20
+	tween.tween_property($AudioStreamPlayer, "volume_db", -8, 1)
 
 func _on_exit(body):
+	
 	body.is_in_wind = false
 	body.wind_zone = null
+	var tween = get_tree().create_tween()
+	tween.tween_property($AudioStreamPlayer, "volume_db", -20, 1)
 	
+	$AudioStreamPlayer.playing = false

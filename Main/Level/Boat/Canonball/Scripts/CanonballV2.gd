@@ -10,7 +10,7 @@ extends CanonballClass
 func _ready():
 	lifespan = 0.6
 	damage = 1
-	super()
+	super() 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

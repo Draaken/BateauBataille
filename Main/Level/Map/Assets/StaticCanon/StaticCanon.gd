@@ -10,7 +10,7 @@ extends CanonClass
 func _ready():
 	super()
 	canon_ball = preload("res://Main/Level/Boat/Canonball/Scenes/CanonballV2.tscn")
-	strength = 500
+	strength = 700
 	dispertion = 5
 	boat = null
 	

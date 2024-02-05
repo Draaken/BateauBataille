@@ -1,6 +1,7 @@
 extends Node2D
 
 var player = preload("res://Main/Level/Players/Player.tscn")
+var sound_bell = preload("res://Main/Sounds/Placeholders/double_bell.mp3")
 
 #var player1 = preload("res://Players/Player1.tscn")
 #var player2 = preload("res://Players/Player2.tscn")
@@ -49,7 +50,12 @@ func _ready():
 	emit_signal("playersLoaded")
 	connect("roundStart", Callable($"RoundTimer", "start"))
 	
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1.5).timeout
+	
+	$AudioStreamPlayer.stream = sound_bell
+	$AudioStreamPlayer.play()
+	
+	await get_tree().create_timer(0.5).timeout
 	
 	start_game()
 	
@@ -104,18 +110,19 @@ func receive_canonball(instance, spawn_position, direction, boat_velocity : Vect
 	instance.velocity = (direction * instance.velocity_norm)
 	instance.initial_velocity = boat_velocity
 	
-func receive_mine(instance, spawn_position, rotation, arm_time):
+func receive_mine(instance, spawn_position, spawn_rotation, arm_time):
 	instance.global_position = spawn_position
-	instance.rotation = rotation
+	instance.rotation = spawn_rotation
 	instance.arm_time = arm_time
 	add_child(instance)
 	
 	
 func start_game():
 	emit_signal("roundStart")
-#	for i in (players_list.size()-1):
-#		players_list[i].SpawnPosition = (map.get_node("Starting Positions/" + spawn_position)).position
-#		players_list[i].SpawnRotation = (map.get_node("Starting Positions/" + spawn_position)).rotation
+	
+	
+	
+#	
 func finish_round():
 #	for i in range(1,5):
 #		get_node("Team"+str(i))

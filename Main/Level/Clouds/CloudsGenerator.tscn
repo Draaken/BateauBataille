@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://6a7axsgn5a41"]
+[gd_scene load_steps=7 format=3 uid="uid://6a7axsgn5a41"]
 
 [ext_resource type="Script" path="res://Main/Level/Clouds/CloudsGenerator.gd" id="1_7x037"]
 [ext_resource type="PackedScene" uid="uid://lyj8w35eajss" path="res://Main/Level/Clouds/cloud.tscn" id="2_56c5v"]
-[ext_resource type="Texture2D" uid="uid://dh7ijx30gmi8s" path="res://Main/Level/Boat/Hit.png" id="3_hlfbt"]
-[ext_resource type="Texture2D" uid="uid://bwpvff2tjw8b6" path="res://Main/Level/Map/Archipello 1/Ressources/island1-1.png" id="4_k7v3k"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5sjsa"]
 
@@ -38,12 +36,4 @@ visible = false
 
 [node name="CloudTimer" type="Timer" parent="."]
 
-[node name="Hit" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(531, 617)
-texture = ExtResource("3_hlfbt")
-
-[node name="Island1-1" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(783, 535)
-texture = ExtResource("4_k7v3k")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

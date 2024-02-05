@@ -15,8 +15,8 @@ var reef1 = preload("res://Main/Level/Map/Reefs 1/reefs1.tscn")
 
 var random = RandomNumberGenerator.new()
 
-#var map_list = [arc1, rbay, lisland, reef1]
-var map_list = [arc1]
+var map_list = [arc1, rbay, lisland, reef1]
+#var map_list = [rbay]
 
 var players_list = []
 

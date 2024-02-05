@@ -105,6 +105,8 @@ func splash():
 				$SplashSprite.frame = 0
 				$SplashSprite.show()
 				$SplashSprite.play()
+				
+				$"AudioStreamPlayer".play()
 			_:
 				pass
 		

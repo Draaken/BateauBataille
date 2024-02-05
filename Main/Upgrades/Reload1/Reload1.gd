@@ -8,4 +8,4 @@ func _init():
 
 func setup(player):
 	player.get_node("Boat").reload_time -= 0.5
-	clamp(player.get_node("Boat").reload_time, 0.0, 100.0)
+	player.get_node("Boat").reload_time = clamp(player.get_node("Boat").reload_time, 0.1, 100.0)

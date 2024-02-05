@@ -1,6 +1,7 @@
 extends Node2D
 #script of the coin spawnpoint
 var value = 1
+var is_active = false
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -46,6 +47,7 @@ func desactivate():
 
 func on_pick_up(body):
 	print("picked up")
+	is_active = false
 	body.pick_up_coin(value)
-	$"../..".respawn()
+	$"../..".spawn()
 	self.desactivate()

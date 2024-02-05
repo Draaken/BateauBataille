@@ -47,7 +47,7 @@ shape = SubResource("1")
 [node name="CanonBallSpawn" type="Node2D" parent="."]
 
 [node name="Shot" parent="." instance=ExtResource("2_o6kdh")]
-position = Vector2(0, -46)
+position = Vector2(0, -45)
 frame = 9
 frame_progress = 1.0
 

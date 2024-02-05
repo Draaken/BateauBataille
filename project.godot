@@ -26,7 +26,6 @@ Player1="*res://Main/Singletons/Player1.gd"
 Player2="*res://Main/Singletons/Player2.gd"
 Player3="*res://Main/Singletons/Player3.gd"
 Player4="*res://Main/Singletons/Player4.gd"
-UpgradeData="*res://Level/Boat/Upgrades/UpgradeData.gd"
 
 [display]
 

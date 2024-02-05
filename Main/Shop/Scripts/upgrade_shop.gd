@@ -1,13 +1,13 @@
 extends MarginContainer
 
 
-var upgrade_resource
+var upgrade_ressource
 
 func _ready():
-	$HBoxContainer/VBoxContainer/Name.text = upgrade_resource.upgrade_name
-	$HBoxContainer/VBoxContainer/Description.text = upgrade_resource.upgrade_description
+	$HBoxContainer/VBoxContainer/Name.text = upgrade_ressource.upgrade_name
+	$HBoxContainer/VBoxContainer/Description.text = upgrade_ressource.upgrade_description
 	
-	if upgrade_resource.upgrade_type == "special":
+	if upgrade_ressource.upgrade_type == "special":
 		$HBoxContainer/VBoxContainer/Special.show()
 	
 	unselect()
@@ -15,12 +15,11 @@ func _ready():
 
 func bought(player):
 	
-	$"HBoxContainer/Winner".text = player.HUDName
 	
-	if upgrade_resource.upgrade_type == "special":
-		player.specialUpgrades = [upgrade_resource.duplicate()]
+	if upgrade_ressource.upgrade_type == "special":
+		player.specialUpgrades = [upgrade_ressource.duplicate()]
 	else:
-		player.basicUpgrades.append(upgrade_resource.duplicate())
+		player.basicUpgrades.append(upgrade_ressource.duplicate())
 		
 	self.queue_free()
 	$"..".remove_child(self)
@@ -29,7 +28,10 @@ func bought(player):
 func select(player):
 	$"HBoxContainer/IconContainer/Border".show()
 	$"HBoxContainer/IconContainer/Border".color = player.team_infos.color
+	$"HBoxContainer/Winner".show()
+	$"HBoxContainer/Winner".text = player.player_infos.HUDName
 	
 func unselect():
 	$"HBoxContainer/IconContainer/Border".hide()
+	$"HBoxContainer/Winner".text = ""
 	

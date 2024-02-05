@@ -2,7 +2,14 @@ class_name CanonClass extends Area2D
 
 signal canonball_shooted 
 
+var audio_player = AudioStreamPlayer.new()
+
 var shot = preload("res://Main/Level/Boat/Canon/Scenes/Shot.tscn")
+
+#sounds effects preload
+var sound_shout1 = preload("res://Main/Sounds/Placeholders/canon_shout1.mp3")
+var sound_shout2 = preload("res://Main/Sounds/Placeholders/canon_shout2.mp3")
+var sound_reload = preload("res://Main/Sounds/Placeholders/canon_reload.mp3")
 
 #var shot_position = Vector2()
 #var shot_rotation
@@ -30,11 +37,15 @@ var dispertion = 0
 
 
 func _ready():
+	random.randomize()
 	level = get_node("/root/MasterScene/Level")
 	self.connect("canonball_shooted", Callable(level, "receive_canonball"))
 	reload_timer.one_shot = true
 	reload_timer.connect("timeout", Callable(self, "reload"))
 	add_child(reload_timer)
+	
+	
+	add_child(audio_player)
 	
 #func _process(delta):
 #	if is_shooting:
@@ -60,25 +71,29 @@ func shoot(shooter):
 
 	reload_timer.wait_time = reload_time
 	reload_timer.start()
-#	is_shooting = true
-#	shot_clone = shot.instance()
-#	add_child(shot_clone)
-#	shot_clone.connect("animation_finished", self, "kill_shot_clone")
-#	shot_clone.frame = 0
-#	shot_clone.play()
-#	shot_position = shot_clone.global_position
-#	shot_rotation = shot_clone.global_rotation
+	print(reload_time)
+#
+	match random.randi_range(0,1):
+		0:
+			audio_player.stream = sound_shout1
+		1:
+			audio_player.stream = sound_shout2
+			
+	audio_player.play()
+
 	$"Shot".frame = 0
 	$"Shot".play()
 		
 	is_reloaded = false
-#	self.hide()
+	
 	$Sprite2D.position.y = reload_position.y
-	$Shot.position.y = reload_position.y
+	$Shot.position.y = reload_position.y - 60
 		
 func reload(): 
 	is_reloaded = true
 #	self.show()
+	audio_player.stream = sound_reload
+	audio_player.play()
 	$Sprite2D.position.y = original_position.y
 	$Shot.position.y = original_position.y
 	

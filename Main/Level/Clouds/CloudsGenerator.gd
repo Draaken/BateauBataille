@@ -3,6 +3,7 @@ extends Node2D
 @onready var cloud_timer = $CloudTimer
 var cloud = preload("res://Main/Level/Clouds/cloud.tscn")
 var black_cloud = preload("res://Main/Level/Clouds/black_cloud.tscn")
+var sound_thunder = preload("res://Main/Sounds/Placeholders/thunder.mp3")
 
 
 var weather_mode = "Clear"
@@ -104,7 +105,7 @@ func spawn_cloud(cloud_type):
 		
 		#determine the spawn time of the next cloud
 		var a = random.randfn(0.5, 0.2) - 0.2
-		var n_facteur = clamp(a, 0.0, 1.0) #normal distribution factor used to determine the spawn time
+		var n_facteur = clamp(a, 0.1, 1.0) #normal distribution factor used to determine the spawn time
 		cloud_timer.wait_time = n_facteur / cloud_spawn_factor * 15.0
 		#cloud_spawn_factor is a global parameter used to change the average cloud frequency
 		
@@ -123,5 +124,7 @@ func thunder_effect():
 	$"Thunder Filter".energy = 0
 	tween.tween_property($"Thunder Filter", "energy", 3.0, 0.05)
 	tween.tween_property($"Thunder Filter", "energy", 0.0, 0.3)
+	
+	
 	
 	

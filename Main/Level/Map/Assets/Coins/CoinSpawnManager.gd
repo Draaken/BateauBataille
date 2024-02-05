@@ -12,18 +12,22 @@ var coin_spawners_count
 func _ready():
 	coin_spawners_count = $"CoinList".get_child_count()
 	
+	random.randomize()
 	add_child(timer)
 	timer.one_shot = true
 	
-	respawn()
+	spawn()
 	
-func respawn():
+func spawn():
 	var new_coin
 	var new_coin_number
 	
-	random.randomize()
 	new_coin_number = random.randi_range(0, coin_spawners_count - 1)
 	new_coin = $"CoinList".get_child(new_coin_number)
+	while new_coin.is_active:
+		new_coin_number = random.randi_range(0, coin_spawners_count - 1)
+		new_coin = $"CoinList".get_child(new_coin_number)
+	
 	timer.wait_time = respawn_time * (1.0 - random.randf_range(0.0, respawn_randomness))
 	timer.start()
 	await timer.timeout

@@ -77,11 +77,14 @@ func take_damage(damage, damage_type):
 
 func damage_target(i):
 	var target = body_list[i]
+	body_list.remove_at(i)
+	
+	#wait a little bit if the target is antoher explosive in order to have a nice chain effect
 	if target.damage_type == "Explosion":
 		await get_tree().create_timer(0.08).timeout
 					
 	target.take_damage(1,damage_type)
-	body_list.remove_at(i)
+	
 
 
 func explode():

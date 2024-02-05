@@ -78,15 +78,21 @@ func load_player(playerName):
 	connect("auctionFinished", Callable(instance, "_on_auction_finished"))
 	
 func randomize_upgrades(number):
+	var previous_upgrade = null
 	if upgrade_table is Resource:
 		for i in (number):
 			var instance = upgrade_shop.instantiate()
 			
-			instance.upgrade_resource = upgrade_table.get_upgrade()
-	
+			instance.upgrade_ressource = upgrade_table.get_upgrade()
+			if previous_upgrade != null:
+				while instance.upgrade_ressource == previous_upgrade.upgrade_ressource:
+					instance.upgrade_ressource = upgrade_table.get_upgrade()
+				
 			upgrades_parent.add_child(instance)
 			
 			instance.name = "Upgrade" + str(i+1)
+			
+			previous_upgrade = instance
 	else:
 		print_debug("Upgrade table is not the good format or absent")
 	

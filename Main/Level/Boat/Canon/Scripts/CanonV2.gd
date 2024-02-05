@@ -17,8 +17,14 @@ func _ready():
 	reload_time = boat.reload_time
 	
 	
+	
+	
+	
 func shoot(shooter):
+	reload_time = boat.reload_time
 	super(shooter)
+	
+	
 	
 	#tween.tween_property($Light, "energy", 2.0, 0.1)
 	#tween.tween_property($Light, "energy", 0, 0.3)
