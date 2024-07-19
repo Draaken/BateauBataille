@@ -83,6 +83,7 @@ func explode(target):
 		if target.is_destructible:
 			target.take_damage(damage, "Canonball")
 			
+		
 		target.get_pushed(velocity/3.5)
 
 		velocity = Vector2(0,0)

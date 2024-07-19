@@ -449,38 +449,32 @@ polygon = PackedVector2Array(31, -40, 145, -96, 370, -58, 483, -69, 645, 26, 710
 
 [node name="1" parent="Wind/WindZone1/Arrows" index="0"]
 position = Vector2(25, 63)
-rotation = -1.5708
-frame_progress = 0.56344
+rotation = 6.94171
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="1"]
 position = Vector2(163, 110)
-rotation = -1.5708
+rotation = 6.94171
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="2"]
 position = Vector2(164, 28)
-rotation = -1.5708
+rotation = 6.94171
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="3"]
 position = Vector2(61, -63)
-rotation = -1.5708
+rotation = 6.94171
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="5" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="4"]
 position = Vector2(-189, -93)
-rotation = -1.5708
+rotation = 6.94171
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="6" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="5"]
 position = Vector2(-223, 8)
-rotation = -1.5708
+rotation = 6.94171
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="WindZone2" parent="Wind" instance=ExtResource("18_p7unl")]
 position = Vector2(1585, 567)
@@ -496,50 +490,42 @@ polygon = PackedVector2Array(331.619, 308.168, 396.819, 412.508, 515.977, 400.37
 
 [node name="1" parent="Wind/WindZone2/Arrows" index="0"]
 position = Vector2(74, 155)
-rotation = 1.5708
-frame_progress = 0.56344
+rotation = 3.19299
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="1"]
 position = Vector2(50, 240)
-rotation = 1.5708
+rotation = 3.19299
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="2"]
 position = Vector2(-35, 78)
-rotation = 1.5708
+rotation = 3.19299
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="3"]
 position = Vector2(14, 1)
-rotation = 1.5708
+rotation = 3.19299
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="5" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="4"]
 position = Vector2(-51, -84)
-rotation = 1.5708
+rotation = 3.19299
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="6" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="5"]
 position = Vector2(6, -154)
-rotation = 1.5708
+rotation = 3.19299
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="7" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="6"]
 position = Vector2(7, -305)
-rotation = 1.5708
+rotation = 3.19299
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="8" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="7"]
 position = Vector2(-32, -231)
-rotation = 1.5708
+rotation = 3.19299
 sprite_frames = SubResource("SpriteFrames_3ljf5")
-frame_progress = 0.56344
 
 [node name="Borders" parent="." instance=ExtResource("19_us14n")]
 

@@ -12,11 +12,13 @@ var arc1 = preload("res://Main/Level/Map/Archipello 1/Archipello1.tscn")
 var rbay = preload("res://Main/Level/Map/RingBay/ringbay.tscn")
 var lisland = preload("res://Main/Level/Map/LoneIsland/loneisland.tscn")
 var reef1 = preload("res://Main/Level/Map/Reefs 1/reefs1.tscn")
+var reef2 = preload("res://Main/Level/Map/Reefs 2/reefs2.tscn")
 
 var random = RandomNumberGenerator.new()
 
-var map_list = [arc1, rbay, reef1]
+#var map_list = [arc1, rbay, reef1]
 #var map_list = [rbay]
+var map_list = [reef2]
 
 var players_list = []
 

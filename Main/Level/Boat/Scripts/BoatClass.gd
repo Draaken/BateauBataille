@@ -225,7 +225,7 @@ func take_damage(damage, damage_type):
 	if hit_points <= 0:
 		if damage_type == "Canonball" || damage_type == "Boat" || damage_type == "Explosion":
 			sink()
-		if damage_type == "Shore" || damage_type == "Rock" || damage_type == "Tree":
+		if damage_type == "Shore" || damage_type == "Rock" || damage_type == "Tree" || damage_type == "Planks":
 			sink()
 			
 	if damage != 0:

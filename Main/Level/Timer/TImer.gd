@@ -1,6 +1,6 @@
 extends Node2D
-var round_lenght = 60
-var coin_spawn_time = 5
+var round_lenght = 100
+var coin_spawn_time = 10
 
 signal spawnCoin
 
