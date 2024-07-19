@@ -15,6 +15,7 @@ var map
 signal playersLoaded
 signal roundStart
 
+signal finishingRound
 signal roundFinished
 signal roundCancelled
 
@@ -31,8 +32,15 @@ var wind = Vector2(1,0)
 func _ready():
 
 
+	connect("roundStart", Callable($"RoundTimer", "start"))
+	$RoundTimer.connect("spawnCoin", Callable(map.get_node("Pickables/Coins"), "spawn"))
 	
+	connect("finishingRound", Callable(map.get_node("Pickables/Coins"), "final_pickup"))
 	
+	if $"..".players_list.size() <= 2:
+		$RoundTimer.coin_spawn_time = 10
+	else:
+		$RoundTimer.coin_spawn_time = 5
 	
 	if get_node("/root/Player1").is_playing:
 		load_player("Player1", "P1")
@@ -46,9 +54,8 @@ func _ready():
 	if get_node("/root/Player4").is_playing:
 		load_player("Player4", "P4")
 		
-
 	emit_signal("playersLoaded")
-	connect("roundStart", Callable($"RoundTimer", "start"))
+	
 	
 	await get_tree().create_timer(1.5).timeout
 	
@@ -78,11 +85,11 @@ func load_player(playerName, spawn_position):
 	instance.player_infos = get_node("/root/" + playerName)
 	team = "Team"+ str(instance.player_infos.team)
 	instance.reparent(get_node(team))
+	get_node(team).children_list.append(instance)
 	
 	
 	
 	instance.team = get_node(team)
-#	instance.player_infos.HUDName = "P" + str(players_list.size())
 	
 	
 	print(team)
@@ -123,9 +130,11 @@ func start_game():
 	
 	
 #	
-func finish_round():
+func finish_round(winner_team):
+	emit_signal("finishingRound", winner_team)
 #	for i in range(1,5):
 #		get_node("Team"+str(i))
-	emit_signal("roundFinished")
+	await get_tree().create_timer(2).timeout
+	emit_signal("roundFinished", winner_team)
 	
 	

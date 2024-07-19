@@ -1,24 +1,39 @@
 extends Node2D
 var round_lenght = 60
+var coin_spawn_time = 5
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+signal spawnCoin
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Timer.connect("timeout", Callable(self, "_on_round_end"))
-	$Timer.one_shot = true
-
+	$MainTimer.connect("timeout", Callable(self, "_on_round_end"))
+	$MainTimer.one_shot = true
+	$"MainTimer".wait_time = round_lenght
+	
+	$"CenterContainer/ProgressBar".max_value = round_lenght/coin_spawn_time
+	$"CenterContainer/ProgressBar".value = round_lenght/coin_spawn_time
+	
+	$CoinTimer.connect("timeout", Callable(self, "coin_timer_up"))
+	$CoinTimer.one_shot = true
+	$CoinTimer.wait_time = coin_spawn_time
 
 func _process(_delta):
-	$CenterContainer/Label.text = str(int($Timer.time_left))
+	$CenterContainer/Label.text = str(int($MainTimer.time_left))
 
 func start():
-	$"Timer".wait_time = round_lenght
-	$"Timer".one_shot = true
-	$"Timer".start()
+	
+	$"MainTimer".start()
+	$CoinTimer.start()
 	
 func _on_round_end():
 	pass
+
+func spawn_coin():
+	emit_signal("spawnCoin")
+	$CoinTimer.start()
+	$AudioStreamPlayer.play()
+	
+func coin_timer_up():
+	if $"CenterContainer/ProgressBar".value > 0:
+		spawn_coin()
+		$"CenterContainer/ProgressBar".value -= 1

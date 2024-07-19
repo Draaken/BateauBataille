@@ -164,7 +164,7 @@ func start():
 	$"Boat".can_move = true
 	$"Boat".can_shoot = true
 	
-func unload():
+func unload(_team):
 	player_infos.coins += coins
 	print(player_infos.coins)
 	
@@ -214,7 +214,7 @@ func round_lost():
 
 func end_double_clickL():
 	double_clickableL = false
-	
+
 	
 func end_double_clickR():
 	double_clickableR = false

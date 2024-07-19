@@ -1,12 +1,15 @@
 extends Node2D
 
 var team_infos
+var children_list = []
+var alive_players = []
 var other_team
 
 
 func _ready():
 	#team_infos is the singleton of the corresponding team
 	team_infos = get_node("/root/" + self.get_name())
+	alive_players = children_list
 	
 	match self.get_name():
 		"Team1":
@@ -27,21 +30,21 @@ func _process(_delta):
 #Called by the Player whe they die, to check if every player of the team is dead. If so the team loses
 func check_lost():
 	
-	var team_lost = true
-	for i in (team_infos.team_members.size()-1):
-		
+	for i in (children_list.size()):
 		#print(team_infos.team_members[i].has_lost)
-		
-		if not team_infos.team_members[i].has_lost:
-			team_lost = false
+		if children_list[i].has_lost:
+			for y in range (alive_players.size() -1, -1, -1):
+				if alive_players[y] == children_list[i]:
+					alive_players.remove_at(y)
 			
-	if team_lost == true:
+	if alive_players == []:
 		lost()
 		
 func lost():
 	other_team.win()
-	$"..".finish_round()
+	$"..".finish_round(other_team)
 	team_infos.wins = team_infos.wins
 	
 func win():
 	team_infos.wins += 1
+	

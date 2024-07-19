@@ -5,7 +5,6 @@
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Rock.gd" id="3_hssc5"]
 [ext_resource type="PackedScene" uid="uid://bhk78oqdcbjn8" path="res://Main/Level/Map/Assets/StartingPos/starting_positions.tscn" id="4_v0fjs"]
 [ext_resource type="PackedScene" uid="uid://cpslmth6hcujn" path="res://Main/Level/Map/Assets/Wind/WindZone.tscn" id="5_misey"]
-[ext_resource type="Script" path="res://Main/Level/Map/Assets/Coins/CoinSpawnManager.gd" id="6_88mo6"]
 [ext_resource type="Texture2D" uid="uid://lirei2vkx4r0" path="res://Main/Level/Map/Assets/Wind/Frames/frame0000.png" id="6_fkucv"]
 [ext_resource type="Texture2D" uid="uid://dvbu0uogtlnkc" path="res://Main/Level/Map/Assets/Wind/Frames/frame0001.png" id="7_0g2ld"]
 [ext_resource type="PackedScene" uid="uid://c6qapaqfy407l" path="res://Main/Level/Map/Assets/Coins/CoinSpawn.tscn" id="7_6l1c6"]
@@ -21,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://fkwwue2t1t8n" path="res://Main/Level/Map/Assets/Wind/Frames/frame0007.png" id="13_lixfb"]
 [ext_resource type="Texture2D" uid="uid://c017rih0udkfk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0008.png" id="14_su44h"]
 [ext_resource type="Texture2D" uid="uid://d344gma6qtttk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0009.png" id="15_3v0w7"]
+[ext_resource type="PackedScene" uid="uid://b44hr65pu8eda" path="res://Main/Level/Map/Assets/Coins/CoinsSpawnManager.tscn" id="16_y1nd0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ipnrl"]
 animations = [{
@@ -497,22 +497,26 @@ polygon = PackedVector2Array(31, -40, 169.746, -91.5323, 323.629, -24.6992, 509.
 
 [node name="1" parent="Wind/WindZone1/Arrows" index="0"]
 position = Vector2(-55, -12)
-rotation = 6.0671
+rotation = -1.5708
+frame_progress = 0.563129
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="1"]
 position = Vector2(88, 118)
-rotation = 6.0671
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.563129
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="2"]
 position = Vector2(100, 36)
-rotation = 6.0671
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.563129
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="3"]
 position = Vector2(-63, 75)
-rotation = 6.0671
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.563129
 
 [node name="WindZone2" parent="Wind" instance=ExtResource("5_misey")]
 position = Vector2(723, 670)
@@ -530,22 +534,26 @@ polygon = PackedVector2Array(241.072, -213.008, 247.694, -347.389, 211.931, -481
 
 [node name="1" parent="Wind/WindZone2/Arrows" index="0"]
 position = Vector2(-21, -192)
-rotation = 0.3883
+rotation = -3.00197
+frame_progress = 0.563129
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="1"]
 position = Vector2(-21, -322)
-rotation = 0.3883
+rotation = -3.00197
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.563129
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="2"]
 position = Vector2(-105, 139)
-rotation = 0.3883
+rotation = -3.00197
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.563129
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="3"]
 position = Vector2(-57, 5)
-rotation = 0.3883
+rotation = -3.00197
 sprite_frames = SubResource("SpriteFrames_b4ot3")
+frame_progress = 0.563129
 
 [node name="WindZone4" parent="Wind" instance=ExtResource("5_misey")]
 position = Vector2(1415, 700)
@@ -560,126 +568,150 @@ polygon = PackedVector2Array(31, -40, 169.746, -91.5323, 323.629, -24.6992, 509.
 
 [node name="1" parent="Wind/WindZone4/Arrows" index="0"]
 position = Vector2(158, 107)
-rotation = 5.12743
+rotation = -1.5708
+frame_progress = 0.563129
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone4/Arrows" index="1"]
 position = Vector2(138, 17)
-rotation = 5.12743
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.563129
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone4/Arrows" index="2"]
 position = Vector2(-39, 67)
-rotation = 5.12743
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.563129
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone4/Arrows" index="3"]
 position = Vector2(41, -68)
-rotation = 5.12743
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
+frame_progress = 0.563129
 
 [node name="Pickables" type="Node2D" parent="."]
 
-[node name="Coins" type="Node2D" parent="Pickables"]
-script = ExtResource("6_88mo6")
+[node name="Coins" parent="Pickables" instance=ExtResource("16_y1nd0")]
 
-[node name="CoinList" type="Node2D" parent="Pickables/Coins"]
+[node name="CoinSpawn" parent="Pickables/Coins/CoinSpawnList" index="0" instance=ExtResource("7_6l1c6")]
+position = Vector2(693, 305)
 
-[node name="CoinSpawn1" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(923, 622)
+[node name="CoinSpawn2" parent="Pickables/Coins/CoinSpawnList" index="1" instance=ExtResource("7_6l1c6")]
+position = Vector2(697, 428)
 
-[node name="CoinSpawn2" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(913, 435)
+[node name="CoinSpawn3" parent="Pickables/Coins/CoinSpawnList" index="2" instance=ExtResource("7_6l1c6")]
+position = Vector2(688, 565)
 
-[node name="CoinSpawn5" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(625, 793)
+[node name="CoinSpawn4" parent="Pickables/Coins/CoinSpawnList" index="3" instance=ExtResource("7_6l1c6")]
+position = Vector2(658, 711)
 
-[node name="CoinSpawn6" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(694, 303)
+[node name="CoinSpawn5" parent="Pickables/Coins/CoinSpawnList" index="4" instance=ExtResource("7_6l1c6")]
+position = Vector2(601, 855)
 
-[node name="CoinSpawn7" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(699, 521)
+[node name="CoinSpawn6" parent="Pickables/Coins/CoinSpawnList" index="5" instance=ExtResource("7_6l1c6")]
+position = Vector2(890, 810)
 
-[node name="CoinSpawn8" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1256, 282)
+[node name="CoinSpawn7" parent="Pickables/Coins/CoinSpawnList" index="6" instance=ExtResource("7_6l1c6")]
+position = Vector2(1034, 789)
 
-[node name="CoinSpawn9" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1417, 735)
+[node name="CoinSpawn8" parent="Pickables/Coins/CoinSpawnList" index="7" instance=ExtResource("7_6l1c6")]
+position = Vector2(1089, 643)
 
-[node name="CoinSpawn10" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1221, 667)
+[node name="CoinSpawn9" parent="Pickables/Coins/CoinSpawnList" index="8" instance=ExtResource("7_6l1c6")]
+position = Vector2(1016, 399)
 
-[node name="CoinSpawn11" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1784, 614)
+[node name="CoinSpawn10" parent="Pickables/Coins/CoinSpawnList" index="9" instance=ExtResource("7_6l1c6")]
+position = Vector2(1014, 292)
 
-[node name="CoinSpawn12" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1644, 597)
+[node name="CoinSpawn11" parent="Pickables/Coins/CoinSpawnList" index="10" instance=ExtResource("7_6l1c6")]
+position = Vector2(1358, 753)
 
-[node name="CoinSpawn13" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(239, 805)
+[node name="CoinSpawn12" parent="Pickables/Coins/CoinSpawnList" index="11" instance=ExtResource("7_6l1c6")]
+position = Vector2(1444, 637)
 
-[node name="CoinSpawn14" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(137, 828)
+[node name="CoinSpawn13" parent="Pickables/Coins/CoinSpawnList" index="12" instance=ExtResource("7_6l1c6")]
+position = Vector2(1572, 785)
 
-[node name="CoinSpawn15" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(408, 961)
+[node name="CoinSpawn14" parent="Pickables/Coins/CoinSpawnList" index="13" instance=ExtResource("7_6l1c6")]
+position = Vector2(1474, 724)
 
-[node name="CoinSpawn16" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(775, 722)
+[node name="CoinSpawn15" parent="Pickables/Coins/CoinSpawnList" index="14" instance=ExtResource("7_6l1c6")]
+position = Vector2(1543, 672)
 
-[node name="CoinSpawn17" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(491, 239)
+[node name="CoinSpawn16" parent="Pickables/Coins/CoinSpawnList" index="15" instance=ExtResource("7_6l1c6")]
+position = Vector2(1335, 316)
 
-[node name="CoinSpawn18" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(828, 534)
+[node name="CoinSpawn17" parent="Pickables/Coins/CoinSpawnList" index="16" instance=ExtResource("7_6l1c6")]
+position = Vector2(1207, 304)
 
-[node name="CoinSpawn31" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1581, 907)
+[node name="CoinSpawn18" parent="Pickables/Coins/CoinSpawnList" index="17" instance=ExtResource("7_6l1c6")]
+position = Vector2(1138, 231)
 
-[node name="CoinSpawn19" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1021, 303)
+[node name="CoinSpawn19" parent="Pickables/Coins/CoinSpawnList" index="18" instance=ExtResource("7_6l1c6")]
+position = Vector2(1254, 245)
 
-[node name="CoinSpawn32" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1021, 406)
+[node name="CoinSpawn20" parent="Pickables/Coins/CoinSpawnList" index="19" instance=ExtResource("7_6l1c6")]
+position = Vector2(1862, 494)
 
-[node name="CoinSpawn20" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1540, 373)
+[node name="CoinSpawn21" parent="Pickables/Coins/CoinSpawnList" index="20" instance=ExtResource("7_6l1c6")]
+position = Vector2(1852, 291)
 
-[node name="CoinSpawn21" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1149, 416)
+[node name="CoinSpawn22" parent="Pickables/Coins/CoinSpawnList" index="21" instance=ExtResource("7_6l1c6")]
+position = Vector2(54, 704)
 
-[node name="CoinSpawn22" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1108, 825)
+[node name="CoinSpawn23" parent="Pickables/Coins/CoinSpawnList" index="22" instance=ExtResource("7_6l1c6")]
+position = Vector2(54, 486)
 
-[node name="CoinSpawn23" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1089, 640)
+[node name="CoinSpawn24" parent="Pickables/Coins/CoinSpawnList" index="23" instance=ExtResource("7_6l1c6")]
+position = Vector2(364, 603)
 
-[node name="CoinSpawn24" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(851, 157)
+[node name="CoinSpawn25" parent="Pickables/Coins/CoinSpawnList" index="24" instance=ExtResource("7_6l1c6")]
+position = Vector2(391, 486)
 
-[node name="CoinSpawn25" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1765, 236)
+[node name="CoinSpawn26" parent="Pickables/Coins/CoinSpawnList" index="25" instance=ExtResource("7_6l1c6")]
+position = Vector2(140, 832)
 
-[node name="CoinSpawn26" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(183, 243)
+[node name="CoinSpawn27" parent="Pickables/Coins/CoinSpawnList" index="26" instance=ExtResource("7_6l1c6")]
+position = Vector2(241, 812)
 
-[node name="CoinSpawn28" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(290, 659)
+[node name="CoinSpawn28" parent="Pickables/Coins/CoinSpawnList" index="27" instance=ExtResource("7_6l1c6")]
+position = Vector2(416, 264)
 
-[node name="CoinSpawn29" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(342, 495)
+[node name="CoinSpawn29" parent="Pickables/Coins/CoinSpawnList" index="28" instance=ExtResource("7_6l1c6")]
+position = Vector2(192, 248)
 
-[node name="CoinSpawn30" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(926, 787)
+[node name="CoinSpawn30" parent="Pickables/Coins/CoinSpawnList" index="29" instance=ExtResource("7_6l1c6")]
+position = Vector2(1476, 996)
 
-[node name="CoinSpawn27" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(279, 333)
+[node name="CoinSpawn31" parent="Pickables/Coins/CoinSpawnList" index="30" instance=ExtResource("7_6l1c6")]
+position = Vector2(888, 560)
 
-[node name="CoinSpawn3" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1148, 538)
+[node name="CoinSpawn32" parent="Pickables/Coins/CoinSpawnList" index="31" instance=ExtResource("7_6l1c6")]
+position = Vector2(866, 356)
 
-[node name="CoinSpawn4" parent="Pickables/Coins/CoinList" instance=ExtResource("7_6l1c6")]
-position = Vector2(1148, 538)
-rotation = -0.197255
+[node name="CoinSpawn33" parent="Pickables/Coins/CoinSpawnList" index="32" instance=ExtResource("7_6l1c6")]
+position = Vector2(520, 248)
+
+[node name="CoinSpawn34" parent="Pickables/Coins/CoinSpawnList" index="33" instance=ExtResource("7_6l1c6")]
+position = Vector2(284, 715)
+
+[node name="CoinSpawn35" parent="Pickables/Coins/CoinSpawnList" index="34" instance=ExtResource("7_6l1c6")]
+position = Vector2(1503, 367)
+
+[node name="CoinSpawn36" parent="Pickables/Coins/CoinSpawnList" index="35" instance=ExtResource("7_6l1c6")]
+position = Vector2(1510, 535)
+
+[node name="CoinSpawn37" parent="Pickables/Coins/CoinSpawnList" index="36" instance=ExtResource("7_6l1c6")]
+position = Vector2(1200, 443)
+
+[node name="CoinSpawn38" parent="Pickables/Coins/CoinSpawnList" index="37" instance=ExtResource("7_6l1c6")]
+position = Vector2(1234, 573)
+
+[node name="CoinSpawn39" parent="Pickables/Coins/CoinSpawnList" index="38" instance=ExtResource("7_6l1c6")]
+position = Vector2(850, 995)
+
+[node name="CoinSpawn40" parent="Pickables/Coins/CoinSpawnList" index="39" instance=ExtResource("7_6l1c6")]
+position = Vector2(810, 128)
 
 [node name="Borders" parent="." instance=ExtResource("8_ihp2j")]
 metadata/_edit_lock_ = true
@@ -721,3 +753,4 @@ sprite_frames = SubResource("SpriteFrames_r4jve")
 [editable path="Wind/WindZone1"]
 [editable path="Wind/WindZone2"]
 [editable path="Wind/WindZone4"]
+[editable path="Pickables/Coins"]

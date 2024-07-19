@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctrdw18p6m0cx"]
+
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/Coins/Coin.gd" id="1_vfysw"]
+[ext_resource type="Texture2D" uid="uid://cx3i1in58l6td" path="res://Main/Level/Map/Assets/Coins/frame0000.png" id="2_6mp1n"]
+[ext_resource type="Texture2D" uid="uid://ccrwts50gvsq0" path="res://Main/Level/Map/Assets/Coins/frame0001.png" id="3_jjivj"]
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6mp1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jjivj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 40.0
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_vfysw")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("2")
+frame = 1
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("1")

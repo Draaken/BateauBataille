@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://birorbj7yk111"]
+[gd_scene load_steps=9 format=3 uid="uid://birorbj7yk111"]
 
 [ext_resource type="Script" path="res://Main/Level/Level.gd" id="1_47cpi"]
 [ext_resource type="Script" path="res://Main/HUD/HUD.gd" id="2_gha4v"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" path="res://Main/Level/Players/Team.gd" id="4_21mde"]
 [ext_resource type="Texture2D" uid="uid://cx3i1in58l6td" path="res://Main/Level/Map/Assets/Coins/frame0000.png" id="5_w4ryh"]
 [ext_resource type="Script" path="res://Main/Level/Timer/TImer.gd" id="6_to0an"]
+[ext_resource type="AudioStream" uid="uid://bttdahr3spvy5" path="res://Main/Sounds/Placeholders/coin_drop.mp3" id="7_2gr2t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnxe3"]
+bg_color = Color(0.901961, 0.545098, 0.00784314, 1)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_47cpi")
@@ -116,26 +120,57 @@ uppercase = true
 z_index = 500
 script = ExtResource("6_to0an")
 
-[node name="Timer" type="Timer" parent="RoundTimer"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RoundTimer"]
+stream = ExtResource("7_2gr2t")
+volume_db = 18.0
+
+[node name="MainTimer" type="Timer" parent="RoundTimer"]
+
+[node name="CoinTimer" type="Timer" parent="RoundTimer"]
 
 [node name="CenterContainer" type="CenterContainer" parent="RoundTimer"]
 anchors_preset = 10
 anchor_right = 1.0
+offset_top = 15.0
 offset_right = 960.0
-offset_bottom = 26.0
+offset_bottom = 45.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="ProgressBar" type="ProgressBar" parent="RoundTimer/CenterContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_pnxe3")
+step = 1.0
+show_percentage = false
+
+[node name="ColorRect" type="ColorRect" parent="RoundTimer/CenterContainer/ProgressBar"]
+layout_mode = 2
+offset_left = -5.5
+offset_top = -5.0
+offset_right = 4.5
+offset_bottom = 35.0
+color = Color(0.470588, 0.211765, 0.172549, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="RoundTimer/CenterContainer/ProgressBar"]
+layout_mode = 2
+offset_left = 92.0
+offset_top = -5.0
+offset_right = 102.0
+offset_bottom = 35.0
+color = Color(0.470588, 0.211765, 0.172549, 1)
+
 [node name="Label" type="Label" parent="RoundTimer/CenterContainer"]
+visible = false
 layout_mode = 2
 text = "60"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 998.0
+offset_left = 1075.0
 offset_top = 7.0
-offset_right = 1006.0
+offset_right = 1083.0
 offset_bottom = 15.0
 scale = Vector2(6.4, 4.6)
 

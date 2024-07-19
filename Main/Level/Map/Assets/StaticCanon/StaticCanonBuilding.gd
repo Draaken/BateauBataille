@@ -1,5 +1,6 @@
 extends HitableObject
 
+var is_active = true
 var r_velocity = 0
 var r_acc = 0.6 #cosnt
 var target_list = []
@@ -11,6 +12,11 @@ var reload_time = 3
 var aim_time = 0.5
 var random = RandomNumberGenerator.new()
 
+func desactivate():
+	$DetectionRange.monitoring = false
+	self.hide()
+	is_active = false
+	
 func _ready():
 	super()
 	
@@ -26,7 +32,7 @@ func _ready():
 
 func _physics_process(delta):
 	$LockedIndicator.hide()
-	if is_locked && can_move:
+	if is_active && is_locked && can_move:
 		seek_target(delta)
 		
 	

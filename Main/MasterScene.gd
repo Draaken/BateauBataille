@@ -15,7 +15,7 @@ var reef1 = preload("res://Main/Level/Map/Reefs 1/reefs1.tscn")
 
 var random = RandomNumberGenerator.new()
 
-var map_list = [arc1, rbay, lisland, reef1]
+var map_list = [arc1, rbay, reef1]
 #var map_list = [rbay]
 
 var players_list = []
@@ -81,9 +81,8 @@ func load_level():
 	$Loading.hide()
 	
 	
-func roundFinished():
+func roundFinished(_team):
 	load_world()
-	await get_tree().create_timer(2).timeout
 	$"WorldScreen".show()
 	$WorldScreen.setup()
 	remove_child($Level)

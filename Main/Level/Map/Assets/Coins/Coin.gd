@@ -1,7 +1,10 @@
 extends Node2D
 #script of the coin spawnpoint
 var value = 1
-var is_active = false
+#var is_active = false
+var is_moving_to_target = false
+var distance_to_target = 0
+var speed = 0
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -25,29 +28,36 @@ func _ready():
 	
 	hitbox.connect("body_entered", Callable(self, "on_pick_up"))
 	
-	self.hide()
-	hitbox.monitoring = false
+	hitbox.monitoring = true
 	
 	
+func _process(delta):
+	if is_moving_to_target:
+		self.global_position += speed*delta
+		
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func activate():
-	self.show()
-	$"HitBox".set_deferred("monitoring", true)
-	$"Sprite2D".play()
-
+#func activate():
+	#self.show()
+	#$"HitBox".set_deferred("monitoring", true)
+	#$"Sprite2D".play()
+	#is_active = true
+#
 func desactivate():
+	#is_active = false
 	self.hide()
-	$"HitBox".set_deferred("monitoring", false)
-	$"Sprite2D".stop()
-	print("deleted")
+	self.queue_free()
 
 func on_pick_up(body):
 	print("picked up")
-	is_active = false
 	body.pick_up_coin(value)
-	$"../..".spawn()
+	#$"../..".spawn()
 	self.desactivate()
+	
+func go_toward(body):
+	var direction = global_position.direction_to(body.global_position)
+	speed = distance_to_target*1.8 * direction
+	if distance_to_target <100:
+		speed = 180 * direction
+		
+	is_moving_to_target = true
+	

@@ -2,40 +2,59 @@ extends Node2D
 #script of the coin spawn manager
 var timer = Timer.new()
 var random = RandomNumberGenerator.new()
-
-var respawn_randomness = 0.0
-var respawn_time = 2
 var coin_spawners_count
 
 
 
 func _ready():
-	coin_spawners_count = $"CoinList".get_child_count()
+	coin_spawners_count = $"CoinSpawnList".get_child_count()
 	
 	random.randomize()
-	add_child(timer)
-	timer.one_shot = true
 	
-	spawn()
 	
 func spawn():
-	var new_coin
-	var new_coin_number
+	var new_coin_spawner
+	var new_coin_spawner_number
+	var already_a_coin
 	
-	new_coin_number = random.randi_range(0, coin_spawners_count - 1)
-	new_coin = $"CoinList".get_child(new_coin_number)
-	while new_coin.is_active:
-		new_coin_number = random.randi_range(0, coin_spawners_count - 1)
-		new_coin = $"CoinList".get_child(new_coin_number)
+	new_coin_spawner_number = random.randi_range(0, coin_spawners_count - 1)
+	new_coin_spawner = $"CoinSpawnList".get_child(new_coin_spawner_number)
 	
-	timer.wait_time = respawn_time * (1.0 - random.randf_range(0.0, respawn_randomness))
-	timer.start()
-	await timer.timeout
+	already_a_coin = false
+	for coin in $CoinList.get_children():
+		if coin.position == new_coin_spawner.position:
+			already_a_coin = true
 	
-	new_coin.activate()
+	while already_a_coin:
+		new_coin_spawner_number = random.randi_range(0, coin_spawners_count - 1)
+		new_coin_spawner = $"CoinSpawnList".get_child(new_coin_spawner_number)
+		
+		for coin in $CoinList.get_children():
+			already_a_coin = false
+			if coin.position == new_coin_spawner.position:
+				already_a_coin = true
 	
+	new_coin_spawner.spawn_coin()
 	
-	
+func final_pickup(team):
+	if $CoinList.get_children():
+		for coin in $"CoinList".get_children():
+			var closest_boat
+			var closest_distance
+			for player in team.alive_players:
+				var boat = player.get_node("Boat")
+				var distance = coin.global_position.distance_to(boat.global_position)
+				if closest_distance:
+					if distance < closest_distance:
+						closest_distance = distance
+						closest_boat = boat
+				else:
+					closest_distance = distance
+					closest_boat = boat
+						
+			coin.distance_to_target = closest_distance
+			coin.go_toward(closest_boat)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
