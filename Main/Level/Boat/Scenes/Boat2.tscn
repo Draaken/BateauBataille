@@ -125,7 +125,7 @@ polygon = PackedVector2Array(-9, 3, -13, -1, -9, -5, -5, -1)
 [node name="Active" type="Timer" parent="Upgrades/SpecialMove"]
 
 [node name="MineSpawn" type="Node2D" parent="Upgrades/SpecialMove"]
-position = Vector2(-42, 0)
+position = Vector2(-90.6667, 0)
 
 [node name="RearCanon" parent="Upgrades/SpecialMove" instance=ExtResource("2_2tlot")]
 visible = false
@@ -221,7 +221,6 @@ position = Vector2(-4, 6)
 sprite_frames = SubResource("SpriteFrames_1alkk")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = -2.0
 offset_top = -9.0
 offset_right = 38.0

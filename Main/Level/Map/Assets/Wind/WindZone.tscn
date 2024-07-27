@@ -79,8 +79,8 @@ curve = SubResource("Curve_my1ai")
 particle_flag_disable_z = true
 emission_shape = 2
 emission_sphere_radius = 128.0
-angle_min = -74.6535
-angle_max = -74.6535
+angle_min = -104.67
+angle_max = -104.67
 direction = Vector3(0, 0, 0)
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_1xhaw")
@@ -107,8 +107,9 @@ metadata/_edit_lock_ = true
 [node name="Arrows" type="Node2D" parent="."]
 
 [node name="1" type="AnimatedSprite2D" parent="Arrows"]
-rotation = 4.57184
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_b4ot3")
+frame_progress = 0.216817
 
 [node name="Particles" type="GPUParticles2D" parent="."]
 visible = false

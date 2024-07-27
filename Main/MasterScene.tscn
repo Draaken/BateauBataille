@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Main/MasterScene.gd" id="1_g7w8h"]
 
 [node name="MasterScene" type="CanvasLayer"]
+follow_viewport_enabled = true
 script = ExtResource("1_g7w8h")
 
 [node name="Loading" type="Node2D" parent="."]

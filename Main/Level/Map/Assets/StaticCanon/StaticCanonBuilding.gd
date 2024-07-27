@@ -1,5 +1,6 @@
 extends HitableObject
 
+@export var is_neutral = true
 var is_active = true
 var r_velocity = 0
 var r_acc = 0.6 #cosnt
@@ -11,6 +12,8 @@ var canon
 var reload_time = 3
 var aim_time = 0.5
 var random = RandomNumberGenerator.new()
+var damage_type = "Boat"
+var retarget_clock = 0
 
 func desactivate():
 	$DetectionRange.monitoring = false
@@ -20,9 +23,8 @@ func desactivate():
 func _ready():
 	super()
 	
-	team = 0
 	is_destructible = true
-	hit_points = 3
+	hit_points = 2
 	can_move = true
 	
 	canon = $Canon
@@ -34,7 +36,11 @@ func _physics_process(delta):
 	$LockedIndicator.hide()
 	if is_active && is_locked && can_move:
 		seek_target(delta)
-		
+	retarget_clock += delta
+	if retarget_clock > 1:
+		retarget_clock = 0
+		if target_list.size() > 0:
+			target = get_closest_target()
 	
 
 func seek_target(delta):
@@ -50,7 +56,7 @@ func seek_target(delta):
 	r_velocity = turn * r_acc * delta
 	rotation += r_velocity
 	
-	if $RayCast.get_collider() == target:
+	if $RayCast.get_collider() == target && not target.is_invisible:
 		#$LockedIndicator.show()
 		if angle_to_target < PI/32 && angle_to_target > -PI/32:
 			if  canon.is_reloaded && random.randf_range(0,1) > 0.9:
@@ -89,7 +95,7 @@ func _on_target_entered(body):
 		target_list.append(body)
 		if target_list.size() == 1:
 			target = target_list[0]
-			
+		
 		is_locked = true
 
 
@@ -103,6 +109,17 @@ func _on_target_exited(body):
 			target = null
 			is_locked = false
 		else:
-			target = target_list[target_list.size()-1]
+			target = get_closest_target()
 			is_locked = true
 	
+func get_closest_target():
+	var closest_target = null
+	var closest_distance = 10000000
+	for body in target_list:
+		if not body.is_invisible || target_list.size() == 1:
+			if body.global_position.distance_to(self.global_position) < closest_distance:
+				closest_distance = body.global_position.distance_to(self.global_position)
+				closest_target = body
+	if closest_target == null:
+		pass
+	return closest_target

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://crlcelvjs7j0y"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/canon_balls/chained_canon_balls/chained_canon_balls.gd" id="1_oenkk"]
+
+[resource]
+script = ExtResource("1_oenkk")

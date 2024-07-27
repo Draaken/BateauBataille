@@ -9,7 +9,7 @@ var sound_thunder = preload("res://Main/Sounds/Placeholders/thunder.mp3")
 var weather_mode = "Clear"
 var wind_velocity = Vector2(5,0)
 var velocity_factor = 1.0
-var cloud_spawn_factor = 1.0
+var cloud_spawn_factor = 30.0
 var wind_direction = 0
 
 var random = RandomNumberGenerator.new()
@@ -33,12 +33,13 @@ func _ready():
 	
 	#randomly choose the weather
 	var weather_random = random.randi_range(0,100)
-	if weather_random <= 60:
+	if weather_random <= 70:
 		weather_mode = "Clear"
-	elif weather_random <= 90:
-		weather_mode = "Cloud"
 	elif weather_random <= 100:
+		weather_mode = "Cloud"
+	elif weather_random <= 110:
 		weather_mode = "Storm"
+
 		
 	update_weather()
 	
@@ -50,7 +51,7 @@ func update_weather():
 			$"Storm Filter".hide()
 			var a = random.randfn(0.6,0.4)
 			cloud_spawn_factor = clamp(cloud_spawn_factor, 0.0, 2.0)
-			
+			await get_tree().create_timer(random.randf_range(0,30)).timeout
 			spawn_cloud(cloud)
 		"Storm":
 			$"Storm Filter".show()
@@ -105,9 +106,12 @@ func spawn_cloud(cloud_type):
 		
 		#determine the spawn time of the next cloud
 		var a = random.randfn(0.5, 0.2) - 0.2
-		var n_facteur = clamp(a, 0.1, 1.0) #normal distribution factor used to determine the spawn time
+		var n_facteur = clamp(a, 0.2, 1.0) #normal distribution factor used to determine the spawn time
 		cloud_timer.wait_time = n_facteur / cloud_spawn_factor * 15.0
 		#cloud_spawn_factor is a global parameter used to change the average cloud frequency
+		
+		if random.randf_range(0,100)>95:
+			cloud_timer.wait_time = random.randf_range(10,20)
 		
 		print(cloud_timer.wait_time)
 		cloud_timer.start()

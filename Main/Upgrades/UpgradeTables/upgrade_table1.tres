@@ -1,6 +1,22 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c6bv5igtr2bui"]
+[gd_resource type="Resource" script_class="UpgradeTableClass" load_steps=17 format=3 uid="uid://c6bv5igtr2bui"]
 
-[ext_resource type="Script" path="res://Main/Upgrades/UpgradeTables/upgrade_table1.gd" id="1_kdgpq"]
+[ext_resource type="Resource" uid="uid://dp7rphxphwdm1" path="res://Main/Upgrades/Resources/dash.tres" id="1_1tpv0"]
+[ext_resource type="Script" path="res://Main/Upgrades/UpgradeTables/UpgradeTableClass.gd" id="1_3ow2v"]
+[ext_resource type="Resource" uid="uid://byp2myys1q6y4" path="res://Main/Upgrades/Resources/double_shot.tres" id="3_cc5ib"]
+[ext_resource type="Resource" uid="uid://b51vaptiex76o" path="res://Main/Upgrades/Resources/HP1.tres" id="4_khdwg"]
+[ext_resource type="Resource" uid="uid://djq67s22hhtmo" path="res://Main/Upgrades/Resources/mines.tres" id="5_nahih"]
+[ext_resource type="Resource" uid="uid://bdjmx81el18iy" path="res://Main/Upgrades/Resources/rear_canon.tres" id="6_4s811"]
+[ext_resource type="Resource" uid="uid://bt6aeobp6v4b4" path="res://Main/Upgrades/Resources/reload1.tres" id="7_qeln1"]
+[ext_resource type="Resource" uid="uid://bnyujfl0biqnn" path="res://Main/Upgrades/Resources/special_cooldown.tres" id="8_d8il4"]
+[ext_resource type="Resource" uid="uid://ctpms780faw4n" path="res://Main/Upgrades/Resources/speed1.tres" id="9_lboge"]
+[ext_resource type="Resource" uid="uid://cvgkfn7wtx4iy" path="res://Main/Upgrades/Resources/wind_imune.tres" id="10_bsj04"]
+[ext_resource type="Resource" uid="uid://dr3gs3f5rjaay" path="res://Main/Upgrades/Resources/experimental_gun_powder1.tres" id="11_k4saq"]
+[ext_resource type="Resource" uid="uid://bddc2fpns4mpe" path="res://Main/Upgrades/Resources/extra_gun_powder1.tres" id="12_jf24q"]
+[ext_resource type="Resource" uid="uid://crlcelvjs7j0y" path="res://Main/Upgrades/Resources/chained_canon_balls.tres" id="13_8iadu"]
+[ext_resource type="Resource" uid="uid://b2n74gbghyl4k" path="res://Main/Upgrades/Resources/greesed_steering_wheel.tres" id="14_tnulu"]
+[ext_resource type="Resource" uid="uid://bi6rdmi0m54vm" path="res://Main/Upgrades/Resources/explosive_canon_ball.tres" id="15_4de3w"]
+[ext_resource type="Resource" uid="uid://c6omn00pypani" path="res://Main/Upgrades/Resources/invisibility.tres" id="16_glcib"]
 
 [resource]
-script = ExtResource("1_kdgpq")
+script = ExtResource("1_3ow2v")
+table = Array[Resource]([ExtResource("1_1tpv0"), ExtResource("3_cc5ib"), ExtResource("4_khdwg"), ExtResource("5_nahih"), ExtResource("6_4s811"), ExtResource("7_qeln1"), ExtResource("8_d8il4"), ExtResource("9_lboge"), ExtResource("10_bsj04"), ExtResource("11_k4saq"), ExtResource("12_jf24q"), ExtResource("13_8iadu"), ExtResource("14_tnulu"), ExtResource("15_4de3w"), ExtResource("16_glcib")])

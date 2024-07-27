@@ -84,10 +84,13 @@ func explode(target):
 			target.take_damage(damage, "Canonball")
 			
 		
-		target.get_pushed(velocity/3.5)
-
+		target.get_pushed(sqrt(velocity.length())*4*velocity.normalized())
+		
+		get_node("/root/MasterScene/Level/Camera2D").shake(0.00008, 0)
+		
 		velocity = Vector2(0,0)
 		is_active = false
+		
 	
 	
 func splash():
@@ -101,7 +104,7 @@ func splash():
 		set_global_rotation_degrees(0)
 		$CanonballSprite.hide()
 		z_index = 10
-		match terrain_type:	
+		match terrain_type:
 			"water":
 				$SplashSprite.frame = 0
 				$SplashSprite.show()

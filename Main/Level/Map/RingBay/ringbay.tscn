@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bk7osp3xtv1kf"]
+[gd_scene load_steps=30 format=3 uid="uid://bk7osp3xtv1kf"]
 
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Shore.gd" id="1_fb5o8"]
 [ext_resource type="Script" path="res://Main/Level/Map/RingBay/ringbay.gd" id="1_mo841"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://d344gma6qtttk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0009.png" id="15_s6mob"]
 [ext_resource type="PackedScene" uid="uid://b44hr65pu8eda" path="res://Main/Level/Map/Assets/Coins/CoinsSpawnManager.tscn" id="16_lxgf6"]
 [ext_resource type="PackedScene" uid="uid://cgk1laxkh2fr7" path="res://Main/Level/Map/Assets/StaticCanon/StaticCanonBuilding.tscn" id="22_i4171"]
+[ext_resource type="PackedScene" uid="uid://65u1rgroxet6" path="res://Main/Level/Map/Assets/BreakablePlanks/BreakablePlanks.tscn" id="24_pfi51"]
 
 [sub_resource type="Gradient" id="Gradient_xli3v"]
 interpolation_mode = 1
@@ -116,6 +117,7 @@ position = Vector2(744, 737)
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_fb5o8")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island1/HitboxShore"]
 polygon = PackedVector2Array(435, -616, 697, -677, 998, -656, 1132, -496, 1156, -269, 1135, -34, 1033, -3, 939, 22, 911, 49, 890, 124, 937, 192, 1044, 251, 1046, 295, 990, 334, 1001, 399, 991, 480, 1077, 498, 1964, 803, 1983, -1525, 392, -1546, 555, -893, 145.512, -657.478, 96, -629, 88, -493, 100, -455, 122, -434, 172, -431, 221, -438, 278, -461)
@@ -129,6 +131,7 @@ position = Vector2(175, -118)
 collision_layer = 7
 collision_mask = 0
 script = ExtResource("2_0xdxv")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island1/HitboxTrees"]
 position = Vector2(53, -302)
@@ -153,6 +156,7 @@ position = Vector2(321, 319)
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_fb5o8")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock1/HitboxShore"]
 position = Vector2(-402, 69)
@@ -167,6 +171,7 @@ polygon = PackedVector2Array(468.359, 298.982, 349.551, 219, 402.573, 143.778, 4
 collision_layer = 7
 collision_mask = 0
 script = ExtResource("3_sy8dc")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock1/HitBoxRock"]
 position = Vector2(-51, 452)
@@ -194,6 +199,7 @@ position = Vector2(671, -203)
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_fb5o8")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock3/HitboxShore"]
 position = Vector2(-283, 58)
@@ -208,6 +214,7 @@ polygon = PackedVector2Array(576.782, 276.944, 542.112, 214.743, 466.469, -72.56
 collision_layer = 7
 collision_mask = 0
 script = ExtResource("3_sy8dc")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock3/HitBoxRock"]
 position = Vector2(117, 262)
@@ -225,6 +232,7 @@ position = Vector2(211, -174)
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_fb5o8")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock4/HitboxShore"]
 position = Vector2(-283, 58)
@@ -239,6 +247,7 @@ polygon = PackedVector2Array(553.144, 279.906, 264.752, 196.971, 132.376, 26.657
 collision_layer = 7
 collision_mask = 0
 script = ExtResource("3_sy8dc")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock4/HitBoxRock"]
 position = Vector2(121, 255)
@@ -258,6 +267,7 @@ rotation = 0.512281
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_fb5o8")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island2/HitboxShore"]
 position = Vector2(-454.996, 87.6342)
@@ -278,6 +288,7 @@ rotation = 0.512281
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_fb5o8")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island4/HitboxShore"]
 position = Vector2(-439.306, 80.9363)
@@ -298,6 +309,7 @@ rotation = 0.512281
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_fb5o8")
+has_sail = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island3/HitboxShore"]
 position = Vector2(-683.974, -400.829)
@@ -349,51 +361,51 @@ polygon = PackedVector2Array(-50, 119, -194, 63, -265, -41, -246.184, -110.574, 
 
 [node name="1" parent="Wind/WindZone/Arrows" index="0"]
 position = Vector2(233, -88)
-rotation = 6.2422
+rotation = 5.19465
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="1"]
 position = Vector2(-247, -88)
-rotation = 6.2422
+rotation = 5.19465
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="2"]
 position = Vector2(-273, 8)
-rotation = 6.2422
+rotation = 5.19465
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="3"]
 position = Vector2(251, -13)
-rotation = 6.2422
+rotation = 5.19465
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="5" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="4"]
 position = Vector2(182, 84)
-rotation = 6.2422
+rotation = 5.19465
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="6" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="5"]
 position = Vector2(37, 99)
-rotation = 6.2422
+rotation = 5.19465
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="7" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="6"]
 position = Vector2(96, 16)
-rotation = 6.2422
+rotation = 5.19465
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="8" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="7"]
 position = Vector2(0, -50)
-rotation = 6.2422
+rotation = 5.19465
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="9" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="8"]
 position = Vector2(-87, 25)
-rotation = 6.2422
+rotation = 5.19465
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="10" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="9"]
 position = Vector2(-208, 90)
-rotation = 6.2422
+rotation = 5.19465
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="WindZone2" parent="Wind" instance=ExtResource("5_44qmx")]
@@ -410,36 +422,36 @@ polygon = PackedVector2Array(-50, 119, -194, 63, -265, -41, -246.184, -110.574, 
 
 [node name="1" parent="Wind/WindZone2/Arrows" index="0"]
 position = Vector2(-106, -35)
-rotation = 6.44075
+rotation = 6.88226
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="1"]
 position = Vector2(171, -106)
-rotation = 6.44075
+rotation = 6.88226
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="2"]
 position = Vector2(26, 36)
-rotation = 6.44075
+rotation = 6.88226
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="3"]
 position = Vector2(148, 67)
-rotation = 6.44075
+rotation = 6.88226
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="5" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="4"]
 position = Vector2(-69, 103)
-rotation = 6.44075
+rotation = 6.88226
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="6" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="5"]
 position = Vector2(170, -13)
-rotation = 6.44075
+rotation = 6.88226
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="7" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="6"]
 position = Vector2(-140, 65)
-rotation = 6.44075
+rotation = 6.88226
 sprite_frames = SubResource("SpriteFrames_lci65")
 
 [node name="Pickables" type="Node2D" parent="."]
@@ -567,10 +579,21 @@ sprite_frames = SubResource("SpriteFrames_qoro5")
 [node name="StaticCanon" parent="." instance=ExtResource("22_i4171")]
 position = Vector2(1058, 624)
 rotation = -1.34491
+is_destructible = true
 
-[node name="StaticCanon2" parent="." instance=ExtResource("22_i4171")]
-position = Vector2(1311, 770)
-rotation = -2.45292
+[node name="Destructibles" type="Node2D" parent="."]
+
+[node name="BreakablePlanks" parent="Destructibles" instance=ExtResource("24_pfi51")]
+position = Vector2(1341, 962)
+rotation = 0.372976
+
+[node name="BreakablePlanks2" parent="Destructibles" instance=ExtResource("24_pfi51")]
+position = Vector2(1563, 892)
+rotation = 2.79473
+
+[node name="BreakablePlanks3" parent="Destructibles" instance=ExtResource("24_pfi51")]
+position = Vector2(695, 585)
+rotation = 3.53953
 
 [editable path="Starting Positions"]
 [editable path="Wind/WindZone"]

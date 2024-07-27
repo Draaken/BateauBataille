@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2n74gbghyl4k"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/greased_steering_wheel/greased_steering_wheel.gd" id="1_vdnhh"]
+
+[resource]
+script = ExtResource("1_vdnhh")

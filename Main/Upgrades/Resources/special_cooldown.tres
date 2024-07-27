@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bnyujfl0biqnn"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/special_cooldown/special_cooldown.gd" id="1_g4pgs"]
+
+[resource]
+script = ExtResource("1_g4pgs")

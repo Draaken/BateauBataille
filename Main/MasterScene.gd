@@ -13,12 +13,13 @@ var rbay = preload("res://Main/Level/Map/RingBay/ringbay.tscn")
 var lisland = preload("res://Main/Level/Map/LoneIsland/loneisland.tscn")
 var reef1 = preload("res://Main/Level/Map/Reefs 1/reefs1.tscn")
 var reef2 = preload("res://Main/Level/Map/Reefs 2/reefs2.tscn")
+var fortress1 = preload("res://Main/Level/Map/Fortress1/fortress1.tscn")
 
 var random = RandomNumberGenerator.new()
 
-#var map_list = [arc1, rbay, reef1]
-#var map_list = [rbay]
-var map_list = [reef2]
+#var common_map_list = [arc1, rbay, reef1, reef2, lisland]
+var common_map_list = [reef1]
+var final_map_list = [fortress1]
 
 var players_list = []
 
@@ -56,7 +57,7 @@ func load_selection():
 	
 	
 func selectionFinished():
-	load_level()
+	load_level(choose_map())
 	#load_shop()
 	remove_child($SelectionScreen)
 	
@@ -66,12 +67,11 @@ func selectionCancelled():
 #________________________________________________________________________
 
 #Load the main level scene to the tree
-func load_level():
+func load_level(map):
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$Loading.show()
 	
 	var instance = level.instantiate()
-	var map = choose_map()
 	instance.add_child(map)
 	instance.map = map
 	add_child(instance)
@@ -84,9 +84,7 @@ func load_level():
 	
 	
 func roundFinished(_team):
-	load_world()
-	$"WorldScreen".show()
-	$WorldScreen.setup()
+	load_shop()
 	remove_child($Level)
 	
 func roundCancelled():
@@ -95,7 +93,7 @@ func roundCancelled():
 	
 func choose_map():
 	random.randomize()
-	var map = map_list[random.randi_range(0, map_list.size()-1)].instantiate() 
+	var map = common_map_list[random.randi_range(0, common_map_list.size()-1)].instantiate() 
 	#choose a map randomly in the list
 	return map
 	
@@ -108,7 +106,9 @@ func load_shop():
 	$"Shop".connect("shopFinished", Callable(self, "shopFinished"))
 	
 func shopFinished():
-	load_level()
+	load_world()
+	$"WorldScreen".show()
+	$WorldScreen.setup()
 	remove_child($Shop)
 	
 #________________________________________________________________________
@@ -122,8 +122,8 @@ func load_world():
 	$"WorldScreen".connect("gameEnded", Callable(self, "gameEnded"))
 	
 	
-func worldFinished():
-	load_shop()
+func worldFinished(next_map):
+	load_level(next_map)
 	remove_child($WorldScreen)
 	
 func gameEnded():

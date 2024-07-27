@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="UpgradeTableClass" load_steps=2 format=3 uid="uid://c6bv5igtr2bui"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/UpgradeTables/UpgradeTableClass.gd" id="1_rupch"]
+
+[resource]
+script = ExtResource("1_rupch")
+table = Array[Resource]([])

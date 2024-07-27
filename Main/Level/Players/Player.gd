@@ -2,10 +2,12 @@ class_name Player extends Node2D
 
 signal specialUsed
 
+@onready var boat = get_node("Boat")
 
 var LeftControl
 var RightControl
 var DownControl
+var UpControl
 var SpawnPosition
 var SpawnRotation
 
@@ -21,6 +23,7 @@ var no_turn = false
 var coins = 0
 
 signal roundLostSignal
+
 var has_lost = false 
 
 var team: Node
@@ -44,18 +47,18 @@ func _ready():
 func _process(delta):
 	
 	
-	$"BoatHUD/HP".value = $"Boat".hit_points
+	$"BoatHUD/HP".value = boat.hit_points
 	$"BoatHUD".position = $Boat.position + Vector2(0, 90)
-#	if $"Boat".hit_points == 0:
+#	if boat.hit_points == 0:
 #		$"BoatHUD".hide()
 	
 	
 	if Input.is_action_just_pressed(RightControl):
-		if $"Boat".can_shoot:
+		if boat.can_shoot:
 			no_turn = true
 			timerNoTurn.start()
 			if double_clickableR:
-				$"Boat".shootRight()
+				boat.shootRight()
 				double_clickableR = false
 			
 			
@@ -66,11 +69,11 @@ func _process(delta):
 		
 			
 	if Input.is_action_just_pressed(LeftControl):
-		if $"Boat".can_shoot:
+		if boat.can_shoot:
 			no_turn = true
 			timerNoTurn.start()
 			if double_clickableL:
-				$"Boat".shootLeft()
+				boat.shootLeft()
 				double_clickableL = false
 			
 			
@@ -80,7 +83,11 @@ func _process(delta):
 		no_turn = false
 		
 		
-	if Input.is_action_just_pressed(DownControl):
+	if Input.is_action_pressed(DownControl):
+		#specialMove()
+		boat.brake(delta)
+	
+	if Input.is_action_just_pressed(UpControl):
 		specialMove()
 		
 	#	Rotation process
@@ -88,31 +95,31 @@ func _process(delta):
 	var f
 	var S
 	
-	f = $"Boat".friction
-	S = $"Boat".base_rotation_speed
+	f = boat.friction
+	S = boat.base_rotation_speed
 	
-	if Input.is_action_just_pressed(LeftControl) && $"Boat".can_move:
+	if Input.is_action_just_pressed(LeftControl) && boat.can_move:
 		if not no_turn:
-			$"Boat".rotation_speed -= S
+			boat.rotation_speed -= S * delta * 60
 		
-	elif Input.is_action_just_pressed(RightControl) && $"Boat".can_move:
+	elif Input.is_action_just_pressed(RightControl) && boat.can_move:
 		if not no_turn:
-			$"Boat".rotation_speed += S
+			boat.rotation_speed += S * delta * 60
 	
-	if Input.is_action_pressed(LeftControl) && $"Boat".can_move:
+	if Input.is_action_pressed(LeftControl) && boat.can_move:
 		
 		if no_turn:
 			a = 0
 		else:
-			a = - $"Boat".rotation_acc
+			a = - boat.rotation_acc * delta * 60
 			
 		
-	elif Input.is_action_pressed(RightControl) && $"Boat".can_move:
+	elif Input.is_action_pressed(RightControl) && boat.can_move:
 		
 		if no_turn:
 			a = 0
 		else:
-			a = $"Boat".rotation_acc
+			a = boat.rotation_acc * delta * 60
 			
 		
 	else:
@@ -120,25 +127,25 @@ func _process(delta):
 	
 	
 		
-	if $"Boat".rotation_speed >0:
+	if boat.rotation_speed >0:
 		a -= f
 		
-	if $"Boat".rotation_speed <0:
+	if boat.rotation_speed <0:
 		a += f
 		
-	$"Boat".rotation_speed += a * delta
+	boat.rotation_speed += a * delta
 
 
 	
 	
 func loaded():
 #	Move the Boat to it's spawn position given by the Level
-	$"Boat".global_position = SpawnPosition
-	$"Boat".global_rotation = SpawnRotation
+	boat.global_position = SpawnPosition
+	boat.global_rotation = SpawnRotation
 	
-	$"Boat".team = player_infos.team
+	boat.team = player_infos.team
 	
-	$"Boat".connect("boatSunk", Callable(self, "round_lost"))
+	boat.connect("boatSunk", Callable(self, "round_lost"))
 	
 	self.connect("roundLostSignal", Callable(team, "check_lost"))
 	
@@ -161,8 +168,8 @@ func loaded():
 	add_child(timerNoTurn)
 
 func start():
-	$"Boat".can_move = true
-	$"Boat".can_shoot = true
+	boat.can_move = true
+	boat.can_shoot = true
 	
 func unload(_team):
 	player_infos.coins += coins
@@ -184,9 +191,16 @@ func update():
 			
 	else: $"Boat/Upgrades/SpecialMove".hide() #hide the special indicator if not used
 
+	for i in(player_infos.canonBallUpgrades.size()):
+		player_infos.canonBallUpgrades[i].setup(self)
+
 	#setup each upgrade ie:add their stat boosts to the base stats
 	for i in(player_infos.basicUpgrades.size()):
 		player_infos.basicUpgrades[i].setup(self)
+		
+	
+	
+	$Boat.update()
 	
 	
 	$"Boat/BoatSprite".frames = player_infos.sprite
@@ -198,6 +212,7 @@ func update():
 	LeftControl = player_infos.LeftControl
 	RightControl = player_infos.RightControl
 	DownControl = player_infos.DownControl
+	UpControl = player_infos.UpControl
 	
 	
 

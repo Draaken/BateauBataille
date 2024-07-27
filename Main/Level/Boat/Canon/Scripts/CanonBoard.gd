@@ -12,19 +12,26 @@ var reload_progress = 0
 func _ready():
 	pass
 	
+func update():
+	for i in range(get_child_count()):
+		var child = get_node(str(i+1))
+		child.update()
+	
 func _process(delta):
 	#reload(delta)
 	pass
 
-func shoot(shooter):
+func shoot(shooter, override = false):
 	for i in range(get_child_count()):
 		var child = get_node(str(i+1))
-		print(child.is_reloaded)
 		
-		if child.is_reloaded: 
-			child.shoot(shooter)
+		if child.is_reloaded || override: 
+			var canon_ball:CanonballClass = child.shoot(shooter)
 			reload_progress = 0
-	
+			return(true)
+		else:
+			return(false)
+
 	
 
 #func reload(delta):

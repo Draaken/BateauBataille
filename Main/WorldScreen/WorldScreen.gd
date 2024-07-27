@@ -10,9 +10,13 @@ signal gameEnded
 var team1_progress_bar
 var team2_progress_bar
 
+
 var is_game_ending = false
 var score_goal = 3
 var animation_time = 0.7
+
+var chosen_map
+
 
 @onready var timer = $Timer
 
@@ -39,6 +43,19 @@ func setup():
 	else:
 		set_progress_bar(old_global_score)
 		
+		if abs(global_score) == score_goal -1:
+			chosen_map = load("res://Main/Level/Map/Fortress1/fortress1.tscn").instantiate()
+		else:
+			chosen_map = $"..".choose_map()
+		
+		if chosen_map is final_map_class:
+			if global_score <= 0:
+				chosen_map.set_up_defenses(1)
+			elif global_score >= 0:
+				chosen_map.set_up_defenses(2)
+		
+		
+		
 		timer.wait_time = 1.5
 		timer.one_shot = true
 		timer.start()
@@ -49,13 +66,14 @@ func setup():
 	
 #Used to initialise the bars when loading the scene
 func set_progress_bar(value):
+		
 	if value <= 0:
 		team1_progress_bar.value = abs(value)
 		team2_progress_bar.value = 0
 	elif value >= 0:
 		team1_progress_bar.value = 0
 		team2_progress_bar.value = abs(value)
-
+	
 #Animate the bars from one state to the other, by steps of one point
 func update_progress_bar(old_value, new_value):
 	var tween = create_tween()
@@ -81,9 +99,9 @@ func update_progress_bar(old_value, new_value):
 			
 		old_value = temp_value
 		
-		timer.wait_time = 5.0
-		timer.one_shot = true
-		timer.start()
-		await(timer.timeout)
-		emit_signal("worldFinished")
+	timer.wait_time = 5.0
+	timer.one_shot = true
+	timer.start()
+	await(timer.timeout)
+	emit_signal("worldFinished", chosen_map)
 		

@@ -31,7 +31,7 @@ var original_position = position
 var is_reloaded = true
 
 
-var canon_ball = preload("res://Main/Level/Boat/Canonball/Scenes/CanonballV1.tscn")
+var canon_ball
 var strength = 650
 var dispertion = 0
 
@@ -39,14 +39,18 @@ var dispertion = 0
 func _ready():
 	random.randomize()
 	level = get_node("/root/MasterScene/Level")
-	self.connect("canonball_shooted", Callable(level, "receive_canonball"))
+	self.canonball_shooted.connect(Callable(level, "receive_canonball"))
+	
 	reload_timer.one_shot = true
-	reload_timer.connect("timeout", Callable(self, "reload"))
+	reload_timer.connect("timeout", Callable(self, "reload_timer_ended"))
 	add_child(reload_timer)
-	
-	
 	add_child(audio_player)
 	
+	update()
+	
+	
+func update():
+	self.canonball_shooted.connect(Callable(boat, "canonball_shooted"))
 #func _process(delta):
 #	if is_shooting:
 #		shot_clone.global_position = shot_position
@@ -55,6 +59,7 @@ func _ready():
 func shoot(shooter):
 	random.randomize()
 	var dispertion_range  = deg_to_rad(random.randf_range(-dispertion, dispertion))
+	
 	
 	canon_orientation = global_rotation - PI/2 + dispertion_range
 	canon_orientation_vector = Vector2(cos(canon_orientation), sin(canon_orientation))
@@ -66,6 +71,7 @@ func shoot(shooter):
 	
 	if boat != null:
 		boat_velocity = boat.velocity
+		boat.get_pushed(canon_orientation_vector*(-strength/10))
 
 	emit_signal("canonball_shooted", instance, $"CanonBallSpawn".global_position, canon_orientation_vector, boat_velocity)
 
@@ -88,12 +94,18 @@ func shoot(shooter):
 	
 	$Sprite2D.position.y = reload_position.y
 	$Shot.position.y = reload_position.y - 60
-		
-func reload(): 
+	
+	get_node("/root/MasterScene/Level/Camera2D").shake(strength/90000.0, 0.1)
+
+func reload_timer_ended():
+	reload(true)
+
+func reload(with_sound = false): 
 	is_reloaded = true
 #	self.show()
-	audio_player.stream = sound_reload
-	audio_player.play()
+	if with_sound:
+		audio_player.stream = sound_reload
+		audio_player.play()
 	$Sprite2D.position.y = original_position.y
 	$Shot.position.y = original_position.y
 	

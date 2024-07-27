@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bddc2fpns4mpe"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/extra_gun_powder1/extra_gun_powder1.gd" id="1_djiw7"]
+
+[resource]
+script = ExtResource("1_djiw7")

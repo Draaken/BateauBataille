@@ -1,26 +1,212 @@
-[gd_scene load_steps=26 format=3 uid="uid://hdw880evqvf4"]
+[gd_scene load_steps=80 format=3 uid="uid://hdw880evqvf4"]
 
+[ext_resource type="Texture2D" uid="uid://d1bhhk0p63p32" path="res://Main/Level/Map/Reefs 1/see1.png" id="1_2enyv"]
+[ext_resource type="Shader" path="res://Main/Level/Map/Shaders/Sea0.gdshader" id="1_oi5r2"]
+[ext_resource type="Shader" path="res://Main/Level/Map/Shaders/Sea1.gdshader" id="1_pxbpq"]
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Shore.gd" id="1_rr5wp"]
+[ext_resource type="Texture2D" uid="uid://vqyud40lg2sv" path="res://Main/Level/Map/Reefs 1/sea2.png" id="2_rlwf0"]
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Tree.gd" id="2_txi3l"]
 [ext_resource type="Script" path="res://Main/Level/Map/Assets/Rock.gd" id="3_hssc5"]
+[ext_resource type="Shader" path="res://Main/Level/Map/Shaders/Sea2.gdshader" id="3_qtlaq"]
+[ext_resource type="Texture2D" uid="uid://dghrsd713600w" path="res://Main/Level/Map/Reefs 1/sea0.png" id="3_xfi3p"]
 [ext_resource type="PackedScene" uid="uid://bhk78oqdcbjn8" path="res://Main/Level/Map/Assets/StartingPos/starting_positions.tscn" id="4_v0fjs"]
 [ext_resource type="PackedScene" uid="uid://cpslmth6hcujn" path="res://Main/Level/Map/Assets/Wind/WindZone.tscn" id="5_misey"]
+[ext_resource type="Texture2D" uid="uid://wp7irrhldf1f" path="res://Main/Level/Map/Reefs 1/middleIsland/underwater.png" id="5_voo7i"]
+[ext_resource type="Texture2D" uid="uid://dj7npfkspoxx8" path="res://Main/Level/Map/Reefs 1/middleIsland/island.png" id="6_57vho"]
 [ext_resource type="Texture2D" uid="uid://lirei2vkx4r0" path="res://Main/Level/Map/Assets/Wind/Frames/frame0000.png" id="6_fkucv"]
 [ext_resource type="Texture2D" uid="uid://dvbu0uogtlnkc" path="res://Main/Level/Map/Assets/Wind/Frames/frame0001.png" id="7_0g2ld"]
 [ext_resource type="PackedScene" uid="uid://c6qapaqfy407l" path="res://Main/Level/Map/Assets/Coins/CoinSpawn.tscn" id="7_6l1c6"]
+[ext_resource type="Shader" path="res://Main/Level/Map/Shaders/foam.gdshader" id="7_8cmgc"]
+[ext_resource type="Script" path="res://Main/Level/Map/Shaders/FoamShader.gd" id="8_8tiar"]
 [ext_resource type="Texture2D" uid="uid://82usxniqimx2" path="res://Main/Level/Map/Assets/Wind/Frames/frame0002.png" id="8_exi1l"]
 [ext_resource type="PackedScene" uid="uid://cy36hyqgb255i" path="res://Main/Level/Map/Assets/MapBorder/map_borders.tscn" id="8_ihp2j"]
+[ext_resource type="Texture2D" uid="uid://xavvleuw8jac" path="res://Main/Level/Map/Reefs 1/sandbanks/underwater2.png" id="8_obej4"]
 [ext_resource type="PackedScene" path="res://Main/Level/Map/Assets/Shortcut.tscn" id="9_2oikm"]
+[ext_resource type="Texture2D" uid="uid://dmuw1nvt18iev" path="res://Main/Level/Map/Reefs 1/sandbanks/island2.png" id="9_kqaj5"]
 [ext_resource type="Texture2D" uid="uid://bddh5p4j5meah" path="res://Main/Level/Map/Assets/Wind/Frames/frame0003.png" id="9_tgbdf"]
+[ext_resource type="Shader" path="res://Main/Level/Map/Shaders/foam_surface.gdshader" id="9_wjnvq"]
 [ext_resource type="Texture2D" uid="uid://dgyuwm7b5nj3a" path="res://Main/Level/Map/Assets/Wind/Frames/frame0004.png" id="10_0rgrc"]
+[ext_resource type="Texture2D" uid="uid://m4u2yubk2nne" path="res://Main/Level/Map/Reefs 1/sandbanks/underwater3.png" id="10_drc2w"]
 [ext_resource type="Texture2D" uid="uid://dtgyxjlm5alcj" path="res://Main/Level/UI/Arrow/frame0000.png" id="10_louwc"]
 [ext_resource type="Texture2D" uid="uid://dbw0yba7iqmp3" path="res://Main/Level/UI/Arrow/frame0001.png" id="11_4w86h"]
 [ext_resource type="Texture2D" uid="uid://c8j4qr4eghxlq" path="res://Main/Level/Map/Assets/Wind/Frames/frame0005.png" id="11_vwobq"]
+[ext_resource type="Texture2D" uid="uid://c7o7tgosyinsr" path="res://Main/Level/Map/Reefs 1/sandbanks/island3.png" id="11_xpito"]
+[ext_resource type="Texture2D" uid="uid://cvi4kbxm5i835" path="res://Main/Level/Map/Reefs 1/sandbanks/underwater4.png" id="12_hhy6o"]
 [ext_resource type="Texture2D" uid="uid://ddfh0pihinkpv" path="res://Main/Level/Map/Assets/Wind/Frames/frame0006.png" id="12_nwe1g"]
+[ext_resource type="Shader" path="res://Main/Level/Map/Shaders/shoreFoam.gdshader" id="13_7r0f8"]
 [ext_resource type="Texture2D" uid="uid://fkwwue2t1t8n" path="res://Main/Level/Map/Assets/Wind/Frames/frame0007.png" id="13_lixfb"]
+[ext_resource type="Texture2D" uid="uid://dxru23x8oafwn" path="res://Main/Level/Map/Reefs 1/sandbanks/island4.png" id="13_usatd"]
+[ext_resource type="Texture2D" uid="uid://b7umu07dt2o6w" path="res://Main/Level/Map/Reefs 1/rocks/underwaterBIS1.png" id="14_clfd5"]
 [ext_resource type="Texture2D" uid="uid://c017rih0udkfk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0008.png" id="14_su44h"]
 [ext_resource type="Texture2D" uid="uid://d344gma6qtttk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0009.png" id="15_3v0w7"]
+[ext_resource type="Texture2D" uid="uid://do0jbxhkdvdjh" path="res://Main/Level/Map/Reefs 1/rockIsland/underwater.png" id="15_qmwxd"]
+[ext_resource type="Texture2D" uid="uid://c2y2mqolqm4l4" path="res://Main/Level/Map/Reefs 1/rockIsland/island.png" id="16_86xpp"]
 [ext_resource type="PackedScene" uid="uid://b44hr65pu8eda" path="res://Main/Level/Map/Assets/Coins/CoinsSpawnManager.tscn" id="16_y1nd0"]
+[ext_resource type="Texture2D" uid="uid://dgtmjwf8mu738" path="res://Main/Level/Map/Reefs 1/rocks/underwater4.png" id="18_36c8r"]
+[ext_resource type="Texture2D" uid="uid://dgq813n34b54x" path="res://Main/Level/Map/Reefs 1/rocks/rock4.png" id="19_ppf6o"]
+[ext_resource type="Texture2D" uid="uid://bg1mxoxjxxx6n" path="res://Main/Level/Map/Reefs 1/rocks/underwater3.png" id="20_djnpq"]
+[ext_resource type="Texture2D" uid="uid://bww6hjtv5qj3y" path="res://Main/Level/Map/Reefs 1/cornerIsland/underwater.png" id="20_dukoj"]
+[ext_resource type="Texture2D" uid="uid://clj5ejiys1tal" path="res://Main/Level/Map/Reefs 1/cornerIsland/island.png" id="21_7dao0"]
+[ext_resource type="Texture2D" uid="uid://2qd1xv8j2eji" path="res://Main/Level/Map/Reefs 1/rocks/rock3.png" id="21_s8yi5"]
+[ext_resource type="Texture2D" uid="uid://dm31ikmo1ygtj" path="res://Main/Level/Map/Reefs 1/sandbanks/underwater1.png" id="24_nqfum"]
+[ext_resource type="Texture2D" uid="uid://crxn6fwrxj2kg" path="res://Main/Level/Map/Reefs 1/sandbanks/island1.png" id="25_1hk14"]
+[ext_resource type="Texture2D" uid="uid://4h4cpb8h8jxx" path="res://Main/Level/Map/Reefs 1/rocks/underwater1.png" id="26_q4ix0"]
+[ext_resource type="Texture2D" uid="uid://b7kme6xtqv6l6" path="res://Main/Level/Map/Reefs 1/rocks/rock1.png" id="27_83w0s"]
+[ext_resource type="Texture2D" uid="uid://clj5mskrylni2" path="res://Main/Level/Map/Reefs 1/rocks/underwater2.png" id="28_ujusq"]
+[ext_resource type="Texture2D" uid="uid://b7ulcnm7rargg" path="res://Main/Level/Map/Reefs 1/rocks/rock2.png" id="29_u6iaq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjb54"]
+shader = ExtResource("1_oi5r2")
+shader_parameter/speedX = 0.3
+shader_parameter/disX = 50.0
+shader_parameter/speedY = 0.3
+shader_parameter/disY = 30.0
+shader_parameter/offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_geutv"]
+shader = ExtResource("1_pxbpq")
+shader_parameter/speedX = 0.3
+shader_parameter/disX = 50.0
+shader_parameter/speedY = 0.3
+shader_parameter/disY = 30.0
+shader_parameter/offset = Vector2(0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_80blk"]
+frequency = 0.007
+offset = Vector3(173.08, 0, 0)
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ho228"]
+width = 1024
+height = 1024
+seamless = true
+noise = SubResource("FastNoiseLite_80blk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5yar"]
+shader = ExtResource("3_qtlaq")
+shader_parameter/speed = 0.015
+shader_parameter/strength = 0.007
+shader_parameter/speedX = 0.3
+shader_parameter/disX = 50.0
+shader_parameter/speedY = 0.3
+shader_parameter/disY = 30.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/noise = SubResource("NoiseTexture2D_ho228")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d057g"]
+frequency = 0.0503
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3w7c2"]
+seamless = true
+noise = SubResource("FastNoiseLite_d057g")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_seuwr"]
+frequency = 0.0058
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h5sje"]
+seamless = true
+noise = SubResource("FastNoiseLite_seuwr")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_13848"]
+noise_type = 3
+frequency = 0.0144
+fractal_octaves = 3
+fractal_lacunarity = 2.2
+fractal_gain = 1.66
+fractal_weighted_strength = 0.56
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jjmj6"]
+width = 1024
+height = 1024
+seamless = true
+seamless_blend_skirt = 0.123
+noise = SubResource("FastNoiseLite_13848")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_al5jy"]
+noise_type = 3
+frequency = 0.0323
+fractal_octaves = 1
+fractal_lacunarity = 2.6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_exi6j"]
+width = 1024
+height = 1024
+seamless = true
+noise = SubResource("FastNoiseLite_al5jy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8i7e"]
+shader = ExtResource("7_8cmgc")
+shader_parameter/speed = 0.002
+shader_parameter/strength = 0.005
+shader_parameter/foam_width = 0.385
+shader_parameter/height = 0.031
+shader_parameter/deformation = 10.0
+shader_parameter/scarcity = 0.0
+shader_parameter/speedX = 0.3
+shader_parameter/disX = 50.0
+shader_parameter/speedY = 0.3
+shader_parameter/disY = 30.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/noise_foam = SubResource("NoiseTexture2D_jjmj6")
+shader_parameter/noise_foam2 = SubResource("NoiseTexture2D_exi6j")
+shader_parameter/noise_deform = SubResource("NoiseTexture2D_3w7c2")
+shader_parameter/noise_displace = SubResource("NoiseTexture2D_h5sje")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_644cr"]
+seamless = true
+noise = SubResource("FastNoiseLite_d057g")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cn8ps"]
+seamless = true
+noise = SubResource("FastNoiseLite_seuwr")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ig7bk"]
+noise_type = 3
+seed = -370
+frequency = 0.0116
+fractal_octaves = 3
+fractal_lacunarity = 2.2
+fractal_gain = 1.66
+fractal_weighted_strength = 0.56
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_253fm"]
+width = 1024
+height = 1024
+seamless = true
+seamless_blend_skirt = 0.123
+noise = SubResource("FastNoiseLite_ig7bk")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hvhdf"]
+width = 1024
+height = 1024
+seamless = true
+noise = SubResource("FastNoiseLite_al5jy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wdrxy"]
+shader = ExtResource("9_wjnvq")
+shader_parameter/speed = 0.002
+shader_parameter/strength = 0.01
+shader_parameter/foam_width = 0.18
+shader_parameter/height = 0.023
+shader_parameter/deformation = 10.0
+shader_parameter/scarcity = 0.0
+shader_parameter/speedX = 0.3
+shader_parameter/disX = 50.0
+shader_parameter/speedY = 0.3
+shader_parameter/disY = 50.0
+shader_parameter/offset = Vector2(100, 100)
+shader_parameter/noise_foam = SubResource("NoiseTexture2D_253fm")
+shader_parameter/noise_foam2 = SubResource("NoiseTexture2D_hvhdf")
+shader_parameter/noise_deform = SubResource("NoiseTexture2D_644cr")
+shader_parameter/noise_displace = SubResource("NoiseTexture2D_cn8ps")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j45bi"]
+shader = ExtResource("13_7r0f8")
+shader_parameter/Smooth = true
+shader_parameter/width = 24.692
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/pixel_size = 4
+shader_parameter/width_speed = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ipnrl"]
 animations = [{
@@ -138,12 +324,69 @@ animations = [{
 [node name="Map" type="Node2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="Map"]
+z_index = -2
 position = Vector2(-13, -15)
-color = Color(0.0117647, 0.211765, 0.4, 0.921569)
+color = Color(0.0117647, 0.211765, 0.4, 1)
 polygon = PackedVector2Array(-155, 1213, -172, -186, 2172, -143, 2176, 1230)
+
+[node name="Sea0" type="Sprite2D" parent="Map"]
+z_index = -2
+material = SubResource("ShaderMaterial_hjb54")
+position = Vector2(960, 540)
+texture = ExtResource("3_xfi3p")
+
+[node name="Sea1" type="Sprite2D" parent="Map"]
+z_index = -2
+material = SubResource("ShaderMaterial_geutv")
+position = Vector2(960, 540)
+texture = ExtResource("1_2enyv")
+
+[node name="Sea2" type="Sprite2D" parent="Map"]
+z_index = -2
+position = Vector2(960, 540)
+texture = ExtResource("2_rlwf0")
+
+[node name="WaterDeformShader" type="ColorRect" parent="Map"]
+material = SubResource("ShaderMaterial_b5yar")
+custom_minimum_size = Vector2(20, 20)
+offset_left = -222.0
+offset_top = -588.0
+offset_right = 2193.0
+offset_bottom = 1827.0
+
+[node name="FoamShader" type="ColorRect" parent="Map"]
+material = SubResource("ShaderMaterial_r8i7e")
+offset_left = -278.0
+offset_top = -723.0
+offset_right = 2204.0
+offset_bottom = 1759.0
+color = Color(0.0980392, 0.0156863, 0.513726, 1)
+script = ExtResource("8_8tiar")
+
+[node name="FoamShader2" type="ColorRect" parent="Map"]
+material = SubResource("ShaderMaterial_wdrxy")
+offset_left = -278.0
+offset_top = -723.0
+offset_right = 2204.0
+offset_bottom = 1759.0
+script = ExtResource("8_8tiar")
 
 [node name="Island1" type="Node2D" parent="Map"]
 position = Vector2(1064, 635)
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Island1"]
+position = Vector2(349, -145)
+texture = ExtResource("5_voo7i")
+
+[node name="Foam" type="Sprite2D" parent="Map/Island1"]
+visible = false
+material = SubResource("ShaderMaterial_j45bi")
+position = Vector2(333, -146)
+texture = ExtResource("6_57vho")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map/Island1"]
+position = Vector2(334, -146)
+texture = ExtResource("6_57vho")
 
 [node name="HitboxShore" type="CharacterBody2D" parent="Map/Island1"]
 collision_layer = 3
@@ -154,89 +397,139 @@ script = ExtResource("1_rr5wp")
 position = Vector2(-219, 131)
 rotation = -0.215422
 scale = Vector2(0.427777, 0.613198)
-polygon = PackedVector2Array(1269.52, -118.382, 1143.13, -142.683, 1037.09, -262.371, 1066.08, -354.771, 1149.51, -407.141, 1284.74, -388.167, 1408.93, -358.431, 1513.03, -368.342, 1589.61, -368.339, 1648.77, -350.961, 1734.04, -279.515, 1751.74, -236.749, 1739.39, -220.271, 1719.41, -209.966, 1651.97, -208.575, 1567.04, -204.845, 1493.96, -162.581, 1418.53, -135.7)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Island1/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(1269.52, -118.382, 1143.13, -142.683, 1037.09, -262.371, 1066.08, -354.771, 1149.51, -407.141, 1284.74, -388.167, 1408.93, -358.431, 1513.03, -368.342, 1589.61, -368.339, 1648.77, -350.961, 1734.04, -279.515, 1751.74, -236.749, 1739.39, -220.271, 1719.41, -209.966, 1651.97, -208.575, 1567.04, -204.845, 1493.96, -162.581, 1418.53, -135.7)
-metadata/_edit_lock_ = true
+polygon = PackedVector2Array(1077.78, -399.726, 1122.6, -412.917, 1156.79, -422.723, 1195.82, -425.111, 1248.35, -417.093, 1290.74, -407.284, 1343.26, -399.266, 1391.22, -391.945, 1436.6, -391.695, 1477.93, -393.734, 1524.31, -396.669, 1577.05, -396.965, 1625.01, -389.645, 1660.05, -379.288, 1696.87, -366.989, 1722.77, -358.027, 1768.52, -336.02, 1796.49, -318.395, 1820.4, -303.06, 1839.23, -286.829, 1851.79, -258.202, 1856.43, -242.47, 1862.35, -223.203, 1865.49, -202.691, 1859.21, -190.295, 1844.58, -174.165, 1824.59, -163.86, 1791.41, -157.241, 1757.94, -157.342, 1714.83, -157.244, 1669.45, -157.495, 1636.76, -152.468, 1606.36, -147.093, 1558.47, -139.378, 1526.57, -129.223, 1491.89, -117.824, 1461.77, -105.728, 1435.44, -98.0621, 1404.53, -91.0935, 1372.35, -87.6598, 1350.8, -87.611, 1313.26, -90.0023, 1285.86, -94.1855, 1256.17, -98.7173, 1217.85, -106.237, 1182.81, -116.593, 1145.98, -128.892, 1106.88, -141.539, 1080.19, -155.63, 1050.43, -175.196, 1028.24, -203.625, 1021.53, -228.02, 1009.48, -258.24, 1004.27, -287.414, 1002.63, -312.705, 1010.63, -338.195, 1025.47, -362.639, 1049.95, -387.281)
 
 [node name="HitboxTrees" type="CharacterBody2D" parent="Map/Island1"]
-position = Vector2(175, -118)
+position = Vector2(182, -123)
 collision_layer = 7
 collision_mask = 0
 script = ExtResource("2_txi3l")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island1/HitboxTrees"]
 position = Vector2(-13, -4)
-polygon = PackedVector2Array(83, 33, 59, -10, 64, -57, 97, -75, 135, -37, 181, -40, 202, -19, 199, 15, 139, 30)
+polygon = PackedVector2Array(85, 18, 66, 10, 55, -1, 48, -15, 49, -33, 66, -43, 87, -46, 109, -38, 135, -37, 150, -33, 162, -45, 186, -43, 192, -31, 195, -23, 195, -14, 188.917, -11.4822, 182, -10, 164, 5, 134, 2, 115, 6)
 
-[node name="Polygon2D" type="Polygon2D" parent="Map/Island1/HitboxTrees/CollisionPolygon2D"]
-color = Color(0.133333, 0.545098, 0.133333, 1)
-polygon = PackedVector2Array(83, 33, 59, -10, 64, -57, 97, -75, 135, -37, 181, -40, 202, -19, 199, 15, 139, 30)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/Island1/HitboxTrees"]
+position = Vector2(-13, -4)
+polygon = PackedVector2Array(246, -37, 237, -45, 229, -54, 228, -62, 229, -71, 235, -78, 255, -82, 274, -76, 287, -67, 292, -60, 293, -52, 293, -44, 288, -38, 276, -35, 261, -35)
 
-[node name="Island2" type="Node2D" parent="Map"]
+[node name="Sanbar2" type="Node2D" parent="Map"]
 position = Vector2(1491, 1114)
 
-[node name="HitboxShore" type="CharacterBody2D" parent="Map/Island2"]
+[node name="Underwater" type="Sprite2D" parent="Map/Sanbar2"]
+z_index = -2
+position = Vector2(-100, -249)
+texture = ExtResource("8_obej4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Sanbar2"]
+position = Vector2(-155, -295)
+texture = ExtResource("9_kqaj5")
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Sanbar2"]
 position = Vector2(-216, 59)
 rotation = 0.512281
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_rr5wp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island2/HitboxShore"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Sanbar2/HitboxShore"]
 position = Vector2(-534, 160)
 rotation = -0.334747
 scale = Vector2(0.57589, 0.758559)
-polygon = PackedVector2Array(572.269, -539.329, 616.081, -539.956, 734.428, -470.55, 934.19, -390.715, 1098.66, -389.011, 1204.98, -416.887, 1270.37, -416.418, 1319.66, -386.971, 1291.88, -340.327, 1233.15, -335.006, 1127.36, -327.292, 923.755, -330.363, 702.315, -399.639, 572.52, -497.288)
+polygon = PackedVector2Array(585.929, -475.871, 566.736, -497.365, 554.379, -519.79, 557.536, -536.292, 567.967, -544.41, 583.656, -545.207, 612.053, -537.021, 637.952, -524.477, 662.142, -511.7, 683.702, -502.583, 704.956, -494.763, 739.401, -483.383, 768.718, -471.305, 802.856, -461.222, 823.803, -454.7, 854.216, -445.449, 917.058, -425.883, 958.822, -420.857, 1004, -416.297, 1050.59, -413.267, 1108.52, -414.462, 1159.01, -417.321, 1200.03, -422.909, 1230.49, -428.397, 1259.24, -433.652, 1291.71, -438.076, 1331.94, -439.538, 1353.68, -437.141, 1364.06, -430.52, 1372.74, -423.666, 1372.08, -411.522, 1369.1, -401.741, 1366.12, -391.959, 1355.03, -371.698, 1338.51, -352.036, 1325.27, -340.857, 1312.82, -333.805, 1285.61, -322.061, 1268.82, -318.436, 1243.19, -314.944, 1220.66, -313.214, 1191.3, -310.554, 1156.81, -307.196, 1134.28, -305.467, 1106.32, -304.337, 1074.95, -302.741, 1041.55, -302.21, 1018.41, -303.077, 993.871, -302.412, 970.732, -303.279, 947.287, -305.442, 925.55, -307.839, 903.2, -312.83, 884.575, -316.99, 863.935, -322.214, 846.406, -329.202, 825.458, -335.724, 804.205, -343.544, 786.676, -350.531, 766.824, -359.881, 748.682, -369.464, 734.571, -376.917, 714.72, -386.267, 698.593, -394.786, 682.16, -404.601, 667.436, -414.649, 651.003, -424.465, 637.988, -434.746, 624.973, -445.028, 609.943, -456.374)
 
-[node name="Polygon2D" type="Polygon2D" parent="Map/Island2/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(572.269, -539.329, 616.081, -539.956, 734.428, -470.55, 934.19, -390.715, 1098.66, -389.011, 1204.98, -416.887, 1270.37, -416.418, 1319.66, -386.971, 1291.88, -340.327, 1233.15, -335.006, 1127.36, -327.292, 923.755, -330.363, 702.315, -399.639, 572.52, -497.288)
-
-[node name="Island3" type="Node2D" parent="Map"]
+[node name="Sanbar3" type="Node2D" parent="Map"]
 position = Vector2(1157, 733)
 
-[node name="HitboxShore" type="CharacterBody2D" parent="Map/Island3"]
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Sanbar3"]
 position = Vector2(-160, 70)
 rotation = 0.512281
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_rr5wp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island3/HitboxShore"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Sanbar3/HitboxShore"]
 position = Vector2(-439.306, 80.9363)
 rotation = -0.334747
 scale = Vector2(0.446129, 0.587638)
-polygon = PackedVector2Array(998.953, -288.372, 930.154, -340.61, 899.464, -420.261, 924.81, -447.918, 964.296, -444.652, 1008.81, -381.56, 1052.59, -340.844, 1043.87, -299.848)
+polygon = PackedVector2Array(920.107, -352.188, 939.678, -327.192, 960.041, -298.845, 992.85, -275.652, 1019.89, -267.233, 1050.55, -262.765, 1078.84, -268.347, 1090.89, -275.175, 1077.93, -301.073, 1058.76, -324.395, 1039.81, -356.392, 1010.85, -392.211, 983.698, -430.007, 959.942, -463.077, 934.77, -492.498, 913.33, -496.493, 891.663, -491.813, 882.611, -481.935, 880.743, -460.934, 884.078, -437.184, 897.992, -397.585)
 
-[node name="Polygon2D" type="Polygon2D" parent="Map/Island3/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(998.953, -288.372, 930.154, -340.61, 899.464, -420.261, 924.81, -447.918, 964.296, -444.652, 1008.81, -381.56, 1052.59, -340.844, 1043.87, -299.848)
+[node name="Underwater" type="Sprite2D" parent="Map/Sanbar3"]
+z_index = -2
+position = Vector2(-113, -215)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("10_drc2w")
 
-[node name="Island4" type="Node2D" parent="Map"]
-position = Vector2(1129, 438)
+[node name="Sprite2D" type="Sprite2D" parent="Map/Sanbar3"]
+position = Vector2(-112, -215)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("11_xpito")
 
-[node name="HitboxShore" type="CharacterBody2D" parent="Map/Island4"]
-position = Vector2(-160, 70)
-rotation = 0.512281
+[node name="RockIsland" type="Node2D" parent="Map"]
+position = Vector2(700, 269)
+
+[node name="RockUnderwater" type="Sprite2D" parent="Map/RockIsland"]
+position = Vector2(-262, 146)
+texture = ExtResource("14_clfd5")
+
+[node name="Underwater" type="Sprite2D" parent="Map/RockIsland"]
+position = Vector2(-239, 321)
+texture = ExtResource("15_qmwxd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map/RockIsland"]
+position = Vector2(-232, 331)
+texture = ExtResource("16_86xpp")
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/RockIsland"]
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_rr5wp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island4/HitboxShore"]
-position = Vector2(-439.306, 80.9363)
-rotation = -0.334747
-scale = Vector2(0.446129, 0.587638)
-polygon = PackedVector2Array(957.049, -369.322, 937.931, -411.67, 964.918, -451.653, 994.788, -450.535, 1008.99, -438.638, 1010.85, -392.211, 995.347, -371.082)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/RockIsland/HitboxShore"]
+position = Vector2(156, 88.0001)
+rotation = 2.01455
+scale = Vector2(0.458336, 0.49323)
+polygon = PackedVector2Array(367.291, 713.253, 346.553, 724.659, 317.092, 733.183, 291.67, 735.434, 271.222, 733.242, 251.906, 723.816, 229.876, 704.364, 216.665, 683.262, 204.584, 654.925, 196.445, 624.847, 190.179, 598.432, 190.762, 571.236, 198.095, 547.793, 209.175, 531.674, 225.23, 511.112, 243.159, 494.213, 260.054, 480.015, 282.86, 463.206, 299.755, 449.008, 311.674, 439.253, 333.447, 425.145, 354.186, 413.739, 375.861, 404.164, 397.536, 394.589, 414.334, 384.924, 433.102, 374.388, 454.778, 364.813, 477.39, 357.07, 501.972, 348.455, 526.555, 339.841, 552.074, 333.058, 574.686, 325.314, 596.265, 320.272, 623.658, 317.151, 646.173, 313.939, 674.502, 312.649, 701.895, 309.528, 722.439, 307.187, 744.954, 303.976, 764.562, 299.804, 791.955, 296.683, 818.411, 291.731, 843.931, 284.948, 870.484, 275.463, 892.062, 270.421, 919.649, 258.234, 951.08, 248.84, 977.633, 239.355, 1001.18, 233.442, 1028.67, 225.789, 1072.67, 222.068, 1105.87, 220.868, 1131.2, 223.15, 1159.43, 226.392, 1182.69, 234.077, 1202.1, 238.971, 1220.48, 246.566, 1230.72, 224.083, 1239.64, 217.9, 1259.99, 224.624, 1285.86, 246.868, 1292.32, 264.218, 1286.86, 291.323, 1306.83, 316.178, 1316.39, 325.424, 1342.46, 338.602, 1351.27, 336.952, 1368.46, 309.156, 1381.12, 310.297, 1392.56, 323.205, 1409.52, 351.632, 1425.54, 378.228, 1425.99, 402.722, 1426.34, 431.749, 1429.8, 452.671, 1430.25, 477.165, 1432.58, 505.321, 1427.12, 532.427, 1414.9, 555.78, 1398.85, 576.342, 1375.95, 597.683, 1349.3, 611.701, 1324.62, 624.848, 1301.07, 630.76, 1276.48, 639.375, 1251.06, 641.625, 1227.61, 643.005, 1200.31, 641.594, 1177.9, 640.273, 1150.89, 625.263, 1126.79, 611.214, 1100.92, 588.971, 1078.89, 569.519, 1059.77, 551.028, 1045.43, 537.159, 1029.11, 524.161, 1010.83, 512.034, 995.456, 500.867, 974.168, 492.311, 951.847, 486.458, 930.463, 482.435, 910.016, 480.243, 889.568, 478.051, 856.361, 479.251, 828.031, 480.541, 794.727, 486.273, 763.393, 491.135, 732.899, 502.361, 705.313, 514.547, 673.785, 528.474, 644.227, 541.531, 616.543, 558.25, 585.952, 574.008, 567.087, 589.077, 549.159, 605.976, 540.791, 632.121, 524.93, 643.617, 503.255, 653.192, 480.643, 660.936, 449.115, 674.863, 420.494, 689.751)
 
-[node name="Polygon2D" type="Polygon2D" parent="Map/Island4/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(957.049, -369.322, 937.931, -411.67, 964.918, -451.653, 994.788, -450.535, 1008.99, -438.638, 1010.85, -392.211, 995.347, -371.082)
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/RockIsland"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_hssc5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/RockIsland/HitBoxRock"]
+position = Vector2(-207, 254)
+scale = Vector2(0.581513, 0.50869)
+polygon = PackedVector2Array(-12.0375, -149.403, -24.0751, -163.164, 0, -182.823, -5.15894, -198.549, -27.5144, -202.481, -18.9161, -239.832, -3.43927, -267.353, 34.3931, -275.217, 44.7109, -249.661, 67.0665, -245.729, 91.1415, -263.422, 116.936, -273.251, 134.133, -247.695, 128.974, -218.208, 110.058, -202.481, 94.5809, -186.754, 116.936, -155.301, 115.217, -137.608, 80.8237, -135.643, 94.5809, -108.121, 96.3005, -72.7359, 75.6647, -72.7359, 44.7109, -117.95, 44.7109, -151.369, 27.5145, -157.267, 12.0376, -137.608)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/RockIsland/HitBoxRock"]
+position = Vector2(-246, 411)
+rotation = 2.92619
+scale = Vector2(0.477484, 0.481327)
+polygon = PackedVector2Array(169.763, -322.572, 178.776, -275.954, 208.762, -275.826, 213.172, -247.221, 164.325, -249.316, 155.051, -168.386, 132.609, -154.117, 139.768, -118.535, 174.933, -132.17, 190.853, -126.588, 175.762, -87.3282, 172.692, -53.9669, 203.188, -36.714, 193.917, -23.839, 148.204, -40.1412, 134.201, -15.5331, 80.3676, -14.4573, 69.5642, -52.9567, 19.3747, -48.9631, 3.25964, 24.1017, -66.3675, 57.9041, -97.8223, 25.5559, -131.9, 24.5396, -137.845, 12.6155, -105.108, -48.3345, -106.577, -80.5543, -79.8505, -104.528, -42.321, -90.0018, -11.8878, -91.9032, 32.104, -184.438, 82.8042, -171.307, 106.844, -183.103, 98.6008, -272.088, 127.884, -278.493, 140.673, -326.759)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Map/RockIsland/HitBoxRock"]
+position = Vector2(-246, 411)
+rotation = 2.92619
+scale = Vector2(0.477484, 0.481327)
+polygon = PackedVector2Array(259.074, -173.455, 262.781, -151.383, 249.611, -149.989, 229.599, -156.459, 219.754, -179.863)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Map/RockIsland/HitBoxRock"]
+position = Vector2(-246, 411)
+rotation = 2.92619
+scale = Vector2(0.477484, 0.481327)
+polygon = PackedVector2Array(33.8346, -279.766, -1.00903, -306.469, -27.3505, -303.68, -21.5343, -262.009, 21.8776, -254.714)
 
 [node name="Rock1" type="Node2D" parent="Map"]
-position = Vector2(701, 253)
+position = Vector2(723, 292)
+
+[node name="Underwater" type="Sprite2D" parent="Map/Rock1"]
+z_index = -2
+position = Vector2(-17, 480)
+texture = ExtResource("18_36c8r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map/Rock1"]
+position = Vector2(36, 528)
+texture = ExtResource("19_ppf6o")
 
 [node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock1"]
 collision_layer = 3
@@ -244,14 +537,9 @@ collision_mask = 0
 script = ExtResource("1_rr5wp")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock1/HitboxShore"]
-position = Vector2(156, 88.0001)
-rotation = 2.01455
-scale = Vector2(0.458336, 0.49323)
-polygon = PackedVector2Array(1158.21, 588.357, 975.976, 450.681, 642.989, 568.341, 493.535, 727.867, 370.262, 756.839, 263.923, 709.528, 200.397, 566.455, 432.799, 365.092, 723.003, 276.72, 1130.86, 177.933, 1413.09, 321.655, 1448.89, 548.262, 1301.16, 627.375)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock1/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(1158.21, 588.357, 975.976, 450.681, 642.989, 568.341, 493.535, 727.867, 370.262, 756.839, 263.923, 709.528, 200.397, 566.455, 432.799, 365.092, 723.003, 276.72, 1130.86, 177.933, 1413.09, 321.655, 1448.89, 548.262, 1301.16, 627.375)
+position = Vector2(-283, 58)
+scale = Vector2(0.634555, 0.675226)
+polygon = PackedVector2Array(389.249, 667.925, 408.16, 638.305, 408.16, 626.457, 419.191, 616.09, 438.102, 611.647, 447.558, 616.09, 453.861, 629.419, 461.741, 624.976, 480.652, 627.938, 491.683, 635.343, 497.987, 636.824, 510.594, 633.862, 543.688, 644.229, 549.992, 651.634, 554.719, 676.81, 554.719, 694.582, 559.447, 699.025, 578.358, 710.873, 578.358, 718.278, 570.479, 727.164, 554.719, 740.493, 545.264, 739.012, 512.17, 734.569, 491.683, 724.202, 483.804, 722.721, 461.741, 740.493, 445.982, 743.455, 417.615, 728.645, 400.281, 718.278, 389.249, 706.43, 381.37, 690.139)
 
 [node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock1"]
 collision_layer = 7
@@ -259,57 +547,21 @@ collision_mask = 0
 script = ExtResource("3_hssc5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock1/HitBoxRock"]
-position = Vector2(-207, 254)
-scale = Vector2(0.581513, 0.50869)
-polygon = PackedVector2Array(-42.9914, -184.788, 44.7108, -45.2143, 103.179, -57.0092, 128.974, -106.155, 88.7226, -215.64, 81.9842, -287.52, 8.98458, -267.916)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock1/HitBoxRock/CollisionPolygon2D"]
-color = Color(0.411765, 0.411765, 0.411765, 1)
-polygon = PackedVector2Array(-42.9914, -184.788, 44.7108, -45.2143, 103.179, -57.0092, 128.974, -106.155, 88.7226, -215.64, 81.9842, -287.52, 8.98458, -267.916)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/Rock1/HitBoxRock"]
-position = Vector2(-246, 411)
-rotation = 2.92619
-scale = Vector2(0.477484, 0.481327)
-polygon = PackedVector2Array(78.8351, -65.8317, 201.019, -143.522, 203.644, -242.909, 119.954, -271.707, -80.677, -217.424, -159.963, -81.5079, -166.936, 8.42847, -99.1651, 31.6449)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock1/HitBoxRock/CollisionPolygon2D2"]
-color = Color(0.411765, 0.411765, 0.411765, 1)
-polygon = PackedVector2Array(78.8351, -65.8317, 201.019, -143.522, 203.644, -242.909, 119.954, -271.707, -80.677, -217.424, -159.963, -81.5079, -166.936, 8.42847, -99.1651, 31.6449)
-
-[node name="Rock2" type="Node2D" parent="Map"]
-position = Vector2(723, 292)
-
-[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock2"]
-collision_layer = 3
-collision_mask = 0
-script = ExtResource("1_rr5wp")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock2/HitboxShore"]
-position = Vector2(-283, 58)
-scale = Vector2(0.634555, 0.675226)
-polygon = PackedVector2Array(381.37, 710.873, 412.888, 633.862, 483.804, 632.381, 559.447, 656.076, 564.175, 704.949, 512.17, 755.302)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock2/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(381.37, 710.873, 412.888, 633.862, 483.804, 632.381, 559.447, 656.076, 564.175, 704.949, 512.17, 755.302)
-
-[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock2"]
-collision_layer = 7
-collision_mask = 0
-script = ExtResource("3_hssc5")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock2/HitBoxRock"]
 position = Vector2(4, 619)
 scale = Vector2(0.523315, 0.43844)
-polygon = PackedVector2Array(-28.6635, -205.274, 57.2766, -151.384, 88.7226, -215.64, 63.0596, -248.609, -1.91089, -269.136)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock2/HitBoxRock/CollisionPolygon2D"]
-color = Color(0.411765, 0.411765, 0.411765, 1)
-polygon = PackedVector2Array(-28.6635, -205.274, 57.2766, -151.384, 88.7226, -215.64, 63.0596, -248.609, -1.91089, -269.136)
+polygon = PackedVector2Array(-64.9705, -212.116, -66.8813, -232.643, -53.5051, -239.485, -43.9507, -294.225, -36.307, -312.472, -13.3763, -321.595, -3.82178, -278.259, 28.6633, -275.979, 28.6633, -260.013, 34.3961, -264.574, 84.0793, -269.136, 93.6338, -239.485, 89.812, -221.239, 108.921, -198.431, 99.3665, -175.623, 57.3268, -175.623, 47.7723, -200.712, 38.2179, -200.712, 42.0397, -189.308, 3.82178, -166.5, -19.109, -168.78, -57.3269, -184.746)
 
 [node name="Rock3" type="Node2D" parent="Map"]
 position = Vector2(216, 13)
+
+[node name="Underwater" type="Sprite2D" parent="Map/Rock3"]
+z_index = -2
+position = Vector2(228, 196)
+texture = ExtResource("20_djnpq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Rock3"]
+position = Vector2(136, 192)
+texture = ExtResource("21_s8yi5")
 
 [node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock3"]
 collision_layer = 3
@@ -319,11 +571,7 @@ script = ExtResource("1_rr5wp")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock3/HitboxShore"]
 position = Vector2(-283, 58)
 scale = Vector2(0.634555, 0.675226)
-polygon = PackedVector2Array(603.573, 188.085, 609.876, 136.251, 658.729, 131.808, 691.823, 180.68, 669.761, 241.401, 624.059, 244.363)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock3/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(603.573, 188.085, 609.876, 136.251, 658.729, 131.808, 691.823, 180.68, 669.761, 241.401, 624.059, 244.363)
+polygon = PackedVector2Array(613.028, 188.085, 613.028, 168.832, 619.332, 148.099, 665.033, 155.503, 680.792, 182.161, 680.792, 191.047, 669.761, 217.705, 666.609, 223.629, 620.908, 217.705, 616.18, 204.376)
 
 [node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock3"]
 collision_layer = 7
@@ -333,76 +581,123 @@ script = ExtResource("3_hssc5")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock3/HitBoxRock"]
 position = Vector2(117, 262)
 scale = Vector2(0.523315, 0.43844)
-polygon = PackedVector2Array(-1.91089, -114.041, 38.2179, -114.041, 55.416, -168.78, 34.3961, -216.677, -15.2872, -218.958, -19.1089, -175.623)
+polygon = PackedVector2Array(-5.73267, -145.972, 42.0397, -136.849, 49.6833, -166.499, 43.9506, -212.116, -9.55444, -223.52, -15.2871, -200.712)
 
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock3/HitBoxRock/CollisionPolygon2D"]
-color = Color(0.411765, 0.411765, 0.411765, 1)
-polygon = PackedVector2Array(-1.91089, -114.041, 38.2179, -114.041, 55.416, -168.78, 34.3961, -216.677, -15.2872, -218.958, -19.1089, -175.623)
-
-[node name="Rock5" type="Node2D" parent="Map"]
+[node name="Island2" type="Node2D" parent="Map"]
 position = Vector2(1542, 42)
 
-[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock5"]
+[node name="Underwater" type="Sprite2D" parent="Map/Island2"]
+z_index = -2
+position = Vector2(168, 86)
+texture = ExtResource("20_dukoj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map/Island2"]
+position = Vector2(197, 79)
+texture = ExtResource("21_7dao0")
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Island2"]
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_rr5wp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock5/HitboxShore"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island2/HitboxShore"]
 position = Vector2(-300, 88)
 scale = Vector2(0.634555, 0.675226)
-polygon = PackedVector2Array(449.134, -231.034, -4.72766, -1132.95, 850.99, -1143.32, 576.782, -294.716, 701.279, -202.895, 882.508, -82.9352, 1107.86, -4.44298, 1895.82, -319.893, 2045.53, 233.996, 1081.07, 133.289, 918.754, 82.9352, 737.525, -11.8479)
+polygon = PackedVector2Array(400.281, -199.933, 422.343, -186.604, 449.134, -174.756, 482.228, -164.389, 510.594, -149.58, 542.112, -134.77, 567.327, -118.479, 598.845, -100.707, 611.452, -88.8591, 633.515, -71.0873, 650.85, -54.7965, 677.64, -31.1007, 706.007, -13.3289, 742.252, 7.40492, 772.195, 25.1768, 805.289, 39.9866, 833.655, 50.3535, 850.99, 60.7204, 855.718, 77.0113, 877.781, 84.4162, 901.419, 75.5303, 934.513, 96.2641, 953.424, 103.669, 959.728, 116.998, 991.246, 125.884, 1005.43, 122.922, 1025.92, 130.327, 1040.1, 136.251, 1040.1, 151.061, 1071.62, 173.275, 3044.65, -19.2528, -91.4027, -1608.35, 140.256, -430.967)
 
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock5/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(449.134, -231.034, -4.72766, -1132.95, 850.99, -1143.32, 576.782, -294.716, 701.279, -202.895, 882.508, -82.9352, 1107.86, -4.44298, 1895.82, -319.893, 2045.53, 233.996, 1081.07, 133.289, 918.754, 82.9352, 737.525, -11.8479)
+[node name="HitboxTrees" type="CharacterBody2D" parent="Map/Island2"]
+position = Vector2(182, -123)
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("2_txi3l")
 
-[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock5"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island2/HitboxTrees"]
+position = Vector2(-13, -4)
+polygon = PackedVector2Array(-18, 89, 10, 110, 34, 122, 55, 121, 63, 108, 73, 98, 96, 80, 119, 71, 151, 87, 172, 102, 188, 110, 239, 117, 386, 113, 385, -55, -147, -51)
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Island2"]
 collision_layer = 7
 collision_mask = 0
 script = ExtResource("3_hssc5")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock5/HitBoxRock"]
-position = Vector2(107, 239)
-scale = Vector2(0.332942, 0.278943)
-polygon = PackedVector2Array(453.532, -509.064, 453.532, -591.518, 552.648, -620.198, 871.022, -498.309, 928.089, -419.44, 892.047, -311.891, 657.772, -369.251)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island2/HitBoxRock"]
+position = Vector2(307, 168)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(156.693, 63.8627, 107.01, -6.84259, 105.099, -66.1437, 57.3269, -86.6711, 55.416, -54.7397, 42.0396, -20.5275, 13.3762, -25.0891, -1.91089, -104.918, -1.91089, -152.815, 40.1287, -136.849, 72.614, -159.657, 156.693, -173.342, 152.872, -257.732, 105.099, -289.664, 101.277, -314.752, 150.961, -351.245, 223.575, -355.807, 317.208, -310.191, 347.783, 22.808)
 
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock5/HitBoxRock/CollisionPolygon2D"]
-color = Color(0.411765, 0.411765, 0.411765, 1)
-polygon = PackedVector2Array(453.532, -509.064, 453.532, -591.518, 552.648, -620.198, 871.022, -498.309, 928.089, -419.44, 892.047, -311.891, 657.772, -369.251)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/Island2/HitBoxRock"]
+position = Vector2(307, 168)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(15.2871, -371.773, 13.3762, -342.122, 57.3269, -328.437, 57.3269, -367.211)
 
-[node name="Rock6" type="Node2D" parent="Map"]
-position = Vector2(1433, 21)
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Map/Island2/HitBoxRock"]
+position = Vector2(307, 168)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-107.01, -104.918, -80.2576, -88.9519, -49.6833, -109.479, -55.416, -145.972, -99.3665, -145.972)
 
-[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock6"]
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Map/Island2/HitBoxRock"]
+position = Vector2(307, 168)
+scale = Vector2(0.523315, 0.43844)
+polygon = PackedVector2Array(-173.892, -225.801, -166.248, -202.993, -143.317, -193.869, -116.565, -202.993, -164.337, -239.486)
+
+[node name="Sandbar4" type="Node2D" parent="Map"]
+position = Vector2(1129, 438)
+
+[node name="Underwater" type="Sprite2D" parent="Map/Sandbar4"]
+z_index = -2
+position = Vector2(-107, -213)
+texture = ExtResource("12_hhy6o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Sandbar4"]
+position = Vector2(-108, -224)
+texture = ExtResource("13_usatd")
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Sandbar4"]
+position = Vector2(-160, 70)
+rotation = 0.512281
 collision_layer = 3
 collision_mask = 0
 script = ExtResource("1_rr5wp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock6/HitboxShore"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Sandbar4/HitboxShore"]
+position = Vector2(-439.306, 80.9363)
+rotation = -0.334747
+scale = Vector2(0.446129, 0.587638)
+polygon = PackedVector2Array(983.519, -305.501, 957.101, -320.921, 944.318, -336.468, 935.551, -354.292, 929.217, -381.092, 927.692, -406.818, 927.977, -434.519, 943.479, -455.648, 971.596, -471.581, 993.658, -474.586, 1010.29, -471.665, 1021.09, -464.492, 1032.29, -455.644, 1037.27, -444.22, 1040.44, -430.82, 1039.59, -415.144, 1032.91, -395.217, 1023.63, -376.664, 1024.2, -364.638, 1024.54, -343.937, 1023.29, -329.937, 1021.65, -317.611, 1012.6, -307.733, 999.754, -304.255)
+
+[node name="Sandbar1" type="Node2D" parent="Map"]
+position = Vector2(1433, 21)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Sandbar1"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_rr5wp")
+
+[node name="Underwater" type="Sprite2D" parent="Map/Sandbar1/HitboxShore"]
+z_index = -2
+position = Vector2(447, 637)
+texture = ExtResource("24_nqfum")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map/Sandbar1/HitboxShore"]
+position = Vector2(461, 615)
+texture = ExtResource("25_1hk14")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Sandbar1/HitboxShore"]
 position = Vector2(-300, 211)
 scale = Vector2(0.634555, 0.675226)
-polygon = PackedVector2Array(2668.01, 879.705, 1256, 678.291, 1169.32, 648.672, 1144.11, 583.508, 1183.51, 500.573, 1221.33, 479.839, 2581.34, 430.967)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock6/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(2668.01, 879.705, 1256, 678.291, 1169.32, 648.672, 1144.11, 583.508, 1183.51, 500.573, 1221.33, 479.839, 2581.34, 430.967)
-
-[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock6"]
-collision_layer = 7
-collision_mask = 0
-script = ExtResource("3_hssc5")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock6/HitBoxRock"]
-position = Vector2(107, 239)
-scale = Vector2(0.332942, 0.278943)
-polygon = PackedVector2Array(1321.55, 1494.93, 1099.29, 1451.91, 1042.22, 1294.17, 1093.28, 1143.6, 1727.03, 1172.28, 1712.01, 1516.44)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock6/HitBoxRock/CollisionPolygon2D"]
-color = Color(0.411765, 0.411765, 0.411765, 1)
-polygon = PackedVector2Array(1321.55, 1494.93, 1099.29, 1451.91, 1042.22, 1294.17, 1093.28, 1143.6, 1727.03, 1172.28, 1712.01, 1516.44)
+polygon = PackedVector2Array(2682.19, 1018.92, 1393.1, 824.909, 1273.33, 759.746, 1210.3, 750.86, 1170.9, 734.569, 1142.53, 703.468, 1128.35, 656.077, 1125.2, 619.052, 1131.5, 589.432, 1158.29, 547.965, 1188.23, 521.307, 1227.63, 497.611, 1274.91, 485.763, 2581.34, 430.967)
 
 [node name="Rock7" type="Node2D" parent="Map"]
 position = Vector2(-1237, 253)
+
+[node name="Underwater" type="Sprite2D" parent="Map/Rock7"]
+z_index = -2
+position = Vector2(1370, 674)
+texture = ExtResource("26_q4ix0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map/Rock7"]
+position = Vector2(1302, 691)
+texture = ExtResource("27_83w0s")
 
 [node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock7"]
 collision_layer = 3
@@ -412,11 +707,7 @@ script = ExtResource("1_rr5wp")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock7/HitboxShore"]
 position = Vector2(-300, 211)
 scale = Vector2(0.634555, 0.675226)
-polygon = PackedVector2Array(1653.13, 337.665, 2280.34, 460.586, 2455.26, 479.839, 2515.15, 577.584, 2545.09, 721.24, 2571.88, 820.466, 2575.03, 1005.59, 2721.59, 1740.16, 1656.28, 1697.21, 1653.35, 431.884)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock7/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(1653.13, 337.665, 2280.34, 460.586, 2455.26, 479.839, 2515.15, 577.584, 2545.09, 721.24, 2571.88, 820.466, 2575.03, 1005.59, 2721.59, 1740.16, 1656.28, 1697.21, 1653.35, 431.884)
+polygon = PackedVector2Array(2512, 897.477, 2516.72, 891.553, 2524.6, 895.996, 2535.64, 903.401, 2549.82, 906.363, 2564, 904.882, 2576.61, 903.401, 2586.06, 898.958, 2587.64, 894.515, 2581.34, 884.148, 2586.06, 813.061, 2578.18, 807.137, 2573.46, 804.175, 2549.82, 796.77, 2526.18, 792.327, 2519.88, 787.884, 2518.3, 784.922, 2529.33, 776.036, 2532.48, 776.036, 2530.91, 767.151, 2526.18, 756.784, 2523.03, 747.898, 2516.72, 736.05, 2513.57, 733.088, 2512, 722.721, 2513.57, 718.278, 2518.3, 718.278, 2527.76, 721.24, 2532.48, 719.759, 2534.06, 713.835, 2537.21, 710.873, 2541.94, 707.911, 2551.39, 703.468, 2556.12, 700.506, 2562.43, 694.582, 2564, 681.253, 2565.58, 669.406, 2565.58, 659.039, 2564, 648.672, 2557.7, 639.786, 2552.97, 633.862, 2545.09, 627.938, 2535.64, 624.976, 2526.18, 624.976, 2519.88, 627.938, 2510.42, 632.381, 2505.69, 633.862, 2499.39, 635.343, 2489.93, 639.786, 2483.63, 639.786, 2474.17, 639.786, 2456.84, 636.824, 2442.66, 633.862, 2439.5, 626.457, 2442.66, 622.014, 2448.96, 620.533, 2458.42, 605.723, 2466.3, 598.318, 2475.75, 590.913, 2482.05, 583.508, 2482.05, 576.103, 2478.9, 568.698, 2480.48, 558.332, 2477.33, 552.408, 2466.3, 534.636, 2459.99, 525.75, 2452.11, 521.307, 2437.93, 513.902, 2417.44, 507.978, 2401.68, 506.497, 1897.39, 288.792, 1875.33, 1321.04, 2858.7, 1316.6, 2597.1, 921.173, 2581.34, 931.54, 2537.21, 925.616)
 
 [node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock7"]
 collision_layer = 7
@@ -426,14 +717,19 @@ script = ExtResource("3_hssc5")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock7/HitBoxRock"]
 position = Vector2(107, 239)
 scale = Vector2(0.332942, 0.278943)
-polygon = PackedVector2Array(3622.25, 2552.49, 3601.23, 1917.95, 3526.14, 1555.87, 3439.04, 1193.79, 2793.28, 1064.73, 2760.24, 2638.53, 3643.28, 2717.4)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock7/HitBoxRock/CollisionPolygon2D"]
-color = Color(0.411765, 0.411765, 0.411765, 1)
-polygon = PackedVector2Array(3622.25, 2552.49, 3601.23, 1917.95, 3526.14, 1555.87, 3439.04, 1193.79, 2793.28, 1064.73, 2760.24, 2638.53, 3643.28, 2717.4)
+polygon = PackedVector2Array(3577.2, 2147.39, 3517.13, 2072.11, 3577.2, 2011.16, 3655.29, 2054.18, 3673.31, 2047.01, 3685.33, 1889.27, 3571.19, 1842.67, 3544.16, 1821.16, 3562.18, 1781.73, 3583.21, 1767.39, 3571.19, 1720.78, 3541.16, 1738.71, 3508.12, 1738.71, 3499.11, 1706.44, 3505.11, 1684.93, 3535.15, 1688.52, 3550.17, 1634.74, 3493.1, 1580.97, 3505.11, 1555.87, 3565.19, 1573.8, 3601.23, 1577.38, 3622.25, 1555.87, 3640.27, 1534.36, 3646.28, 1505.68, 3622.25, 1433.98, 3595.22, 1426.81, 3583.21, 1433.98, 3574.2, 1466.25, 3544.16, 1477, 3478.08, 1480.59, 3445.04, 1469.83, 3427.02, 1473.42, 3427.02, 1448.32, 3393.98, 1423.23, 3418.01, 1387.38, 3439.04, 1344.36, 3484.09, 1304.93, 3472.08, 1236.81, 3454.05, 1190.21, 3378.97, 1154.36, 3252.82, 1136.43, 3267.84, 2150.98)
 
 [node name="Rock8" type="Node2D" parent="Map"]
 position = Vector2(-1237, 253)
+
+[node name="Underwater" type="Sprite2D" parent="Map/Rock8"]
+z_index = -2
+position = Vector2(1277, 100)
+texture = ExtResource("28_ujusq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map/Rock8"]
+position = Vector2(1265.5, 135)
+texture = ExtResource("29_u6iaq")
 
 [node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock8"]
 collision_layer = 3
@@ -443,11 +739,7 @@ script = ExtResource("1_rr5wp")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock8/HitboxShore"]
 position = Vector2(-300, 211)
 scale = Vector2(0.634555, 0.675226)
-polygon = PackedVector2Array(1831.2, -42.9485, 2346.53, -53.3155, 2494.66, -93.3021, 2508.84, -216.224, 2001.4, -333.222, 1432.5, -402.828, 1426.2, 19.2528)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock8/HitboxShore/CollisionPolygon2D"]
-color = Color(1, 1, 0.941176, 1)
-polygon = PackedVector2Array(1831.2, -42.9485, 2346.53, -53.3155, 2494.66, -93.3021, 2508.84, -216.224, 2001.4, -333.222, 1432.5, -402.828, 1426.2, 19.2528)
+polygon = PackedVector2Array(1944.67, -302.121, 2422.17, -223.629, 2444.23, -222.148, 2452.11, -216.224, 2450.54, -208.819, 2452.11, -202.895, 2459.99, -196.971, 2475.75, -191.047, 2482.05, -185.123, 2485.21, -173.275, 2488.36, -155.504, 2493.09, -143.656, 2499.39, -137.732, 2500.97, -127.365, 2500.97, -114.036, 2499.39, -106.631, 2488.36, -103.669, 2480.48, -97.7451, 2472.6, -93.3021, 2466.3, -88.8592, 2466.3, -74.0493, 2466.3, -63.6824, 2463.14, -59.2394, 2442.66, -48.8726, 2430.05, -47.3916, 2406.41, -45.9106, 1955.7, -1.48102)
 
 [node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock8"]
 collision_layer = 7
@@ -457,11 +749,7 @@ script = ExtResource("3_hssc5")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock8/HitBoxRock"]
 position = Vector2(-33, -464)
 scale = Vector2(0.332942, 0.278943)
-polygon = PackedVector2Array(3901.58, 1950.22, 3844.51, 1910.78, 3120.66, 1695.69, 2553, 1860.59, 2691.16, 2190.41, 3874.55, 2125.88)
-
-[node name="Polygon2D" type="Polygon2D" parent="Map/Rock8/HitBoxRock/CollisionPolygon2D"]
-color = Color(0.411765, 0.411765, 0.411765, 1)
-polygon = PackedVector2Array(3901.58, 1950.22, 3844.51, 1910.78, 3120.66, 1695.69, 2553, 1860.59, 2691.16, 2190.41, 3874.55, 2125.88)
+polygon = PackedVector2Array(3790.45, 1896.44, 3835.5, 1914.37, 3856.53, 1935.88, 3862.53, 1964.56, 3898.58, 1978.9, 3913.59, 1982.48, 3931.62, 2061.35, 3937.62, 2143.81, 3892.57, 2093.62, 3874.55, 2097.2, 3910.59, 2154.56, 3886.56, 2172.49, 3880.56, 2219.09, 3880.56, 2262.11, 3856.53, 2269.28, 3739.39, 2276.45, 3733.38, 1892.86)
 
 [node name="Starting Positions" parent="." instance=ExtResource("4_v0fjs")]
 
@@ -497,26 +785,25 @@ polygon = PackedVector2Array(31, -40, 169.746, -91.5323, 323.629, -24.6992, 509.
 
 [node name="1" parent="Wind/WindZone1/Arrows" index="0"]
 position = Vector2(-55, -12)
-rotation = -1.5708
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="1"]
 position = Vector2(88, 118)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="2"]
 position = Vector2(100, 36)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone1/Arrows" index="3"]
 position = Vector2(-63, 75)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="WindZone2" parent="Wind" instance=ExtResource("5_misey")]
 position = Vector2(723, 670)
@@ -527,7 +814,7 @@ random_sens = true
 [node name="CollisionShape2D" parent="Wind/WindZone2/HitBox" index="0"]
 position = Vector2(-261, -48)
 scale = Vector2(0.754962, 0.699503)
-polygon = PackedVector2Array(241.072, -213.008, 247.694, -347.389, 211.931, -481.771, 230.475, -543.243, 308.625, -567.546, 382.8, -520.369, 390.748, -436.024, 384.125, -265.903, 382.8, -91.4935, 353.66, 67.1906, 300.677, 201.572, 222.528, 371.692, 169.545, 400.284, 124.51, 363.115, 147.027, 284.488, 184.115, 170.121, 225.177, -38.5989)
+polygon = PackedVector2Array(241.072, -213.008, 247.694, -347.389, 223.852, -481.771, 250.344, -543.243, 308.625, -567.546, 382.8, -520.369, 390.748, -436.024, 384.125, -265.903, 382.8, -91.4935, 353.66, 67.1906, 300.677, 201.572, 222.528, 371.692, 169.545, 400.284, 124.51, 363.115, 147.027, 284.488, 184.115, 170.121, 225.177, -38.5989)
 
 [node name="Polygon2D" parent="Wind/WindZone2/HitBox/CollisionShape2D" index="0"]
 polygon = PackedVector2Array(241.072, -213.008, 247.694, -347.389, 211.931, -481.771, 230.475, -543.243, 308.625, -567.546, 382.8, -520.369, 390.748, -436.024, 384.125, -265.903, 382.8, -91.4935, 353.66, 67.1906, 300.677, 201.572, 222.528, 371.692, 169.545, 400.284, 124.51, 363.115, 147.027, 284.488, 184.115, 170.121, 225.177, -38.5989)
@@ -535,25 +822,25 @@ polygon = PackedVector2Array(241.072, -213.008, 247.694, -347.389, 211.931, -481
 [node name="1" parent="Wind/WindZone2/Arrows" index="0"]
 position = Vector2(-21, -192)
 rotation = -3.00197
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="1"]
 position = Vector2(-21, -322)
 rotation = -3.00197
 sprite_frames = SubResource("SpriteFrames_ipnrl")
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="2"]
 position = Vector2(-105, 139)
 rotation = -3.00197
 sprite_frames = SubResource("SpriteFrames_ipnrl")
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="3"]
 position = Vector2(-57, 5)
 rotation = -3.00197
 sprite_frames = SubResource("SpriteFrames_b4ot3")
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="WindZone4" parent="Wind" instance=ExtResource("5_misey")]
 position = Vector2(1415, 700)
@@ -561,33 +848,32 @@ position = Vector2(1415, 700)
 [node name="CollisionShape2D" parent="Wind/WindZone4/HitBox" index="0"]
 position = Vector2(-205, 8)
 scale = Vector2(0.472637, 0.516072)
-polygon = PackedVector2Array(341.079, 225.198, 175.61, 141.453, 152.337, 44.5674, 268.705, -63.9446, 361.8, -176.332, 518.368, -244.152, 700.326, -205.398, 829.389, -129.827, 903.442, 7.75085, 947.874, 124.014, 884.4, 248.027, 763.8, 269.342, 600.884, 205.397)
+polygon = PackedVector2Array(338.526, 203.46, 175.61, 141.453, 152.337, 44.5674, 268.705, -63.9446, 361.8, -139.515, 533.179, -195.709, 696.094, -186.021, 829.389, -129.827, 903.442, 7.75085, 947.874, 124.014, 884.4, 248.027, 763.8, 269.342, 600.884, 205.397)
 
 [node name="Polygon2D" parent="Wind/WindZone4/HitBox/CollisionShape2D" index="0"]
 polygon = PackedVector2Array(31, -40, 169.746, -91.5323, 323.629, -24.6992, 509.239, 14.5289, 742.442, 79.9091, 832.868, 21.7935, 986.75, 143.836, 828.109, 169.988, 689.093, 166.216, 353.771, 165.63, 47, 85)
 
 [node name="1" parent="Wind/WindZone4/Arrows" index="0"]
 position = Vector2(158, 107)
-rotation = -1.5708
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="2" type="AnimatedSprite2D" parent="Wind/WindZone4/Arrows" index="1"]
 position = Vector2(138, 17)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="3" type="AnimatedSprite2D" parent="Wind/WindZone4/Arrows" index="2"]
 position = Vector2(-39, 67)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="4" type="AnimatedSprite2D" parent="Wind/WindZone4/Arrows" index="3"]
-position = Vector2(41, -68)
+position = Vector2(29, -53)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_ipnrl")
-frame_progress = 0.563129
+frame_progress = 0.22738
 
 [node name="Pickables" type="Node2D" parent="."]
 
@@ -615,13 +901,13 @@ position = Vector2(890, 810)
 position = Vector2(1034, 789)
 
 [node name="CoinSpawn8" parent="Pickables/Coins/CoinSpawnList" index="7" instance=ExtResource("7_6l1c6")]
-position = Vector2(1089, 643)
+position = Vector2(1096, 652)
 
 [node name="CoinSpawn9" parent="Pickables/Coins/CoinSpawnList" index="8" instance=ExtResource("7_6l1c6")]
-position = Vector2(1016, 399)
+position = Vector2(1016, 392)
 
 [node name="CoinSpawn10" parent="Pickables/Coins/CoinSpawnList" index="9" instance=ExtResource("7_6l1c6")]
-position = Vector2(1014, 292)
+position = Vector2(1013, 320)
 
 [node name="CoinSpawn11" parent="Pickables/Coins/CoinSpawnList" index="10" instance=ExtResource("7_6l1c6")]
 position = Vector2(1358, 753)
@@ -696,16 +982,16 @@ position = Vector2(520, 248)
 position = Vector2(284, 715)
 
 [node name="CoinSpawn35" parent="Pickables/Coins/CoinSpawnList" index="34" instance=ExtResource("7_6l1c6")]
-position = Vector2(1503, 367)
+position = Vector2(1513, 339)
 
 [node name="CoinSpawn36" parent="Pickables/Coins/CoinSpawnList" index="35" instance=ExtResource("7_6l1c6")]
-position = Vector2(1510, 535)
+position = Vector2(1540, 567)
 
 [node name="CoinSpawn37" parent="Pickables/Coins/CoinSpawnList" index="36" instance=ExtResource("7_6l1c6")]
-position = Vector2(1200, 443)
+position = Vector2(1184, 435)
 
 [node name="CoinSpawn38" parent="Pickables/Coins/CoinSpawnList" index="37" instance=ExtResource("7_6l1c6")]
-position = Vector2(1234, 573)
+position = Vector2(1218, 588)
 
 [node name="CoinSpawn39" parent="Pickables/Coins/CoinSpawnList" index="38" instance=ExtResource("7_6l1c6")]
 position = Vector2(850, 995)

@@ -1,0 +1,124 @@
+[gd_scene load_steps=19 format=3 uid="uid://cgaauie5my45m"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/canon_balls/chained_canon_balls/ChainedCanonBallsScene.gd" id="1_f10uf"]
+[ext_resource type="Texture2D" uid="uid://bdv2t2pf0rjhb" path="res://Main/Level/Boat/Canonball/Ressources/Boulet.png" id="2_6i048"]
+[ext_resource type="Script" path="res://Main/Level/Boat/Canonball/Scripts/CanonBallTrail.gd" id="3_yjlxb"]
+[ext_resource type="Texture2D" uid="uid://bkokoc736jh04" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0000.png" id="4_jeagw"]
+[ext_resource type="Texture2D" uid="uid://hcrtgnn3dfxs" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0001.png" id="5_s8iso"]
+[ext_resource type="Texture2D" uid="uid://c6fp7w54bbceb" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0002.png" id="6_8kq16"]
+[ext_resource type="Texture2D" uid="uid://df0r143vbd1bk" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0003.png" id="7_rxcp6"]
+[ext_resource type="Texture2D" uid="uid://bsm06a81usko5" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0004.png" id="8_vk16k"]
+[ext_resource type="Texture2D" uid="uid://b2da1retecyx0" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0005.png" id="9_d0vvt"]
+[ext_resource type="Texture2D" uid="uid://ck1pwmlrfle30" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0006.png" id="10_75s85"]
+[ext_resource type="Texture2D" uid="uid://djgys2vytt2jn" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0007.png" id="11_8f8xg"]
+[ext_resource type="Texture2D" uid="uid://sp8jknymm2gw" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0008.png" id="12_ddwga"]
+[ext_resource type="Texture2D" uid="uid://dp4xkjs5q4pct" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0009.png" id="13_6yynh"]
+[ext_resource type="Texture2D" uid="uid://cotcgaxn2i6o2" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0010.png" id="14_crp6g"]
+[ext_resource type="AudioStream" uid="uid://bf2r83ofm5pb7" path="res://Main/Sounds/Placeholders/splash.mp3" id="15_xacqt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8p0kc"]
+radius = 8.24556
+height = 34.9285
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6i048")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65yc0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jeagw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s8iso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8kq16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rxcp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vk16k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_d0vvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_75s85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8f8xg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ddwga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6yynh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_crp6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_crp6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_crp6g")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="ChainedCanonBalls" type="CharacterBody2D"]
+z_index = 50
+z_as_relative = false
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_f10uf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 8)
+rotation = 0.175163
+shape = SubResource("CapsuleShape2D_8p0kc")
+
+[node name="CanonballSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 15)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("2")
+
+[node name="Line2D" type="Line2D" parent="CanonballSprite"]
+visible = false
+position = Vector2(-1.93066e-05, -5.33333)
+rotation = -1.5708
+script = ExtResource("3_yjlxb")
+
+[node name="CanonballSprite2" type="AnimatedSprite2D" parent="CanonballSprite"]
+position = Vector2(-1.33333, 6)
+sprite_frames = SubResource("2")
+
+[node name="Line2D" type="Line2D" parent="CanonballSprite/CanonballSprite2"]
+visible = false
+position = Vector2(-1.93066e-05, -5.33333)
+rotation = -1.5708
+script = ExtResource("3_yjlxb")
+
+[node name="SplashSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -25)
+scale = Vector2(0.54, 0.54)
+sprite_frames = SubResource("SpriteFrames_65yc0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_xacqt")
+volume_db = -8.288

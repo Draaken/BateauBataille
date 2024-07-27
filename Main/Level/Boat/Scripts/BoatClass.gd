@@ -19,27 +19,39 @@ var boost_velocity_acc = 0
 var boost_velocity_goal = 0
 var boost
 var ram_damage = 0
+var canon_strength_modifier = 0
+var special_cooldown_modifier = 0
+var special_cooldown_multiplier = 1
+
+var canon_ball = preload("res://Main/Level/Boat/Canonball/Scenes/CanonballV2.tscn")
 
 #Parameters
-var speed
+var acceleration = 0
+var speed = 0
+var speed_max
 var reload_time
-var is_wind_imune
+var wind_imunity = 0
 var base_rotation_speed
 var rotation_acc
 var rotation_max 
 var friction
 var delay
+var brake_accel
 
 
 var former_delay_list = [0]
 
 signal boatSunk
 signal rammed
+signal shot
+signal canon_ball_spawned
+signal has_been_hit
 
 var is_dashing = false
 var is_sunk = false
 var is_ashore = false
 var is_in_wind = false
+var is_invisible = false
 
 
 var wind_zone = null
@@ -56,6 +68,7 @@ var damage_type = "Boat"
 func _init():
 	is_destructible = true
 	is_movable = true
+	has_sail = true
 	
 		
 	former_delay_list.append(0)
@@ -88,6 +101,9 @@ func setup():
 func _ready():
 	pass
 	
+func update():
+	$Canons/RightCanons.update()
+	$Canons/LeftCanons.update()
 
 func _process(delta):
 #	print(hit_points)
@@ -132,6 +148,8 @@ func _physics_process(delta):
 	check_wind(delta)
 	check_boost(delta)
 	
+	speed += acceleration *delta *60
+	speed = clamp(speed, 0, speed_max)
 	
 	velocity += Vector2(cos(rotation)*(speed), sin(rotation)*(speed)) 
 	$Label.text = str(int(velocity.length()))
@@ -140,6 +158,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity*delta)
 		
 		if collision:
+			speed -= 7*acceleration * delta * 60
 			var collider = collision.get_collider()
 #			var c_velocity = collision.collider_velocity
 #			var collision_angle = collision.get_angle()
@@ -155,27 +174,36 @@ func _physics_process(delta):
 				if collider.is_destructible:
 					collider.take_damage(ram_damage, damage_type)
 				
-				if not collider.is_destructible:
-					self.take_damage(0, collider_type)
 					
 				emit_signal("rammed")
 				
 			elif collider.is_destructible : 
 				collider.take_damage(0, damage_type)
 				
-	
+			if not collider.is_destructible:
+					self.take_damage(0, collider_type)
 	
 func turn(delta):
 	self.rotation += new_rotation_speed*delta
 
+func brake(delta):
+	speed -= brake_accel*delta*60
 
-func shootLeft():
-	$"Canons/LeftCanons".shoot(self)
+func shootLeft(override = false):
+	if can_shoot:
+		var succeeded = $"Canons/LeftCanons".shoot(self, override)
+		if succeeded:
+			emit_signal("shot", "left", canon_ball)
 
 
-func shootRight():
-	$"Canons/RightCanons".shoot(self)
-		
+func shootRight(override = false):
+	if can_shoot:
+		var succeeded = $"Canons/RightCanons".shoot(self, override)
+		if succeeded :
+			emit_signal("shot", "right", canon_ball)
+			
+func canonball_shooted(instance,position, canon_orientation_vector, boat_velocity):
+	emit_signal("canon_ball_spawned", instance)
 		
 func check_wind(delta):
 	var a = 125
@@ -184,8 +212,11 @@ func check_wind(delta):
 		var dot_product = wind_zone.wind_force.normalized().dot(old_velocity.normalized())
 		wind_velocity_goal = wind_zone.magnitude * (dot_product + 0.2) # the +0.2 is so the boat is less slowed down than accelarated
 		
-		if is_wind_imune && wind_velocity_goal < 0:
-			wind_velocity_goal = 0
+		#wind imunity between 0 and 1 reduce the negative effect of wind, over 1 it also boost the positive effect
+		if wind_velocity_goal < 0 && wind_imunity!=0 :
+			wind_velocity_goal *= clamp(1-wind_imunity,0,1)
+		if wind_velocity_goal > 0 && wind_imunity >1 :
+			wind_velocity_goal *= wind_imunity
 	else:
 		wind_velocity_goal = 0
 		
@@ -220,7 +251,7 @@ func check_boost(delta):
 func take_damage(damage, damage_type):
 	super(damage, damage_type)
 	
-	
+	emit_signal("has_been_hit")
 	
 	if hit_points <= 0:
 		if damage_type == "Canonball" || damage_type == "Boat" || damage_type == "Explosion":

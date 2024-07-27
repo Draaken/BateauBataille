@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeTableClass" load_steps=9 format=3 uid="uid://cn3xr3i0dw50u"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/UpgradeTables/UpgradeTableClass.gd" id="1_flxcg"]
+[ext_resource type="Resource" uid="uid://ctpms780faw4n" path="res://Main/Upgrades/Resources/speed1.tres" id="2_hfyr3"]
+[ext_resource type="Resource" uid="uid://djq67s22hhtmo" path="res://Main/Upgrades/Resources/mines.tres" id="3_fyia5"]
+[ext_resource type="Resource" uid="uid://b2n74gbghyl4k" path="res://Main/Upgrades/Resources/greesed_steering_wheel.tres" id="4_3poch"]
+[ext_resource type="Resource" uid="uid://dp7rphxphwdm1" path="res://Main/Upgrades/Resources/dash.tres" id="5_rdfjq"]
+[ext_resource type="Resource" uid="uid://bdjmx81el18iy" path="res://Main/Upgrades/Resources/rear_canon.tres" id="6_d66b6"]
+[ext_resource type="Resource" uid="uid://bt6aeobp6v4b4" path="res://Main/Upgrades/Resources/reload1.tres" id="7_jr62o"]
+[ext_resource type="Resource" uid="uid://bnyujfl0biqnn" path="res://Main/Upgrades/Resources/special_cooldown.tres" id="8_g7s3t"]
+
+[resource]
+script = ExtResource("1_flxcg")
+table = Array[Resource]([ExtResource("2_hfyr3"), ExtResource("3_fyia5"), ExtResource("4_3poch"), ExtResource("5_rdfjq"), ExtResource("6_d66b6"), ExtResource("7_jr62o"), ExtResource("8_g7s3t")])

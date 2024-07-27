@@ -37,6 +37,8 @@ func spawn():
 	new_coin_spawner.spawn_coin()
 	
 func final_pickup(team):
+	if team == null:
+		return
 	if $CoinList.get_children():
 		for coin in $"CoinList".get_children():
 			var closest_boat

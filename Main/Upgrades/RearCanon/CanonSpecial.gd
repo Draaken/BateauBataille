@@ -7,12 +7,13 @@ extends CanonClass
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func update():
 	super()
-	canon_ball = preload("res://Main/Level/Boat/Canonball/Scenes/CanonballV2.tscn")
-	strength = 900
-	dispertion = 0
 	boat = get_node("../../..")
+	canon_ball = boat.canon_ball
+	strength = 900 + boat.canon_strength_modifier
+	dispertion = 0
+	
 	
 
 

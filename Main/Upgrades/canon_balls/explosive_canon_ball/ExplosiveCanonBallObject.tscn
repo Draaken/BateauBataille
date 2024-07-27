@@ -1,0 +1,111 @@
+[gd_scene load_steps=19 format=3 uid="uid://b7aa8xcqappwl"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/canon_balls/explosive_canon_ball/ExplosiveCanonBallObject.gd" id="1_ufiap"]
+[ext_resource type="Texture2D" uid="uid://bdv2t2pf0rjhb" path="res://Main/Level/Boat/Canonball/Ressources/Boulet.png" id="2_jx8wp"]
+[ext_resource type="Script" path="res://Main/Level/Boat/Canonball/Scripts/CanonBallTrail.gd" id="3_mygut"]
+[ext_resource type="Texture2D" uid="uid://bkokoc736jh04" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0000.png" id="4_egt0g"]
+[ext_resource type="Texture2D" uid="uid://hcrtgnn3dfxs" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0001.png" id="5_kyfhm"]
+[ext_resource type="Texture2D" uid="uid://c6fp7w54bbceb" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0002.png" id="6_lyv36"]
+[ext_resource type="Texture2D" uid="uid://df0r143vbd1bk" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0003.png" id="7_4aw73"]
+[ext_resource type="Texture2D" uid="uid://bsm06a81usko5" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0004.png" id="8_rrqk1"]
+[ext_resource type="Texture2D" uid="uid://b2da1retecyx0" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0005.png" id="9_v7bqw"]
+[ext_resource type="Texture2D" uid="uid://ck1pwmlrfle30" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0006.png" id="10_l1u3x"]
+[ext_resource type="Texture2D" uid="uid://djgys2vytt2jn" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0007.png" id="11_4a5gf"]
+[ext_resource type="Texture2D" uid="uid://sp8jknymm2gw" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0008.png" id="12_xvkmn"]
+[ext_resource type="Texture2D" uid="uid://dp4xkjs5q4pct" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0009.png" id="13_7emsr"]
+[ext_resource type="Texture2D" uid="uid://cotcgaxn2i6o2" path="res://Main/Level/Boat/Canonball/Ressources/Splash/frame0010.png" id="14_jw1rl"]
+[ext_resource type="AudioStream" uid="uid://bf2r83ofm5pb7" path="res://Main/Sounds/Placeholders/splash.mp3" id="15_pnq8j"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 8.01
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jx8wp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65yc0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_egt0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kyfhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lyv36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4aw73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rrqk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v7bqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l1u3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4a5gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xvkmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7emsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jw1rl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jw1rl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jw1rl")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="ExplosiveCanonBall" type="CharacterBody2D"]
+z_index = 50
+z_as_relative = false
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ufiap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="CanonballSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 15)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("2")
+
+[node name="Line2D" type="Line2D" parent="CanonballSprite"]
+visible = false
+position = Vector2(-1.93066e-05, -5.33333)
+rotation = -1.5708
+script = ExtResource("3_mygut")
+
+[node name="SplashSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -35)
+scale = Vector2(0.54, 0.54)
+sprite_frames = SubResource("SpriteFrames_65yc0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_pnq8j")
+volume_db = -8.288

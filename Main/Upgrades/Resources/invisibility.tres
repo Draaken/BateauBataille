@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c6omn00pypani"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/Invisibility/Invisibility.gd" id="1_ps4p0"]
+
+[resource]
+script = ExtResource("1_ps4p0")

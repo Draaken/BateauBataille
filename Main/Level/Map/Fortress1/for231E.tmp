@@ -1,0 +1,628 @@
+[gd_scene load_steps=29 format=3 uid="uid://446bt4m6xrw1"]
+
+[ext_resource type="Script" path="res://Main/Level/Map/Fortress1/fortress1.gd" id="1_0x0sg"]
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/Shore.gd" id="2_bk7a1"]
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/Tree.gd" id="3_dailm"]
+[ext_resource type="Script" path="res://Main/Level/Map/Assets/Rock.gd" id="4_21rf4"]
+[ext_resource type="PackedScene" uid="uid://bhk78oqdcbjn8" path="res://Main/Level/Map/Assets/StartingPos/starting_positions.tscn" id="5_m7m20"]
+[ext_resource type="PackedScene" uid="uid://cpslmth6hcujn" path="res://Main/Level/Map/Assets/Wind/WindZone.tscn" id="6_yeolm"]
+[ext_resource type="Texture2D" uid="uid://lirei2vkx4r0" path="res://Main/Level/Map/Assets/Wind/Frames/frame0000.png" id="7_ekikr"]
+[ext_resource type="Texture2D" uid="uid://dvbu0uogtlnkc" path="res://Main/Level/Map/Assets/Wind/Frames/frame0001.png" id="8_abhoo"]
+[ext_resource type="Texture2D" uid="uid://82usxniqimx2" path="res://Main/Level/Map/Assets/Wind/Frames/frame0002.png" id="9_dxrav"]
+[ext_resource type="Texture2D" uid="uid://bddh5p4j5meah" path="res://Main/Level/Map/Assets/Wind/Frames/frame0003.png" id="10_2h8na"]
+[ext_resource type="Texture2D" uid="uid://dgyuwm7b5nj3a" path="res://Main/Level/Map/Assets/Wind/Frames/frame0004.png" id="11_i235m"]
+[ext_resource type="Texture2D" uid="uid://c8j4qr4eghxlq" path="res://Main/Level/Map/Assets/Wind/Frames/frame0005.png" id="12_7eijp"]
+[ext_resource type="Texture2D" uid="uid://ddfh0pihinkpv" path="res://Main/Level/Map/Assets/Wind/Frames/frame0006.png" id="13_da3d0"]
+[ext_resource type="Texture2D" uid="uid://fkwwue2t1t8n" path="res://Main/Level/Map/Assets/Wind/Frames/frame0007.png" id="14_oj6yx"]
+[ext_resource type="Texture2D" uid="uid://c017rih0udkfk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0008.png" id="15_k53w6"]
+[ext_resource type="Texture2D" uid="uid://d344gma6qtttk" path="res://Main/Level/Map/Assets/Wind/Frames/frame0009.png" id="16_afixd"]
+[ext_resource type="PackedScene" uid="uid://b44hr65pu8eda" path="res://Main/Level/Map/Assets/Coins/CoinsSpawnManager.tscn" id="17_o6x0i"]
+[ext_resource type="PackedScene" uid="uid://c6qapaqfy407l" path="res://Main/Level/Map/Assets/Coins/CoinSpawn.tscn" id="18_s2tog"]
+[ext_resource type="PackedScene" uid="uid://cy36hyqgb255i" path="res://Main/Level/Map/Assets/MapBorder/map_borders.tscn" id="19_xi13b"]
+[ext_resource type="PackedScene" path="res://Main/Level/Map/Assets/Shortcut.tscn" id="20_wgwka"]
+[ext_resource type="Texture2D" uid="uid://dtgyxjlm5alcj" path="res://Main/Level/UI/Arrow/frame0000.png" id="21_24fxk"]
+[ext_resource type="Texture2D" uid="uid://dbw0yba7iqmp3" path="res://Main/Level/UI/Arrow/frame0001.png" id="22_7g217"]
+[ext_resource type="PackedScene" uid="uid://cgk1laxkh2fr7" path="res://Main/Level/Map/Assets/StaticCanon/StaticCanonBuilding.tscn" id="23_kr7sc"]
+[ext_resource type="PackedScene" uid="uid://bxu5ekfx36ask" path="res://Main/Upgrades/Mines/mine_object.tscn" id="24_4bxv6"]
+[ext_resource type="PackedScene" uid="uid://65u1rgroxet6" path="res://Main/Level/Map/Assets/BreakablePlanks/BreakablePlanks.tscn" id="24_vbsvm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lci65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ekikr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_abhoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dxrav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2h8na")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_i235m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7eijp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_da3d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oj6yx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_k53w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_afixd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_afixd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_afixd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_afixd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q25db"]
+size = Vector2(13.25, 256.157)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qoro5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_24fxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_7g217")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Fortress1" type="Node2D"]
+position = Vector2(1920, 0)
+scale = Vector2(-1, 1)
+script = ExtResource("1_0x0sg")
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Map"]
+color = Color(0.0117647, 0.211765, 0.4, 0.921569)
+polygon = PackedVector2Array(-155, 1213, -172, -186, 2172, -143, 2176, 1230)
+
+[node name="Island1" type="Node2D" parent="Map"]
+position = Vector2(914, 730)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Island1"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("2_bk7a1")
+has_sail = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island1/HitboxShore"]
+polygon = PackedVector2Array(-483, -943, -419, -842, -377, -738, -339, -615, -326, -556, -299, -439, -270, -385, -248, -308, -166, -265, -102, -268, -35, -287, 19, -337, 64, -412, 75, -484, 117, -551, 165, -591, 270, -639, 347, -660, 475, -679, 579, -692, 793, -690, 972, -644, 1121, -586, 1305, -495, 1452, -401, 1111, -289, 997, -235, 940, -179, 919, -120, 956, -92, 1007, -106, 1137, -109, 1604, -57, 1604, 31, 1591, 119, 1556, 202, 1508, 298, 1447, 370, 1252, 469, 1129, 516, 974, 543, 823, 554, 711, 545, 554, 507, 363, 401, 188, 280, 60, 233, -21, 141, -57, 60, -131, 4, -196, 11, -268, 44, -295, 101, -315, 154, -331, 226, -353, 280, -387, 314, -423, 356, -490, 406, -548, 480, -663, 815, 2177, 795, 2145, -977)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Island1/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(-483, -943, -419, -842, -377, -738, -339, -615, -326, -556, -299, -439, -270, -385, -248, -308, -166, -265, -102, -268, -35, -287, 19, -337, 64, -412, 75, -484, 117, -551, 165, -591, 270, -639, 347, -660, 475, -679, 579, -692, 793, -690, 972, -644, 1121, -586, 1305, -495, 1452, -401, 1111, -289, 997, -235, 940, -179, 919, -120, 956, -92, 1007, -106, 1137, -109, 1604, -57, 1604, 31, 1591, 119, 1556, 202, 1508, 298, 1447, 370, 1252, 469, 1129, 516, 974, 543, 823, 554, 711, 545, 554, 507, 363, 401, 188, 280, 60, 233, -21, 141, -57, 60, -131, 4, -196, 11, -268, 44, -295, 101, -315, 154, -331, 226, -353, 280, -387, 314, -423, 356, -490, 406, -548, 480, -663, 815, 2177, 795, 2145, -977)
+
+[node name="HitboxTrees" type="CharacterBody2D" parent="Map/Island1"]
+position = Vector2(175, -118)
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_dailm")
+has_sail = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island1/HitboxTrees"]
+position = Vector2(53, -302)
+polygon = PackedVector2Array(-307, -385, -303, -301, -352, -248, -394, -203, -403, -161, -375, -97, -312, -67, -269, -80, -187, -127, -161, -182, -121, -241, -72, -284, -4, -292, 72, -284, 152, -281, 258, -328, 494, -359, 673, -287, 726, -256, 764, -240, 806, -242, 872, -214, 919, -210, 988, -240, 963, -339, 918, -396)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Island1/HitboxTrees/CollisionPolygon2D"]
+color = Color(0.133333, 0.545098, 0.133333, 1)
+polygon = PackedVector2Array(-307, -385, -303, -301, -352, -248, -394, -203, -403, -161, -375, -97, -312, -67, -269, -80, -187, -127, -161, -182, -121, -241, -72, -284, -4, -292, 72, -284, 152, -281, 258, -328, 494, -359, 673, -287, 726, -256, 764, -240, 806, -242, 872, -214, 919, -210, 988, -240, 963, -339, 918, -396)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/Island1/HitboxTrees"]
+position = Vector2(1045, -670)
+polygon = PackedVector2Array(-1530, 83, -1556, 42, -1550, -2, -1508, -59, -1438, -45, -1412, -19, -1371, 40, -1378, 63, -1414, 114, -1454, 127, -1491, 118)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Island1/HitboxTrees/CollisionPolygon2D2"]
+color = Color(0.133333, 0.545098, 0.133333, 1)
+polygon = PackedVector2Array(-1530, 83, -1556, 42, -1550, -2, -1508, -59, -1438, -45, -1412, -19, -1371, 40, -1378, 63, -1414, 114, -1454, 127, -1491, 118)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Map/Island1/HitboxTrees"]
+position = Vector2(1045, -670)
+polygon = PackedVector2Array(-1629, 1199, -1594, 1143, -1554, 1103, -1518, 1067, -1506, 1020, -1467, 995, -1428, 1002, -1354, 1026, -1339, 1056, -1330, 1115, -1296, 1158, -1223, 1149, -1256, 1072, -1241, 1024, -1213, 1009, -1183, 1031, -1126, 1062, -1106, 1111, -1082, 1164)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Island1/HitboxTrees/CollisionPolygon2D3"]
+color = Color(0.133333, 0.545098, 0.133333, 1)
+polygon = PackedVector2Array(-1629, 1199, -1594, 1143, -1554, 1103, -1518, 1067, -1506, 1020, -1467, 995, -1428, 1002, -1354, 1026, -1339, 1056, -1330, 1115, -1296, 1158, -1223, 1149, -1256, 1072, -1241, 1024, -1213, 1009, -1183, 1031, -1126, 1062, -1106, 1111, -1082, 1164)
+
+[node name="Island2" type="Node2D" parent="Map"]
+position = Vector2(914, 730)
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Island2"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("2_bk7a1")
+has_sail = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island2/HitboxShore"]
+polygon = PackedVector2Array(717, -54, 664, -34, 627, -24, 585, -42, 571, -84, 544, -118, 522, -121, 489, -111, 450, -126, 442, -173, 455, -204, 484, -217, 536, -220, 593, -207, 633, -193, 680, -145, 712, -116, 726, -84)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Island2/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(717, -54, 664, -34, 627, -24, 585, -42, 571, -84, 544, -118, 522, -121, 489, -111, 450, -126, 442, -173, 455, -204, 484, -217, 536, -220, 593, -207, 633, -193, 680, -145, 712, -116, 726, -84)
+
+[node name="HitboxTrees" type="CharacterBody2D" parent="Map/Island2"]
+position = Vector2(175, -118)
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("3_dailm")
+has_sail = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Island2/HitboxTrees"]
+position = Vector2(53, -302)
+polygon = PackedVector2Array(424, 356, 406, 359, 388, 351, 374, 332, 371, 308, 342, 289, 313, 286, 280, 288, 252, 279, 252, 253, 267, 229, 301, 217, 336, 226, 392, 245, 411, 252, 431, 287, 442, 318, 442, 339)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Island2/HitboxTrees/CollisionPolygon2D"]
+color = Color(0.133333, 0.545098, 0.133333, 1)
+polygon = PackedVector2Array(424, 356, 406, 359, 388, 351, 374, 332, 371, 308, 342, 289, 313, 286, 280, 288, 252, 279, 252, 253, 267, 229, 301, 217, 336, 226, 392, 245, 411, 252, 431, 287, 442, 318, 442, 339)
+
+[node name="Rock1" type="Node2D" parent="Map"]
+position = Vector2(138, 876)
+rotation = 1.49866
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock1"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("2_bk7a1")
+has_sail = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock1/HitboxShore"]
+position = Vector2(156, 88.0001)
+rotation = 2.01455
+scale = Vector2(0.458336, 0.49323)
+polygon = PackedVector2Array(453.474, 744.774, 370.262, 756.839, 310.987, 744.86, 263.923, 709.528, 216.601, 640.637, 200.397, 566.455, 226.813, 528.372, 282.563, 458.935, 1130.33, -65.6824, 1894.42, 321.276)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock1/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(453.474, 744.774, 370.262, 756.839, 310.987, 744.86, 263.923, 709.528, 216.601, 640.637, 200.397, 566.455, 226.813, 528.372, 282.563, 458.935, 1130.33, -65.6824, 1894.42, 321.276)
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock1"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("4_21rf4")
+has_sail = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock1/HitBoxRock"]
+position = Vector2(-207, 254)
+scale = Vector2(0.581513, 0.50869)
+polygon = PackedVector2Array(-42.9914, -184.788, 49.6047, 92.2803, 140.921, 38.7241, 151.581, -129.898, 151.993, -190.964, 131.015, -322.78, 19.9202, -365.464, -38.6638, -338.768)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock1/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-42.9914, -184.788, 49.6047, 92.2803, 140.921, 38.7241, 151.581, -129.898, 151.993, -190.964, 131.015, -322.78, 19.9202, -365.464, -38.6638, -338.768)
+
+[node name="Rock2" type="Node2D" parent="Map"]
+position = Vector2(275, 1157)
+rotation = 0.808033
+
+[node name="HitboxShore" type="CharacterBody2D" parent="Map/Rock2"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("2_bk7a1")
+has_sail = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock2/HitboxShore"]
+position = Vector2(156, 88.0001)
+rotation = 2.01455
+scale = Vector2(0.458336, 0.49323)
+polygon = PackedVector2Array(466.382, 712.336, 314.613, 719.134, 242.749, 682.131, 183.315, 648.944, 80.9652, 568.42, 105.429, 441.413, 585.043, -694.625, 1894.42, 321.276)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock2/HitboxShore/CollisionPolygon2D"]
+color = Color(1, 1, 0.941176, 1)
+polygon = PackedVector2Array(466.382, 712.336, 314.613, 719.134, 242.749, 682.131, 183.315, 648.944, 80.9652, 568.42, 105.429, 441.413, 585.043, -694.625, 1894.42, 321.276)
+
+[node name="HitBoxRock" type="CharacterBody2D" parent="Map/Rock2"]
+collision_layer = 7
+collision_mask = 0
+script = ExtResource("4_21rf4")
+has_sail = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Rock2/HitBoxRock"]
+position = Vector2(-207, 254)
+scale = Vector2(0.581513, 0.50869)
+polygon = PackedVector2Array(-42.9914, -184.788, 49.6047, 92.2803, 176.545, -469.651, 110.206, -441.517, 60.0284, -395.725, 19.9202, -365.464, -28.2246, -307.235)
+
+[node name="Polygon2D" type="Polygon2D" parent="Map/Rock2/HitBoxRock/CollisionPolygon2D"]
+color = Color(0.411765, 0.411765, 0.411765, 1)
+polygon = PackedVector2Array(-42.9914, -184.788, 49.6047, 92.2803, 176.545, -469.651, 110.206, -441.517, 60.0284, -395.725, 19.9202, -365.464, -28.2246, -307.235)
+
+[node name="Starting Positions" parent="." instance=ExtResource("5_m7m20")]
+
+[node name="P1" parent="Starting Positions" index="0"]
+position = Vector2(138, 162)
+rotation = 1.35518
+
+[node name="P2" parent="Starting Positions" index="1"]
+position = Vector2(1521, 191)
+
+[node name="P3" parent="Starting Positions" index="2"]
+position = Vector2(216, 993)
+rotation = -1.60194
+
+[node name="P4" parent="Starting Positions" index="3"]
+position = Vector2(1676, 966)
+rotation = -2.78053
+
+[node name="Wind" type="Node2D" parent="."]
+position = Vector2(513, 883)
+
+[node name="WindZone" parent="Wind" instance=ExtResource("6_yeolm")]
+deg_direction = 40
+random_direction = false
+random_sens = true
+
+[node name="CollisionShape2D" parent="Wind/WindZone/HitBox" index="0"]
+position = Vector2(-103, 11)
+scale = Vector2(0.958633, 0.958633)
+polygon = PackedVector2Array(495.497, -121.006, 528.878, -45.8987, 570.604, 7.30212, 645.711, 54.244, 722.904, 87.6248, 790.709, 135.61, 906.499, 220.105, 1020.2, 222.191, 1088.01, 220.105, 1066.1, 118.919, 1018.12, 60.5029, 951.355, 5.21582, 831.392, -38.5966, 760.458, -89.7111, 726.034, -126.221, 666.574, -161.689, 532.008, -159.602)
+
+[node name="Polygon2D" parent="Wind/WindZone/HitBox/CollisionShape2D" index="0"]
+polygon = PackedVector2Array(-50, 119, -194, 63, -265, -41, -246.184, -110.574, -147, -147, -35, -112, 71, -93, 199, -103, 304.709, -146.862, 412.154, -141.646, 464.311, -90.5313, 450, 31, 384, 100, 154, 129)
+
+[node name="1" parent="Wind/WindZone/Arrows" index="0"]
+position = Vector2(565, -83)
+rotation = -0.872665
+frame_progress = 0.0432546
+
+[node name="2" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="1"]
+position = Vector2(463, -54)
+rotation = -0.872665
+sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.0432546
+
+[node name="3" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="2"]
+position = Vector2(578, 73)
+rotation = -0.872665
+sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.0432546
+
+[node name="4" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="3"]
+position = Vector2(717, 56)
+rotation = -0.872665
+sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.0432546
+
+[node name="5" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="4"]
+position = Vector2(775, 195)
+rotation = -0.872665
+sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.0432546
+
+[node name="6" type="AnimatedSprite2D" parent="Wind/WindZone/Arrows" index="5"]
+position = Vector2(890, 148)
+rotation = -0.872665
+sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.0432546
+
+[node name="WindZone2" parent="Wind" instance=ExtResource("6_yeolm")]
+position = Vector2(-782, -723)
+deg_direction = 70
+random_direction = false
+random_sens = true
+
+[node name="CollisionShape2D" parent="Wind/WindZone2/HitBox" index="0"]
+position = Vector2(-103, 11)
+scale = Vector2(0.958633, 0.958633)
+polygon = PackedVector2Array(922.146, -201.328, 938.837, -137.696, 953.441, -87.6248, 971.175, -36.5103, 973.261, 38.5966, 988.908, 88.6679, 1016.03, 143.955, 1038.98, 195.069, 1057.76, 258.702, 1013.94, 305.644, 954.484, 323.377, 844.953, 294.169, 792.796, 194.026, 762.544, 81.3659, 709.343, -62.5891, 672.833, -201.328)
+
+[node name="Polygon2D" parent="Wind/WindZone2/HitBox/CollisionShape2D" index="0"]
+polygon = PackedVector2Array(-50, 119, -194, 63, -265, -41, -246.184, -110.574, -147, -147, -35, -112, 71, -93, 199, -103, 304.709, -146.862, 412.154, -141.646, 464.311, -90.5313, 450, 31, 384, 100, 154, 129)
+
+[node name="1" parent="Wind/WindZone2/Arrows" index="0"]
+position = Vector2(749, -116)
+rotation = -0.349066
+frame_progress = 0.0432546
+
+[node name="2" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="1"]
+position = Vector2(647, 5.00002)
+rotation = -0.349066
+sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.0432546
+
+[node name="3" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="2"]
+position = Vector2(754, 43)
+rotation = -0.349066
+sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.0432546
+
+[node name="4" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="3"]
+position = Vector2(726, 235)
+rotation = -0.349066
+sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.0432546
+
+[node name="5" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="4"]
+position = Vector2(845, 209)
+rotation = -0.349066
+sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.0432546
+
+[node name="6" type="AnimatedSprite2D" parent="Wind/WindZone2/Arrows" index="5"]
+position = Vector2(612, -159)
+rotation = -0.349066
+sprite_frames = SubResource("SpriteFrames_lci65")
+frame_progress = 0.0432546
+
+[node name="Pickables" type="Node2D" parent="."]
+
+[node name="Coins" parent="Pickables" instance=ExtResource("17_o6x0i")]
+
+[node name="CoinSpawn29" parent="Pickables/Coins/CoinSpawnList" index="0" instance=ExtResource("18_s2tog")]
+position = Vector2(1046, 409)
+
+[node name="CoinSpawn30" parent="Pickables/Coins/CoinSpawnList" index="1" instance=ExtResource("18_s2tog")]
+position = Vector2(1113, 251)
+
+[node name="CoinSpawn31" parent="Pickables/Coins/CoinSpawnList" index="2" instance=ExtResource("18_s2tog")]
+position = Vector2(1185, 341)
+
+[node name="CoinSpawn32" parent="Pickables/Coins/CoinSpawnList" index="3" instance=ExtResource("18_s2tog")]
+position = Vector2(938, 788)
+
+[node name="CoinSpawn33" parent="Pickables/Coins/CoinSpawnList" index="4" instance=ExtResource("18_s2tog")]
+position = Vector2(1385, 682)
+
+[node name="CoinSpawn34" parent="Pickables/Coins/CoinSpawnList" index="5" instance=ExtResource("18_s2tog")]
+position = Vector2(977, 660)
+
+[node name="CoinSpawn35" parent="Pickables/Coins/CoinSpawnList" index="6" instance=ExtResource("18_s2tog")]
+position = Vector2(1021, 889)
+
+[node name="CoinSpawn36" parent="Pickables/Coins/CoinSpawnList" index="7" instance=ExtResource("18_s2tog")]
+position = Vector2(1291, 550)
+
+[node name="CoinSpawn37" parent="Pickables/Coins/CoinSpawnList" index="8" instance=ExtResource("18_s2tog")]
+position = Vector2(1852, 148)
+
+[node name="CoinSpawn38" parent="Pickables/Coins/CoinSpawnList" index="9" instance=ExtResource("18_s2tog")]
+position = Vector2(1863, 386)
+
+[node name="CoinSpawn39" parent="Pickables/Coins/CoinSpawnList" index="10" instance=ExtResource("18_s2tog")]
+position = Vector2(757, 498)
+
+[node name="CoinSpawn40" parent="Pickables/Coins/CoinSpawnList" index="11" instance=ExtResource("18_s2tog")]
+position = Vector2(667, 587)
+
+[node name="CoinSpawn41" parent="Pickables/Coins/CoinSpawnList" index="12" instance=ExtResource("18_s2tog")]
+position = Vector2(540, 661)
+
+[node name="CoinSpawn42" parent="Pickables/Coins/CoinSpawnList" index="13" instance=ExtResource("18_s2tog")]
+position = Vector2(1290, 629)
+
+[node name="CoinSpawn43" parent="Pickables/Coins/CoinSpawnList" index="14" instance=ExtResource("18_s2tog")]
+position = Vector2(1168, 178)
+
+[node name="CoinSpawn44" parent="Pickables/Coins/CoinSpawnList" index="15" instance=ExtResource("18_s2tog")]
+position = Vector2(518, 555)
+
+[node name="CoinSpawn45" parent="Pickables/Coins/CoinSpawnList" index="16" instance=ExtResource("18_s2tog")]
+position = Vector2(1042, 792)
+
+[node name="CoinSpawn46" parent="Pickables/Coins/CoinSpawnList" index="17" instance=ExtResource("18_s2tog")]
+position = Vector2(1385, 461)
+
+[node name="CoinSpawn47" parent="Pickables/Coins/CoinSpawnList" index="18" instance=ExtResource("18_s2tog")]
+position = Vector2(961, 479)
+
+[node name="CoinSpawn48" parent="Pickables/Coins/CoinSpawnList" index="19" instance=ExtResource("18_s2tog")]
+position = Vector2(531, 290)
+
+[node name="CoinSpawn49" parent="Pickables/Coins/CoinSpawnList" index="20" instance=ExtResource("18_s2tog")]
+position = Vector2(542, 865)
+
+[node name="CoinSpawn50" parent="Pickables/Coins/CoinSpawnList" index="21" instance=ExtResource("18_s2tog")]
+position = Vector2(1602, 356)
+
+[node name="CoinSpawn51" parent="Pickables/Coins/CoinSpawnList" index="22" instance=ExtResource("18_s2tog")]
+position = Vector2(1610, 519)
+
+[node name="CoinSpawn52" parent="Pickables/Coins/CoinSpawnList" index="23" instance=ExtResource("18_s2tog")]
+position = Vector2(1678, 632)
+
+[node name="CoinSpawn53" parent="Pickables/Coins/CoinSpawnList" index="24" instance=ExtResource("18_s2tog")]
+position = Vector2(1796, 619)
+
+[node name="CoinSpawn54" parent="Pickables/Coins/CoinSpawnList" index="25" instance=ExtResource("18_s2tog")]
+position = Vector2(1638, 741)
+
+[node name="CoinSpawn55" parent="Pickables/Coins/CoinSpawnList" index="26" instance=ExtResource("18_s2tog")]
+position = Vector2(1463, 782)
+
+[node name="CoinSpawn56" parent="Pickables/Coins/CoinSpawnList" index="27" instance=ExtResource("18_s2tog")]
+position = Vector2(1146, 960)
+
+[node name="CoinSpawn57" parent="Pickables/Coins/CoinSpawnList" index="28" instance=ExtResource("18_s2tog")]
+position = Vector2(1780, 869)
+
+[node name="CoinSpawn58" parent="Pickables/Coins/CoinSpawnList" index="29" instance=ExtResource("18_s2tog")]
+position = Vector2(1833, 784)
+
+[node name="CoinSpawn59" parent="Pickables/Coins/CoinSpawnList" index="30" instance=ExtResource("18_s2tog")]
+position = Vector2(1451, 112)
+
+[node name="CoinSpawn60" parent="Pickables/Coins/CoinSpawnList" index="31" instance=ExtResource("18_s2tog")]
+position = Vector2(1353, 122)
+
+[node name="CoinSpawn61" parent="Pickables/Coins/CoinSpawnList" index="32" instance=ExtResource("18_s2tog")]
+position = Vector2(1495, 1010)
+
+[node name="CoinSpawn62" parent="Pickables/Coins/CoinSpawnList" index="33" instance=ExtResource("18_s2tog")]
+position = Vector2(1671, 832)
+
+[node name="Borders" parent="." instance=ExtResource("19_xi13b")]
+metadata/_edit_lock_ = true
+
+[node name="Shortcuts" type="Node2D" parent="."]
+position = Vector2(-33, 888)
+
+[node name="Shortcut1" parent="Shortcuts" instance=ExtResource("20_wgwka")]
+position = Vector2(-63, 51)
+twin_path = "../Shortcut2"
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Shortcuts/Shortcut1"]
+shape = SubResource("RectangleShape2D_q25db")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Shortcuts/Shortcut1"]
+self_modulate = Color(0.670588, 0.133333, 0.0235294, 1)
+position = Vector2(257, -65)
+rotation = 1.32614
+sprite_frames = SubResource("SpriteFrames_qoro5")
+
+[node name="Shortcut2" parent="Shortcuts" instance=ExtResource("20_wgwka")]
+position = Vector2(2079, -594)
+twin_path = "../Shortcut1"
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Shortcuts/Shortcut2"]
+shape = SubResource("RectangleShape2D_q25db")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Shortcuts/Shortcut2"]
+self_modulate = Color(0.670588, 0.133333, 0.0235294, 1)
+position = Vector2(-361, 26)
+rotation = 4.59285
+sprite_frames = SubResource("SpriteFrames_qoro5")
+
+[node name="Destructibles" type="Node2D" parent="."]
+
+[node name="BreakablePlanks" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(780, 716)
+rotation = 1.8287
+
+[node name="BreakablePlanks10" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(63, 978)
+rotation = 1.23927
+
+[node name="BreakablePlanks11" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(53, 799)
+rotation = -1.3056
+
+[node name="BreakablePlanks12" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(50, 890)
+rotation = -4.32421
+
+[node name="BreakablePlanks2" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(818, 637)
+rotation = 4.51779
+
+[node name="BreakablePlanks3" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(821, 562)
+rotation = 4.6424
+
+[node name="BreakablePlanks4" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(826, 780)
+rotation = 5.00259
+
+[node name="BreakablePlanks5" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(801, 478)
+rotation = 7.20457
+
+[node name="BreakablePlanks13" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(676, 507)
+rotation = 7.77948
+
+[node name="BreakablePlanks6" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(1816, 96)
+rotation = 7.71292
+
+[node name="BreakablePlanks7" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(1811, 338)
+rotation = 8.27664
+
+[node name="BreakablePlanks8" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(1864, 495)
+rotation = 10.6361
+
+[node name="BreakablePlanks9" parent="Destructibles" instance=ExtResource("24_vbsvm")]
+position = Vector2(486, 747)
+rotation = 10.6361
+
+[node name="Mines" type="Node2D" parent="Destructibles"]
+
+[node name="MineObject" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(1757, 427)
+
+[node name="MineObject2" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(1736, 251)
+
+[node name="MineObject3" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(1680, 124)
+
+[node name="MineObject4" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(1747, 617)
+
+[node name="MineObject5" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(885, 552)
+
+[node name="MineObject6" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(881, 701)
+
+[node name="MineObject7" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(592, 760)
+
+[node name="MineObject8" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(608, 598)
+
+[node name="MineObject9" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(581, 420)
+
+[node name="MineObject10" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(432, 173)
+
+[node name="MineObject11" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(421, 941)
+
+[node name="MineObject12" parent="Destructibles/Mines" instance=ExtResource("24_4bxv6")]
+position = Vector2(381, 606)
+
+[node name="Canons" type="Node2D" parent="."]
+
+[node name="StaticCanon" parent="Canons" instance=ExtResource("23_kr7sc")]
+position = Vector2(753, 802)
+rotation = -1.34491
+is_neutral = false
+is_destructible = true
+
+[node name="StaticCanon2" parent="Canons" instance=ExtResource("23_kr7sc")]
+position = Vector2(781, 363)
+rotation = -1.34491
+is_neutral = false
+is_destructible = true
+
+[node name="StaticCanon4" parent="Canons" instance=ExtResource("23_kr7sc")]
+position = Vector2(652, 184)
+rotation = -1.34491
+is_neutral = false
+is_destructible = true
+
+[node name="StaticCanon3" parent="Canons" instance=ExtResource("23_kr7sc")]
+position = Vector2(831, 898)
+rotation = -1.34491
+is_neutral = false
+is_destructible = true
+
+[editable path="Starting Positions"]
+[editable path="Wind/WindZone"]
+[editable path="Wind/WindZone2"]
+[editable path="Pickables/Coins"]

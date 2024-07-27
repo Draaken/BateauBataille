@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeTableClass" load_steps=8 format=3 uid="uid://bgjskut6xkg64"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/UpgradeTables/UpgradeTableClass.gd" id="1_vnffg"]
+[ext_resource type="Resource" uid="uid://cvgkfn7wtx4iy" path="res://Main/Upgrades/Resources/wind_imune.tres" id="2_kr4g8"]
+[ext_resource type="Resource" uid="uid://b51vaptiex76o" path="res://Main/Upgrades/Resources/HP1.tres" id="3_qmym6"]
+[ext_resource type="Resource" uid="uid://bddc2fpns4mpe" path="res://Main/Upgrades/Resources/extra_gun_powder1.tres" id="4_vfw7h"]
+[ext_resource type="Resource" uid="uid://bi6rdmi0m54vm" path="res://Main/Upgrades/Resources/explosive_canon_ball.tres" id="5_46um1"]
+[ext_resource type="Resource" uid="uid://crlcelvjs7j0y" path="res://Main/Upgrades/Resources/chained_canon_balls.tres" id="6_4ifwi"]
+[ext_resource type="Resource" uid="uid://c6omn00pypani" path="res://Main/Upgrades/Resources/invisibility.tres" id="7_kxpd6"]
+
+[resource]
+script = ExtResource("1_vnffg")
+table = Array[Resource]([ExtResource("2_kr4g8"), ExtResource("3_qmym6"), ExtResource("4_vfw7h"), ExtResource("5_46um1"), ExtResource("6_4ifwi"), ExtResource("7_kxpd6")])

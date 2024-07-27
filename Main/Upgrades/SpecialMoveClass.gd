@@ -6,7 +6,7 @@ var is_ready = true
 
 
 var player
-var level
+var level_scene
 var boat
 var special
 
@@ -30,17 +30,15 @@ func _init():
 #
 #	timerActive.connect("timeout", Callable(self, "desactivate"))
 	
-	
 
 
 func start():
-# Defines the path to the Boat and SpecialMove nodes of the player using the upgrade
-	boat = player.get_node("Boat")
-	special = boat.get_node("Upgrades/SpecialMove")
-	level = player.get_node("/root/MasterScene/Level")
+
 	
+	var temp_cooldown = cooldown + boat.special_cooldown_modifier
+	temp_cooldown *= boat.special_cooldown_multiplier
 # Set up the timer nodes already existing in SpecialMove
-	special.get_node("Cooldown").wait_time = cooldown
+	special.get_node("Cooldown").wait_time = temp_cooldown
 	special.get_node("Cooldown").one_shot = true
 	special.get_node("Active").wait_time = duration
 	special.get_node("Active").one_shot = true
@@ -57,6 +55,15 @@ func start():
 		special.get_node("Cooldown").start()
 		special.get_node("Active").start()
 			
+
+func setup(connected_player):
+	super(connected_player)
+	player = connected_player
+	is_ready = true
+	# Defines the path to the Boat and SpecialMove nodes of the player using the upgrade
+	boat = player.get_node("Boat")
+	special = boat.get_node("Upgrades/SpecialMove")
+	level_scene = player.get_node("/root/MasterScene/Level")
 
 func activate(): #Function overrided by nodes using this class to put the effects of the special
 	pass

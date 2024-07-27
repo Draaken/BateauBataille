@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ang1p6bhtr5"]
+
+[ext_resource type="Script" path="res://Main/Level/Seagulls/seagulls.gd" id="1_txdxj"]
+
+[node name="SeagullsGenerator" type="Node2D"]
+z_index = 3
+script = ExtResource("1_txdxj")
+
+[node name="A" type="Node2D" parent="."]
+position = Vector2(503, -413)
+
+[node name="B" type="Node2D" parent="."]
+position = Vector2(1433, -423)
+
+[node name="C" type="Node2D" parent="."]
+position = Vector2(2252, 298)
+
+[node name="D" type="Node2D" parent="."]
+position = Vector2(2238, 781)
+
+[node name="E" type="Node2D" parent="."]
+position = Vector2(1447, 1330)
+
+[node name="F" type="Node2D" parent="."]
+position = Vector2(504, 1339)
+
+[node name="G" type="Node2D" parent="."]
+position = Vector2(-369, 777)
+
+[node name="H" type="Node2D" parent="."]
+position = Vector2(-350, 244)

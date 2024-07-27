@@ -3,12 +3,15 @@ extends Control
 signal shopFinished
 signal auctionFinished
 
+var random = RandomNumberGenerator.new()
+
 var playerShop = preload("res://Main/Shop/Scenes/PlayerShop.tscn")
 var upgrade_shop = preload("res://Main/Shop/Scenes/upgrade_shop.tscn")
-var upgrade_table = preload("res://Main/Upgrades/UpgradeTables/upgrade_table1.tres")
+@export var upgrade_table = preload("res://Main/Upgrades/UpgradeTables/upgrade_table1.tres")
 
 var players_list = []
 
+@export var candle_wait_time = 10
 var upgrades_parent
 var selectable_list = []
 var active_chooser_index = 0
@@ -17,6 +20,7 @@ var ranking = []
 func _ready():
 #	pass
 #	hide()
+	random.randomize()
 	upgrades_parent = $"MarginContainer/GUI/Body/UpgradesList/VBoxContainer"
 
 	$MarginContainer/GUI/Body/Treasure/MarginContainer2/Gauges/Player1.hide()
@@ -41,7 +45,7 @@ func _ready():
 	randomize_upgrades(players_list.size())
 		
 
-	$CandleTimer.wait_time = 20
+	$CandleTimer.wait_time = candle_wait_time
 	$CandleTimer.one_shot = true
 	$CandleTimer.start()
 
@@ -84,17 +88,30 @@ func randomize_upgrades(number):
 			var instance = upgrade_shop.instantiate()
 			
 			instance.upgrade_ressource = upgrade_table.get_upgrade()
-			if previous_upgrade != null:
-				while instance.upgrade_ressource == previous_upgrade.upgrade_ressource:
-					instance.upgrade_ressource = upgrade_table.get_upgrade()
-				
+			var need_to_reroll = true
+			while need_to_reroll:
+				if previous_upgrade != null && upgrade_table.table.size()>1:
+					while instance.upgrade_ressource == previous_upgrade.upgrade_ressource:
+						instance.upgrade_ressource = upgrade_table.get_upgrade()
+						
+				var rarity_limit
+				match instance.upgrade_ressource.rarity:
+					1: rarity_limit = 0
+					2: rarity_limit = 15
+					3: rarity_limit = 30
+					_: 0
+					
+				if random.randf_range(0,100)>rarity_limit:
+					need_to_reroll = false
+				else: pass
+			
 			upgrades_parent.add_child(instance)
 			
 			instance.name = "Upgrade" + str(i+1)
 			
 			previous_upgrade = instance
 	else:
-		print_debug("Upgrade table is not the good format or absent")
+		print_debug("Upgrade table is not in the good format or absent")
 	
 func auction_results():
 	

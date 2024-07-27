@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bi6rdmi0m54vm"]
+
+[ext_resource type="Script" path="res://Main/Upgrades/canon_balls/explosive_canon_ball/explosive_canon_ball.gd" id="1_wraru"]
+
+[resource]
+script = ExtResource("1_wraru")

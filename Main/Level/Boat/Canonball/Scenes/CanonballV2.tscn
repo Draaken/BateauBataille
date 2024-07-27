@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bf2r83ofm5pb7" path="res://Main/Sounds/Placeholders/splash.mp3" id="15_sjvtt"]
 
 [sub_resource type="CircleShape2D" id="1"]
-radius = 2.66667
+radius = 7.95
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
@@ -83,7 +83,6 @@ animations = [{
 [node name="CanonballV2" type="CharacterBody2D"]
 z_index = 50
 z_as_relative = false
-scale = Vector2(3, 3)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("2")
@@ -92,7 +91,8 @@ script = ExtResource("2")
 shape = SubResource("1")
 
 [node name="CanonballSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 5.33333)
+position = Vector2(0, 16)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("2")
 
 [node name="Line2D" type="Line2D" parent="CanonballSprite"]
@@ -102,11 +102,9 @@ rotation = -1.5708
 script = ExtResource("4")
 
 [node name="SplashSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -11.6667)
-scale = Vector2(0.18, 0.18)
+position = Vector2(5, -35)
+scale = Vector2(0.54, 0.54)
 sprite_frames = SubResource("SpriteFrames_65yc0")
-frame = 13
-frame_progress = 1.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_sjvtt")
